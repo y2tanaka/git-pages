@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="nojs" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>企業のネットワークアクセスパターン – ITインフラエンジニアのなんとか</title>
+<meta name="description" content="美味しいの？ シリーズ3本書いて若干疲れてきたので、少し気分を変えて。 クラウド・サーバー・PCの話ばかり書いてますが、そもそも田中の出自はネットワーク屋なので、たまにはネットワークを軸に記事書きたいな、と思い。 とはいいつつ、この記事は営業向けにクラウドを使う際のネットワークのデザインパターンについて説明したものであって、深い技術の話じ …">
+<meta name="created" content="2020-09-05T04:35:54+0000">
+<meta name="modified" content="2020-09-05T04:35:54+0000">
+<meta name="author" content="田中(゜p゜)">
+<meta name="contact" content="info@example.org">
+<meta property="og:site_name" content="ITインフラエンジニアのなんとか">
+<meta property="og:title" content="企業のネットワークアクセスパターン">
+<meta property="og:url" content="https://y2tanaka.github.io/git-pages/nw-pattern-of-enterprise/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://y2tanaka.github.io/git-pages/apple-touch-icon.png">
+<meta name="generator" content="Hugo 0.68.3" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<link rel="canonical" href="https://y2tanaka.github.io/git-pages/nw-pattern-of-enterprise/">
+<link rel="apple-touch-icon" href="/git-pages/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/git-pages/css/mobile.2ab74aa64785dcab8114959e76ca140cf76207cd85989bc6d4fc3b12f734a09e.css" media="screen">
+<link rel="stylesheet" href="/git-pages/css/styles.07de9722ae74190da91740ecb1e12bbfa31de324e29ab4972bdcc4131519528c.css">
+<link rel="stylesheet" href="/git-pages/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "headline": "企業のネットワークアクセスパターン",
+    "datePublished": "2020-09-05T04:35:54Z",
+    "dateModified": "2020-09-05T04:35:54Z",
+    "url" : "https://y2tanaka.github.io/git-pages/nw-pattern-of-enterprise/",
+    "description": "美味しいの？ シリーズ3本書いて若干疲れてきたので、少し気分を変えて。 クラウド・サーバー・PCの話ばかり書いてますが、そもそも田中の出自はネットワーク屋なので、たまにはネットワークを軸に記事書きたいな、と思い。 とはいいつつ、この記事は営業向けにクラウドを使う際のネットワークのデザインパターンについて説明したものであって、深い技術の話じ …",
+    "image" : "https://y2tanaka.github.io/git-pages/apple-touch-icon.png",
+    "author": {
+      "@type": "Person",
+      "name": "田中(゜p゜)"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://y2tanaka.github.io/git-pages/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ITインフラエンジニアのなんとか",
+      "logo" : {
+        "@type": "ImageObject",
+        "url": "https://y2tanaka.github.io/git-pages/apple-touch-icon.png"
+      },
+      "url": "https://y2tanaka.github.io/git-pages/"
+    }
+  }
+</script>
+
+<script src="/git-pages/js/script-early.min.a8d899ac88f2a778985767b86ce681945e3fa2069c3c9efd17e5e5b594d3ba1f.js"></script>
+<script defer src="/git-pages/js/lib/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
+<script defer src="/git-pages/js/mobile.min.3a3510028bab9810834389725137cfa50f5d3231799ef9ac70769331fa59859a.js"></script>
+<script defer src="/git-pages/js/script.min.f7f56769569fdf7a80d073b6775c6cd9ed8ae528864cd3f2aa1c8c3fe73f87ea.js"></script>
+
+
+</head>
+
+<body class="single-page">
+<div class="page layout__page layout__sidebar-second">
+<header class="header layout__header">
+<a href="/git-pages/" title="Home" rel="home" class="header__logo"><img src="/git-pages/images/logo.png" alt="Home" class="header__logo-image"></a>
+<h1 class="header__site-name">
+<a href="/git-pages/" title="Home" class="header__site-link" rel="home"><span>ITインフラエンジニアのなんとか</span></a>
+</h1>
+<div class="region header__region">
+</div>
+</header>
+
+<nav class="main-menu layout__navigation">
+<h2 class="visually-hidden">Main menu</h2>
+<ul class="navbar">
+<li><a href="/git-pages/">Home</a></li>
+<li><a href="/git-pages/webhook-test/">WEBHOOK-test</a></li>
+<li><a href="/git-pages/work-and-family/">40過ぎてからの結婚。そして家庭</a></li>
+<li><a href="/git-pages/how-to-walk-underlife/">「斜め下」の歩き方</a></li>
+<li><a href="/git-pages/impact-of-jobchange/">転職たくさんするとどうなるか</a></li>
+<li><a href="/git-pages/observe-pro-bizowner/">プロ経営者観察記録</a></li>
+<li><a href="/git-pages/rise-work-efficiency/">仕事の生産性を上げよう！</a></li>
+<li><a href="/git-pages/try-management-role/">管理職、やってみた</a></li>
+<li><a href="/git-pages/how-to-realize/">「やりたいこと」をどう実現するか</a></li>
+<li><a href="/git-pages/escape-from-burning-pj/">泥船から決死の脱出</a></li>
+<li><a href="/git-pages/banned-by-client/">田中(゜p゜)、ヒートアップしすぎて出禁</a></li>
+<li><a href="/git-pages/retire-by-companys-future/">会社の未来に絶望してリタイヤ</a></li>
+<li><a href="/git-pages/hardwork-for-pj-burn-of-other-department/">他部署の炎上食い止めに奮闘</a></li>
+<li><a href="/git-pages/crying-infrontof-client/">客の前で泣いてしまった話</a></li>
+<li><a href="/git-pages/helped-by-client/">炎上寸前で客に助けられた話</a></li>
+<li><a href="/git-pages/corrupsed-by-testrouter/">検証ルータのためにLAN半壊</a></li>
+<li><a href="/git-pages/corruption-by-bakahub/">どーでもいい機器のためにLAN全滅</a></li>
+<li><a href="/git-pages/failuer-of-product-choice/">製品でチャレンジしすぎて失敗</a></li>
+<li><a href="/git-pages/env-of-mypc/">田中(゜p゜)のPC環境</a></li>
+<li><a href="/git-pages/it-faq-story/">ITインフラあるある物語</a></li>
+<li><a href="/git-pages/migration-site-to-gae/">WordPressをGAE Standard に移行</a></li>
+<li><a href="/git-pages/lan-auth-bay-cert/">証明書によるLAN認証は育成基盤</a></li>
+<li><a href="/git-pages/linux-and-mac/">LinuxとMacについて</a></li>
+<li><a href="/git-pages/public-cloud-comparison/">パブリッククラウド市況と比較</a></li>
+<li><a href="/git-pages/nw-pattern-of-enterprise/" class="active" aria-current="page">企業のネットワークアクセスパターン</a></li>
+<li><a href="/git-pages/how-to-use-smartdevice/">スマートデバイスをどう使う？</a></li>
+<li><a href="/git-pages/how-dericious-is-gsuite/">G Suiteって美味しいの？</a></li>
+<li><a href="/git-pages/how-dericious-is-o365/">Office365(とAzure)って美味しいの？</a></li>
+<li><a href="/git-pages/how-delicious-ad-is/">ADって美味しいの？</a></li>
+<li><a href="/git-pages/how-dericious-is-ai/">AI・ビックデータ・RPAって美味しいの？</a></li>
+<li><a href="/git-pages/how-dericious-is-win10/">Windows10(OS)て美味しいの？</a></li>
+<li><a href="/git-pages/helpful-site/">お世話になったサイトたち</a></li>
+<li><a href="/git-pages/things-have-to-do-while-trouble/">トラブった時にすべきこと</a></li>
+<li><a href="/git-pages/funny-coworkers/">プロジェクトの愉快な仲間たち</a></li>
+<li><a href="/git-pages/good-nw-engineer/">良いネットワークエンジニアとは</a></li>
+<li><a href="/git-pages/necessity-of-program/">コード(プログラム)書く必要ってあるの？</a></li>
+<li><a href="/git-pages/footsteps-of-cloud/">クラウド化の足音</a></li>
+<li><a href="/git-pages/it-infra-select/">ITインフラエンジニアが選択肢を増やすために</a></li>
+<li><a href="/git-pages/it-infra-engineer-future/">ITインフラエンジニアの今後とか</a></li>
+<li><a href="/git-pages/exectives-point-of-view-to-itinfra/">経営の人が見たITインフラ</a></li>
+<li><a href="/git-pages/what-is-itinfraengineer/">ITインフラエンジニアとは？</a></li>
+<li><a href="/git-pages/article/">記事一覧</a></li>
+<li><a href="/git-pages/writer/">書いてる人</a></li>
+<li><a href="/git-pages/about/">このサイトは何？</a></li>
+<li><a href="/git-pages/inquery/">お問い合わせ</a></li>
+<li><a href="/git-pages/copyright/">免責事項・著作権について</a></li>
+<li><a href="/git-pages/policy/">プライバシーポリシー</a></li>
+<li><a href="/git-pages/contact/">Contact</a></li>
+<li><a href="/git-pages/search/">Search</a></li>
+<li><a href="/git-pages/posts/">Posts</a></li>
+</ul>
+</nav>
+
+
+<main class="main layout__main">
+<article class="single-view">
+<header>
+<h1 class="title title-submitted">企業のネットワークアクセスパターン</h1>
+<div class="submitted">
+<span class="author" itemprop="author">田中(゜p゜)</span> – <time class="created-date" datetime="2020-09-05T04:35:54Z">5 September, 2020</time>
+</div>
+</header>
+<div class="content">
+<!-- raw HTML omitted -->
+<p>美味しいの？ シリーズ3本書いて若干疲れてきたので、少し気分を変えて。</p>
+<p>クラウド・サーバー・PCの話ばかり書いてますが、そもそも田中の出自はネットワーク屋なので、たまにはネットワークを軸に記事書きたいな、と思い。</p>
+<p>とはいいつつ、この記事は<strong>営業向けにクラウドを使う際のネットワークのデザインパターンについて説明したもの</strong>であって、深い技術の話じゃないですけど。</p>
+<p>あとこれ、手弁当で作ったので完全に田中(゜p゜)のオリジナルです。<br>
+特定の企業の工数使って作ったものじゃないので、情報漏洩とかではない。念のため。</p>
+<h2 id="企業ネットワークの歴史">企業ネットワークの歴史</h2>
+<ul>
+<li>過去、企業のネットワークといえば、閉じた世界「LAN(Local Area Network)」が中心だった。</li>
+<li>1990年後半からのインターネットの爆発的な成長に伴い、<strong>インターネット接続が前提で企業ネットワークが構成される</strong>ようになった。ASP(SaaS)、InternetVPN等。</li>
+<li>現在、クラウドファーストでシステムが構築されるようになり、ネットワークのあり方がさらに変わろうとしている。</li>
+<li>**「閉じた世界」→「開いた世界」**へ。</li>
+</ul>
+<h2 id="今回は何を説明するか">今回は何を説明するか</h2>
+<ul>
+<li>過去の経緯はさておき、企業の成長フェーズに合わせてどうネットワークが構築されていくのか、順を追って説明します。</li>
+<li>クラウドのドアノック的な活動として、ネットワークの小話ができるようになれればいいと思います。</li>
+</ul>
+<h2 id="フェーズ1インターネット使うだけ">フェーズ1：インターネット使うだけ</h2>
+<ul>
+<li>10〜20人くらいまでのアクセスであれば、コンシューマ向けの携帯キャリア接続、インターネット回線で事足りる。</li>
+<li>LANとインターネットを分かつ機器は、(簡易でも)FW機能を備えている。LAN側にある機器にはローカルIPが付与されていることに注意。</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="フェーズ2共同作業場が必要になる">フェーズ2：共同作業場が必要になる</h2>
+<ol>
+<li>10人を超えてくると、共同作業場が必要となる。手っ取り早く拠点LANにNASやサーバを追加。</li>
+<li>システムが増え、安定性が重要になると、InternetVPNなどでデータセンターと接続し、サーバを利用する。</li>
+</ol>
+<!-- raw HTML omitted -->
+<h2 id="フェーズ3拠点が増える大きくなる">フェーズ3：拠点が増える/大きくなる</h2>
+<ol>
+<li>500人以上の規模となり、システムの重要性がさらに高まると、専用線を導入したり。コンシューマ向けの10倍以上の価格と引き換えに、SLA※とセキュリティを得る。</li>
+<li>拠点が大きくなると、L3スイッチを導入し、セグメントを分ける。</li>
+<li>外部とデータを交換するための「DMZ」を作ったりする。<!-- raw HTML omitted --></li>
+</ol>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<h2 id="中規模以上の拠点lan構成例">中規模以上の拠点LAN構成例</h2>
+<ul>
+<li>100人以上の拠点のLAN環境は、拡張性のため、階層構造を取る。</li>
+<li>有線LANは、全ての配線をラックに集約する統合配線パターンと、島単位でHUBを設置するケースが多い。</li>
+<li>多数の無線APを設置する場合は、自動的に無線の電波強度やチャンネルを調整する「無線コントローラ」を入れるケースがある。</li>
+</ul>
+<!-- raw HTML omitted -->
+<h2 id="クラウドのアクセスパターン">クラウドのアクセスパターン</h2>
+<p>だいたいはデータセンターと同じように利用するが、そもそもリソースがインターネットに置かれているので、本質的にはエンド to エンドのセキュリティを強化した上で、(1)のアクセスパターンとした方が、LANも不要となるし、費用対効果が高い。</p>
+<ol>
+<li>インターネットのサーバに直接アクセス。</li>
+<li>VPNや専用線経由でクラウド側の「VPC(LAN)」に接続。既存環境と同様にサーバを使う。<!-- raw HTML omitted --></li>
+</ol>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<h2 id="素朴な疑問">素朴な疑問</h2>
+<p><strong><!-- raw HTML omitted -->Q. クラウドなのにLANって意味あるの？<!-- raw HTML omitted --></strong><br>
+<strong><!-- raw HTML omitted -->A. 本質的には不要ですが、大人の事情があります。<!-- raw HTML omitted --></strong></p>
+<ul>
+<li>論理的にはエンド to エンドでセキュリティが確固としてれば不要。</li>
+<li>金融とかセキュリティ的に面倒な規約が背後にある場合は、インターネット経由なんてもってのほか、というケースもある。</li>
+<li>過去のLAN資産を抱えているほど、構成的にもルール的にも前頁(1)への移行が難しいケースがあります。</li>
+<li>逆に、新興ベンチャーが多量のリソースを使いたい場合は最高にオススメ</li>
+</ul>
+<p>※Googleは(1)に寄っており、AWSやAzureはマーケットインの観点で(2)に寄ってます。</p>
+<p><strong><!-- raw HTML omitted -->Q. クラウドのネットワークってソフトで動くんじゃないの？<!-- raw HTML omitted --><!-- raw HTML omitted -->物理いる？<!-- raw HTML omitted --></strong><br>
+<strong><!-- raw HTML omitted -->A. ぐぬぬ。その通りです。<!-- raw HTML omitted --></strong></p>
+<ul>
+<li>SDN(Software Designed Netwok)はまさにそれで、物理では再現できない柔軟なネットワークを構成できます。</li>
+<li>今後クラウドの利用が一巡したら、<strong>物理のネットワークしかできないエンジニアの市場は縮小一方</strong>となると思われます。</li>
+</ul>
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>企業のフェーズによって、ネットワーク構成は似たり寄ったり。</li>
+<li>専用線はセキュリティや品質を担保したい時に高い金を積んで使うもの。</li>
+<li>クラウドはインターネットアクセスが基本だが、企業の事情によりLANでつないで利用している場合がまだまだある。</li>
+</ul>
+
+
+</div>
+</article>
+</main>
+
+
+<aside class="sidebar layout__second-sidebar">
+<section>
+<h4 class="menu"><a href="/git-pages/posts/">Posts</a></h4>
+<ul class="menu">
+<li><a href="/git-pages/blog/post-1774/">静的サイト化検討</a></li>
+<li><a href="/git-pages/blog/post-1779/">読了： 補給戦</a></li>
+<li><a href="/git-pages/blog/post-1737/">記事更新： 泥舟からの決死の脱出</a></li>
+<li><a href="/git-pages/blog/post-1676/">Lubuntu20.04インスコでバタつく</a></li>
+<li><a href="/git-pages/blog/post-1670/">VS Code RemoteでWordPressのコード管理</a></li>
+<li><a href="/git-pages/blog/post-1663/">読了：プロジェクト失敗は誰のせい？</a></li>
+<li><a href="/git-pages/blog/post-1658/">来ちゃった… ///  (Adsense警告が)</a></li>
+<li><a href="/git-pages/blog/post-1637/">WordPressテーマ（Luxeritas）カスタマイズ記録</a></li>
+<li><a href="/git-pages/blog/post-1602/">Sitemapがイカれた</a></li>
+<li><a href="/git-pages/blog/post-1529/">読了：ティール組織</a></li>
+<li><a href="/git-pages/blog/post-1522/">Google Search ConsoleでSitemap読み込みに成功！</a></li>
+<li><a href="/git-pages/blog/post-1469/">WordPressのスラッグで大事故</a></li>
+<li><a href="/git-pages/blog/post-1442/">よやっとサイト移行落ち着いたかな？</a></li>
+<li><a href="/git-pages/blog/post-1401/">よやっとサイト移行落ち着いたかな？</a></li>
+<li><a href="/git-pages/blog/post-1373/">GAEのエッジキャッシュ・テーマ・Adsenseに苦戦…。</a></li>
+<li><a href="/git-pages/blog/post-1243/">記事更新</a></li>
+<li><a href="/git-pages/blog/post-1180/">GCEでSSHエラーが出る時の対処法</a></li>
+<li><a href="/git-pages/blog/post-1091/">WordPress on GAE Standard  構築(済)</a></li>
+<li><a href="/git-pages/blog/post-1074/">Kusanagi on GKEチャレンジ その5  ギブアップ</a></li>
+<li><a href="/git-pages/blog/post-1066/">Kubernetesチャレンジ その4</a></li>
+<li><a href="/git-pages/blog/post-1059/">Kubenetesチャレンジ その3</a></li>
+<li><a href="/git-pages/blog/post-1052/">Kubernetes チャレンジ その2</a></li>
+<li><a href="/git-pages/blog/post-1044/">Kubenetes(Minikube) on ローカル環境構築</a></li>
+<li><a href="/git-pages/blog/post-1040/">Ubuntuで使える Windows風ペイントツール</a></li>
+<li><a href="/git-pages/blog/post-1034/">祝！ ブログ村 IT技術情報ランキング一位！</a></li>
+<li><a href="/git-pages/blog/post-1030/">WordPress on GKEチャレンジ その3(終)</a></li>
+<li><a href="/git-pages/blog/post-1027/">WordPress on GKEチャレンジ その2</a></li>
+<li><a href="/git-pages/blog/post-1015/">WordPress on GKEチャレンジ その1</a></li>
+<li><a href="/git-pages/blog/post-1005/">テンションを先に上げた奴は死あるのみ</a></li>
+<li><a href="/git-pages/blog/post-922/">「やべぇ」の正しい表記について</a></li>
+<li><a href="/git-pages/blog/post-852/">再読：嫌われる勇気</a></li>
+<li><a href="/git-pages/blog/post-570/">読了：たった１０日でネイティブに近づく英語発音講座 (鈴木 裕子著)</a></li>
+<li><a href="/git-pages/blog/post-469/">このサイトのWordPressプラグイン</a></li>
+<li><a href="/git-pages/blog/post-378/">英語学習してます</a></li>
+<li><a href="/git-pages/blog/post-345/">読了： 貧乏はお金持ち(著者 橘 玲)</a></li>
+<li><a href="/git-pages/blog/post-324/">WordPress構築</a></li>
+<li><a href="/git-pages/blog/post-322/">読了： Who Moved My Cheese？　英語版</a></li>
+<li><a href="/git-pages/blog/post-319/">読了： THE SHIFT 英語版</a></li>
+</ul>
+</section>
+</aside>
+<footer class="footer layout__footer">
+<p><!-- raw HTML omitted --></p>
+<p>Powered by <a href="https://gohugo.io/">Hugo</a> and the <a href="https://github.com/frjo/hugo-theme-zen">Zen theme</a>.</p>
+
+</footer>
+
+</div>
+<div class="mobile-nav" dir="ltr">
+  <div class="mobile-nav__cover"></div>
+  <a href="#navigation" class="mobile-nav__toggle" aria-haspopup="true" role="button">Menu</a>
+  <div class="mobile-nav__sheet">
+    <div class="mobile-nav__region">
+    
+    </div>
+    <nav class="mobile-nav__main-menu">
+    <h2 class="visually-hidden">Main menu</h2>
+    <ul class="mobile-nav__navbar">
+    <li><a href="/git-pages/">Home</a></li>
+    <li><a href="/git-pages/webhook-test/">WEBHOOK-test</a></li>
+    <li><a href="/git-pages/work-and-family/">40過ぎてからの結婚。そして家庭</a></li>
+    <li><a href="/git-pages/how-to-walk-underlife/">「斜め下」の歩き方</a></li>
+    <li><a href="/git-pages/impact-of-jobchange/">転職たくさんするとどうなるか</a></li>
+    <li><a href="/git-pages/observe-pro-bizowner/">プロ経営者観察記録</a></li>
+    <li><a href="/git-pages/rise-work-efficiency/">仕事の生産性を上げよう！</a></li>
+    <li><a href="/git-pages/try-management-role/">管理職、やってみた</a></li>
+    <li><a href="/git-pages/how-to-realize/">「やりたいこと」をどう実現するか</a></li>
+    <li><a href="/git-pages/escape-from-burning-pj/">泥船から決死の脱出</a></li>
+    <li><a href="/git-pages/banned-by-client/">田中(゜p゜)、ヒートアップしすぎて出禁</a></li>
+    <li><a href="/git-pages/retire-by-companys-future/">会社の未来に絶望してリタイヤ</a></li>
+    <li><a href="/git-pages/hardwork-for-pj-burn-of-other-department/">他部署の炎上食い止めに奮闘</a></li>
+    <li><a href="/git-pages/crying-infrontof-client/">客の前で泣いてしまった話</a></li>
+    <li><a href="/git-pages/helped-by-client/">炎上寸前で客に助けられた話</a></li>
+    <li><a href="/git-pages/corrupsed-by-testrouter/">検証ルータのためにLAN半壊</a></li>
+    <li><a href="/git-pages/corruption-by-bakahub/">どーでもいい機器のためにLAN全滅</a></li>
+    <li><a href="/git-pages/failuer-of-product-choice/">製品でチャレンジしすぎて失敗</a></li>
+    <li><a href="/git-pages/env-of-mypc/">田中(゜p゜)のPC環境</a></li>
+    <li><a href="/git-pages/it-faq-story/">ITインフラあるある物語</a></li>
+    <li><a href="/git-pages/migration-site-to-gae/">WordPressをGAE Standard に移行</a></li>
+    <li><a href="/git-pages/lan-auth-bay-cert/">証明書によるLAN認証は育成基盤</a></li>
+    <li><a href="/git-pages/linux-and-mac/">LinuxとMacについて</a></li>
+    <li><a href="/git-pages/public-cloud-comparison/">パブリッククラウド市況と比較</a></li>
+    <li><a href="/git-pages/nw-pattern-of-enterprise/" class="active" aria-current="page">企業のネットワークアクセスパターン</a></li>
+    <li><a href="/git-pages/how-to-use-smartdevice/">スマートデバイスをどう使う？</a></li>
+    <li><a href="/git-pages/how-dericious-is-gsuite/">G Suiteって美味しいの？</a></li>
+    <li><a href="/git-pages/how-dericious-is-o365/">Office365(とAzure)って美味しいの？</a></li>
+    <li><a href="/git-pages/how-delicious-ad-is/">ADって美味しいの？</a></li>
+    <li><a href="/git-pages/how-dericious-is-ai/">AI・ビックデータ・RPAって美味しいの？</a></li>
+    <li><a href="/git-pages/how-dericious-is-win10/">Windows10(OS)て美味しいの？</a></li>
+    <li><a href="/git-pages/helpful-site/">お世話になったサイトたち</a></li>
+    <li><a href="/git-pages/things-have-to-do-while-trouble/">トラブった時にすべきこと</a></li>
+    <li><a href="/git-pages/funny-coworkers/">プロジェクトの愉快な仲間たち</a></li>
+    <li><a href="/git-pages/good-nw-engineer/">良いネットワークエンジニアとは</a></li>
+    <li><a href="/git-pages/necessity-of-program/">コード(プログラム)書く必要ってあるの？</a></li>
+    <li><a href="/git-pages/footsteps-of-cloud/">クラウド化の足音</a></li>
+    <li><a href="/git-pages/it-infra-select/">ITインフラエンジニアが選択肢を増やすために</a></li>
+    <li><a href="/git-pages/it-infra-engineer-future/">ITインフラエンジニアの今後とか</a></li>
+    <li><a href="/git-pages/exectives-point-of-view-to-itinfra/">経営の人が見たITインフラ</a></li>
+    <li><a href="/git-pages/what-is-itinfraengineer/">ITインフラエンジニアとは？</a></li>
+    <li><a href="/git-pages/article/">記事一覧</a></li>
+    <li><a href="/git-pages/writer/">書いてる人</a></li>
+    <li><a href="/git-pages/about/">このサイトは何？</a></li>
+    <li><a href="/git-pages/inquery/">お問い合わせ</a></li>
+    <li><a href="/git-pages/copyright/">免責事項・著作権について</a></li>
+    <li><a href="/git-pages/policy/">プライバシーポリシー</a></li>
+    <li><a href="/git-pages/contact/">Contact</a></li>
+    <li><a href="/git-pages/search/">Search</a></li>
+    <li><a href="/git-pages/posts/">Posts</a></li>
+    </ul>
+    </nav>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="nojs" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>証明書によるLAN認証は育成基盤 – ITインフラエンジニアのなんとか</title>
+<meta name="description" content="いきなりワケの分からないタイトルで恐縮ですが、田中(゜p゜)はこの領域に手を伸ばしたことで、ネットワークエンジニアから大きく枠外に飛び出して行ったという経緯あり、個人的にもインパクトのあった仕組みだったので、記事化してみました。 証明書によるLAN認証とは？ 簡単に言うと、「LAN」に接続させる際にコンピュータとかユーザ固有のデバイス証明 …">
+<meta name="created" content="2020-09-05T07:12:32+0000">
+<meta name="modified" content="2020-09-05T07:12:32+0000">
+<meta name="author" content="田中(゜p゜)">
+<meta name="contact" content="info@example.org">
+<meta property="og:site_name" content="ITインフラエンジニアのなんとか">
+<meta property="og:title" content="証明書によるLAN認証は育成基盤">
+<meta property="og:url" content="https://y2tanaka.github.io/git-pages/lan-auth-bay-cert/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://y2tanaka.github.io/git-pages/apple-touch-icon.png">
+<meta name="generator" content="Hugo 0.68.3" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<link rel="canonical" href="https://y2tanaka.github.io/git-pages/lan-auth-bay-cert/">
+<link rel="apple-touch-icon" href="/git-pages/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/git-pages/css/mobile.2ab74aa64785dcab8114959e76ca140cf76207cd85989bc6d4fc3b12f734a09e.css" media="screen">
+<link rel="stylesheet" href="/git-pages/css/styles.07de9722ae74190da91740ecb1e12bbfa31de324e29ab4972bdcc4131519528c.css">
+<link rel="stylesheet" href="/git-pages/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "headline": "証明書によるLAN認証は育成基盤",
+    "datePublished": "2020-09-05T07:12:32Z",
+    "dateModified": "2020-09-05T07:12:32Z",
+    "url" : "https://y2tanaka.github.io/git-pages/lan-auth-bay-cert/",
+    "description": "いきなりワケの分からないタイトルで恐縮ですが、田中(゜p゜)はこの領域に手を伸ばしたことで、ネットワークエンジニアから大きく枠外に飛び出して行ったという経緯あり、個人的にもインパクトのあった仕組みだったので、記事化してみました。 証明書によるLAN認証とは？ 簡単に言うと、「LAN」に接続させる際にコンピュータとかユーザ固有のデバイス証明 …",
+    "image" : "https://y2tanaka.github.io/git-pages/apple-touch-icon.png",
+    "author": {
+      "@type": "Person",
+      "name": "田中(゜p゜)"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://y2tanaka.github.io/git-pages/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ITインフラエンジニアのなんとか",
+      "logo" : {
+        "@type": "ImageObject",
+        "url": "https://y2tanaka.github.io/git-pages/apple-touch-icon.png"
+      },
+      "url": "https://y2tanaka.github.io/git-pages/"
+    }
+  }
+</script>
+
+<script src="/git-pages/js/script-early.min.a8d899ac88f2a778985767b86ce681945e3fa2069c3c9efd17e5e5b594d3ba1f.js"></script>
+<script defer src="/git-pages/js/lib/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
+<script defer src="/git-pages/js/mobile.min.3a3510028bab9810834389725137cfa50f5d3231799ef9ac70769331fa59859a.js"></script>
+<script defer src="/git-pages/js/script.min.f7f56769569fdf7a80d073b6775c6cd9ed8ae528864cd3f2aa1c8c3fe73f87ea.js"></script>
+
+
+</head>
+
+<body class="single-page">
+<div class="page layout__page layout__sidebar-second">
+<header class="header layout__header">
+<a href="/git-pages/" title="Home" rel="home" class="header__logo"><img src="/git-pages/images/logo.png" alt="Home" class="header__logo-image"></a>
+<h1 class="header__site-name">
+<a href="/git-pages/" title="Home" class="header__site-link" rel="home"><span>ITインフラエンジニアのなんとか</span></a>
+</h1>
+<div class="region header__region">
+</div>
+</header>
+
+<nav class="main-menu layout__navigation">
+<h2 class="visually-hidden">Main menu</h2>
+<ul class="navbar">
+<li><a href="/git-pages/">Home</a></li>
+<li><a href="/git-pages/webhook-test/">WEBHOOK-test</a></li>
+<li><a href="/git-pages/work-and-family/">40過ぎてからの結婚。そして家庭</a></li>
+<li><a href="/git-pages/how-to-walk-underlife/">「斜め下」の歩き方</a></li>
+<li><a href="/git-pages/impact-of-jobchange/">転職たくさんするとどうなるか</a></li>
+<li><a href="/git-pages/observe-pro-bizowner/">プロ経営者観察記録</a></li>
+<li><a href="/git-pages/rise-work-efficiency/">仕事の生産性を上げよう！</a></li>
+<li><a href="/git-pages/try-management-role/">管理職、やってみた</a></li>
+<li><a href="/git-pages/how-to-realize/">「やりたいこと」をどう実現するか</a></li>
+<li><a href="/git-pages/escape-from-burning-pj/">泥船から決死の脱出</a></li>
+<li><a href="/git-pages/banned-by-client/">田中(゜p゜)、ヒートアップしすぎて出禁</a></li>
+<li><a href="/git-pages/retire-by-companys-future/">会社の未来に絶望してリタイヤ</a></li>
+<li><a href="/git-pages/hardwork-for-pj-burn-of-other-department/">他部署の炎上食い止めに奮闘</a></li>
+<li><a href="/git-pages/crying-infrontof-client/">客の前で泣いてしまった話</a></li>
+<li><a href="/git-pages/helped-by-client/">炎上寸前で客に助けられた話</a></li>
+<li><a href="/git-pages/corrupsed-by-testrouter/">検証ルータのためにLAN半壊</a></li>
+<li><a href="/git-pages/corruption-by-bakahub/">どーでもいい機器のためにLAN全滅</a></li>
+<li><a href="/git-pages/failuer-of-product-choice/">製品でチャレンジしすぎて失敗</a></li>
+<li><a href="/git-pages/env-of-mypc/">田中(゜p゜)のPC環境</a></li>
+<li><a href="/git-pages/it-faq-story/">ITインフラあるある物語</a></li>
+<li><a href="/git-pages/migration-site-to-gae/">WordPressをGAE Standard に移行</a></li>
+<li><a href="/git-pages/lan-auth-bay-cert/" class="active" aria-current="page">証明書によるLAN認証は育成基盤</a></li>
+<li><a href="/git-pages/linux-and-mac/">LinuxとMacについて</a></li>
+<li><a href="/git-pages/public-cloud-comparison/">パブリッククラウド市況と比較</a></li>
+<li><a href="/git-pages/nw-pattern-of-enterprise/">企業のネットワークアクセスパターン</a></li>
+<li><a href="/git-pages/how-to-use-smartdevice/">スマートデバイスをどう使う？</a></li>
+<li><a href="/git-pages/how-dericious-is-gsuite/">G Suiteって美味しいの？</a></li>
+<li><a href="/git-pages/how-dericious-is-o365/">Office365(とAzure)って美味しいの？</a></li>
+<li><a href="/git-pages/how-delicious-ad-is/">ADって美味しいの？</a></li>
+<li><a href="/git-pages/how-dericious-is-ai/">AI・ビックデータ・RPAって美味しいの？</a></li>
+<li><a href="/git-pages/how-dericious-is-win10/">Windows10(OS)て美味しいの？</a></li>
+<li><a href="/git-pages/helpful-site/">お世話になったサイトたち</a></li>
+<li><a href="/git-pages/things-have-to-do-while-trouble/">トラブった時にすべきこと</a></li>
+<li><a href="/git-pages/funny-coworkers/">プロジェクトの愉快な仲間たち</a></li>
+<li><a href="/git-pages/good-nw-engineer/">良いネットワークエンジニアとは</a></li>
+<li><a href="/git-pages/necessity-of-program/">コード(プログラム)書く必要ってあるの？</a></li>
+<li><a href="/git-pages/footsteps-of-cloud/">クラウド化の足音</a></li>
+<li><a href="/git-pages/it-infra-select/">ITインフラエンジニアが選択肢を増やすために</a></li>
+<li><a href="/git-pages/it-infra-engineer-future/">ITインフラエンジニアの今後とか</a></li>
+<li><a href="/git-pages/exectives-point-of-view-to-itinfra/">経営の人が見たITインフラ</a></li>
+<li><a href="/git-pages/what-is-itinfraengineer/">ITインフラエンジニアとは？</a></li>
+<li><a href="/git-pages/article/">記事一覧</a></li>
+<li><a href="/git-pages/writer/">書いてる人</a></li>
+<li><a href="/git-pages/about/">このサイトは何？</a></li>
+<li><a href="/git-pages/inquery/">お問い合わせ</a></li>
+<li><a href="/git-pages/copyright/">免責事項・著作権について</a></li>
+<li><a href="/git-pages/policy/">プライバシーポリシー</a></li>
+<li><a href="/git-pages/contact/">Contact</a></li>
+<li><a href="/git-pages/search/">Search</a></li>
+<li><a href="/git-pages/posts/">Posts</a></li>
+</ul>
+</nav>
+
+
+<main class="main layout__main">
+<article class="single-view">
+<header>
+<h1 class="title title-submitted">証明書によるLAN認証は育成基盤</h1>
+<div class="submitted">
+<span class="author" itemprop="author">田中(゜p゜)</span> – <time class="created-date" datetime="2020-09-05T07:12:32Z">5 September, 2020</time>
+</div>
+</header>
+<div class="content">
+<p><strong>いきなりワケの分からないタイトル</strong>で恐縮ですが、田中(゜p゜)はこの領域に手を伸ばしたことで、ネットワークエンジニアから大きく枠外に飛び出して行ったという経緯あり、個人的にもインパクトのあった仕組みだったので、記事化してみました。</p>
+<h2 id="証明書によるlan認証とは">証明書によるLAN認証とは？</h2>
+<p>簡単に言うと、<strong>「LAN」に接続させる際にコンピュータとかユーザ固有のデバイス証明書を確認する</strong>仕組みで、設定項目として<strong>EAP-TLS</strong>とかそんな名前で出てきます。たぶんネットワーク視点だと<!-- raw HTML omitted -->こっちのページ(外部サイト)<!-- raw HTML omitted -->のほうが詳しい。</p>
+<p>Radiusサーバなんかが必要となるので、個人だったり、小規模の企業だと導入していないところもあると思いますが、<strong>LANのセキュリティとしては最強</strong>だと田中(゜p゜)は考えとります。</p>
+<p>また、Radiusサーバー側で、認証されたユーザ、されてないユーザのVLANの指定ができるので、検疫システムにも使われてたりする。</p>
+<p>つまり、認証されてないユーザは、検疫LANに振り分けて、検疫LANの中にある検液用のアプライアンスがPCをチェックした上で、本番LANに接続させる仕組み。</p>
+<p>あとポイントは、この技術は無線LANで発達したものだけど、<strong>有線LANでも使える</strong>ということ。有線LAN側でキッチリ認証しておけば、MACアドレスで同セグメント内の端末をはじいたりするような、費用対効果の低い仕組みを入れる必要がない。</p>
+<h2 id="デメリット">デメリット</h2>
+<p><strong>証明書というのは往々にして運用が面倒</strong>です。<br>
+そもそも証明機関サーバーが必要だし、その証明機関から発行した証明書を、PC一台一台に入れてかないとだし、その後の運用もしんどい。</p>
+<p><strong>往々にして「セキュリティ」と「コスト」と「利便性」は共存できない</strong>ものなのです。</p>
+<h2 id="解決策">解決策</h2>
+<p>実はこの<strong>証明書運用問題をスッキリ解決する方法</strong>があります。<br>
+田中(゜p゜)はネットワークエンジニアだったのですが、なんとかしてこの証明書の配布による運用コストを低減すべく試行錯誤した結果、<strong>運用工数を大きく削減できる仕組み</strong>にたどり着きました。</p>
+<p>というか、我々は既にPCの管理を簡易化でき、設定やセキュリティポリシーを配布できる素晴らしい仕組みを持っていたのです。</p>
+<p>つ <a href="/article/how-delicious-ad-is/">ActiveDirectory</a>。<br>
+※できればドラえもんの道具調で言いたい。ひみつ道具なので。</p>
+<h2 id="windowsによるeap-tls基盤構築">WindowsによるEAP-TLS基盤構築</h2>
+<p>証明書によるLAN認証にとっての課題は、証明書の運用負荷ですが、実はWindowsセットでそれを全て揃えてしまうことにより、<strong>ほぼ自動化</strong>できます。</p>
+<p>使うコンポーネントは以下です。</p>
+<ul>
+<li>Active Directory</li>
+<li>ドメイン参加してるWindows CA(証明書発行機関)</li>
+<li>ドメイン参加してるWindows NPS(Radiusサーバ)</li>
+</ul>
+<p>仕組みとしては概ね以下です。※なんかカラフルになってしまって恥ずかしい…。</p>
+<!-- raw HTML omitted -->
+<ul>
+<li>①ADのポリシーで、PCとRadiusサーバに対して証明書取得指示を出す</li>
+<li>②PC・Radiusサーバが証明書を取得する。</li>
+<li>③PCとRadiusサーバーは、発行された証明書を付きあわせて認証する。</li>
+</ul>
+<p>あと、PCにEAP-TLS設定を入れていく必要ありますが、これも①の段階でポリシーで配布してしまえば良いです。</p>
+<p><strong>そう、ADならね。</strong></p>
+<p>とか言いたくなっちゃう。<br>
+田中(゜p゜)は、この仕組みを使って、<strong>無線LAN系の提案のコンペで無敗</strong>を誇りました。競合他社がNetAttestを出してきた時はニヤニヤしてましたね。ま、10年以上前のことですけど。</p>
+<p>それと、この仕組みは有線LANでも使えるので、LANセグメントに無駄なセキュリティ機器とか入れる必要なくなります。</p>
+<p>他、細かい話でコンピュータ証明書とユーザ証明書の違いで接続タイミングが変わったりするとか、プリンタとか802.1xに対応してない機器どーすんだ、みたいな話あるのですが、まあそれは割愛。</p>
+<p>細かい話聞きたい方は、<a href="/forums/forum/infrastructure/">フォーラム</a>でトピック立てて質問して下さい。</p>
+<h2 id="ユーザから見るとどうなるか">ユーザから見るとどうなるか</h2>
+<p>ドメインに入ってない端末は、仮のVLANに割り当てられて、ADととしか通信できず、そこでドメインに入り、証明機関から証明書を取得します。このあたりは、情報システム部門で端末をセットアップする際にドメインに入ってユーザに渡す等、運用を変えてもいいと思います。</p>
+<!-- raw HTML omitted -->
+<p>一度ドメインに入った端末は、本番VLANの有線LANに接続できるようになります。<br>
+ユーザから見ると、証明書は一切関わってこないように見えます。</p>
+<p>これで<strong>ほぼシームレスに証明書を配布することができました。</strong></p>
+<h2 id="育成基盤としての8021x">育成基盤としての802.1x</h2>
+<p>余談ですが、この仕組みは、<strong>自分で検証基盤を作ってみることをオススメ</strong>します。先に書いたように田中(゜p゜)は、この仕組みを学ぶことで、他領域に対しての学習が深まりました。</p>
+<p>なぜって、<strong>AD、Windowsサーバ、PCの知識がいっぺんに必要</strong>で、ユーザが利用に至るまでの流れが理解できるから。ADによるドメイン構築や、ポリシー配布の基礎が学べるし。<strong>サーバーエンジニアはネットワークの基本知識が学べる</strong>し。</p>
+<p>個人でやるとしたら、スイッチはヤフオク、メルカリ等で、802.1x対応のものを購入するとして、サーバーはOSの調達が難しいので、クラウドで立てるのがいい気がします。</p>
+<p>ちょっと以下の赤字ような工夫必要かもだけど。<br>
+自力のある人は、ルータをVPN対応に置き換えて、クラウドとVPN貼ってもいいかもしれない。</p>
+<!-- raw HTML omitted -->
+<p>すいません。これやった時に利用したサイト紹介したかったんですが、今なくなってるんで、<!-- raw HTML omitted -->このあたり<!-- raw HTML omitted -->をオススメしておきます。</p>
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>802.1xは、証明書を使って端末をLAN認証する</li>
+<li>証明書の運用は運用負荷が高いが、ADによって軽減できる</li>
+<li>自分で検証環境をつくると、技術領域の幅が広がる。</li>
+</ul>
+<p>って、さんざんクラウド関係でLANなんて無い方がいい的なこと言っといて、思い切りLAN技術の話してますね。ま、いきなりなくなってしまうことはないので、ご参考に、ということで。</p>
+
+
+</div>
+</article>
+</main>
+
+
+<aside class="sidebar layout__second-sidebar">
+<section>
+<h4 class="menu"><a href="/git-pages/posts/">Posts</a></h4>
+<ul class="menu">
+<li><a href="/git-pages/blog/post-1774/">静的サイト化検討</a></li>
+<li><a href="/git-pages/blog/post-1779/">読了： 補給戦</a></li>
+<li><a href="/git-pages/blog/post-1737/">記事更新： 泥舟からの決死の脱出</a></li>
+<li><a href="/git-pages/blog/post-1676/">Lubuntu20.04インスコでバタつく</a></li>
+<li><a href="/git-pages/blog/post-1670/">VS Code RemoteでWordPressのコード管理</a></li>
+<li><a href="/git-pages/blog/post-1663/">読了：プロジェクト失敗は誰のせい？</a></li>
+<li><a href="/git-pages/blog/post-1658/">来ちゃった… ///  (Adsense警告が)</a></li>
+<li><a href="/git-pages/blog/post-1637/">WordPressテーマ（Luxeritas）カスタマイズ記録</a></li>
+<li><a href="/git-pages/blog/post-1602/">Sitemapがイカれた</a></li>
+<li><a href="/git-pages/blog/post-1529/">読了：ティール組織</a></li>
+<li><a href="/git-pages/blog/post-1522/">Google Search ConsoleでSitemap読み込みに成功！</a></li>
+<li><a href="/git-pages/blog/post-1469/">WordPressのスラッグで大事故</a></li>
+<li><a href="/git-pages/blog/post-1442/">よやっとサイト移行落ち着いたかな？</a></li>
+<li><a href="/git-pages/blog/post-1401/">よやっとサイト移行落ち着いたかな？</a></li>
+<li><a href="/git-pages/blog/post-1373/">GAEのエッジキャッシュ・テーマ・Adsenseに苦戦…。</a></li>
+<li><a href="/git-pages/blog/post-1243/">記事更新</a></li>
+<li><a href="/git-pages/blog/post-1180/">GCEでSSHエラーが出る時の対処法</a></li>
+<li><a href="/git-pages/blog/post-1091/">WordPress on GAE Standard  構築(済)</a></li>
+<li><a href="/git-pages/blog/post-1074/">Kusanagi on GKEチャレンジ その5  ギブアップ</a></li>
+<li><a href="/git-pages/blog/post-1066/">Kubernetesチャレンジ その4</a></li>
+<li><a href="/git-pages/blog/post-1059/">Kubenetesチャレンジ その3</a></li>
+<li><a href="/git-pages/blog/post-1052/">Kubernetes チャレンジ その2</a></li>
+<li><a href="/git-pages/blog/post-1044/">Kubenetes(Minikube) on ローカル環境構築</a></li>
+<li><a href="/git-pages/blog/post-1040/">Ubuntuで使える Windows風ペイントツール</a></li>
+<li><a href="/git-pages/blog/post-1034/">祝！ ブログ村 IT技術情報ランキング一位！</a></li>
+<li><a href="/git-pages/blog/post-1030/">WordPress on GKEチャレンジ その3(終)</a></li>
+<li><a href="/git-pages/blog/post-1027/">WordPress on GKEチャレンジ その2</a></li>
+<li><a href="/git-pages/blog/post-1015/">WordPress on GKEチャレンジ その1</a></li>
+<li><a href="/git-pages/blog/post-1005/">テンションを先に上げた奴は死あるのみ</a></li>
+<li><a href="/git-pages/blog/post-922/">「やべぇ」の正しい表記について</a></li>
+<li><a href="/git-pages/blog/post-852/">再読：嫌われる勇気</a></li>
+<li><a href="/git-pages/blog/post-570/">読了：たった１０日でネイティブに近づく英語発音講座 (鈴木 裕子著)</a></li>
+<li><a href="/git-pages/blog/post-469/">このサイトのWordPressプラグイン</a></li>
+<li><a href="/git-pages/blog/post-378/">英語学習してます</a></li>
+<li><a href="/git-pages/blog/post-345/">読了： 貧乏はお金持ち(著者 橘 玲)</a></li>
+<li><a href="/git-pages/blog/post-324/">WordPress構築</a></li>
+<li><a href="/git-pages/blog/post-322/">読了： Who Moved My Cheese？　英語版</a></li>
+<li><a href="/git-pages/blog/post-319/">読了： THE SHIFT 英語版</a></li>
+</ul>
+</section>
+</aside>
+<footer class="footer layout__footer">
+<p><!-- raw HTML omitted --></p>
+<p>Powered by <a href="https://gohugo.io/">Hugo</a> and the <a href="https://github.com/frjo/hugo-theme-zen">Zen theme</a>.</p>
+
+</footer>
+
+</div>
+<div class="mobile-nav" dir="ltr">
+  <div class="mobile-nav__cover"></div>
+  <a href="#navigation" class="mobile-nav__toggle" aria-haspopup="true" role="button">Menu</a>
+  <div class="mobile-nav__sheet">
+    <div class="mobile-nav__region">
+    
+    </div>
+    <nav class="mobile-nav__main-menu">
+    <h2 class="visually-hidden">Main menu</h2>
+    <ul class="mobile-nav__navbar">
+    <li><a href="/git-pages/">Home</a></li>
+    <li><a href="/git-pages/webhook-test/">WEBHOOK-test</a></li>
+    <li><a href="/git-pages/work-and-family/">40過ぎてからの結婚。そして家庭</a></li>
+    <li><a href="/git-pages/how-to-walk-underlife/">「斜め下」の歩き方</a></li>
+    <li><a href="/git-pages/impact-of-jobchange/">転職たくさんするとどうなるか</a></li>
+    <li><a href="/git-pages/observe-pro-bizowner/">プロ経営者観察記録</a></li>
+    <li><a href="/git-pages/rise-work-efficiency/">仕事の生産性を上げよう！</a></li>
+    <li><a href="/git-pages/try-management-role/">管理職、やってみた</a></li>
+    <li><a href="/git-pages/how-to-realize/">「やりたいこと」をどう実現するか</a></li>
+    <li><a href="/git-pages/escape-from-burning-pj/">泥船から決死の脱出</a></li>
+    <li><a href="/git-pages/banned-by-client/">田中(゜p゜)、ヒートアップしすぎて出禁</a></li>
+    <li><a href="/git-pages/retire-by-companys-future/">会社の未来に絶望してリタイヤ</a></li>
+    <li><a href="/git-pages/hardwork-for-pj-burn-of-other-department/">他部署の炎上食い止めに奮闘</a></li>
+    <li><a href="/git-pages/crying-infrontof-client/">客の前で泣いてしまった話</a></li>
+    <li><a href="/git-pages/helped-by-client/">炎上寸前で客に助けられた話</a></li>
+    <li><a href="/git-pages/corrupsed-by-testrouter/">検証ルータのためにLAN半壊</a></li>
+    <li><a href="/git-pages/corruption-by-bakahub/">どーでもいい機器のためにLAN全滅</a></li>
+    <li><a href="/git-pages/failuer-of-product-choice/">製品でチャレンジしすぎて失敗</a></li>
+    <li><a href="/git-pages/env-of-mypc/">田中(゜p゜)のPC環境</a></li>
+    <li><a href="/git-pages/it-faq-story/">ITインフラあるある物語</a></li>
+    <li><a href="/git-pages/migration-site-to-gae/">WordPressをGAE Standard に移行</a></li>
+    <li><a href="/git-pages/lan-auth-bay-cert/" class="active" aria-current="page">証明書によるLAN認証は育成基盤</a></li>
+    <li><a href="/git-pages/linux-and-mac/">LinuxとMacについて</a></li>
+    <li><a href="/git-pages/public-cloud-comparison/">パブリッククラウド市況と比較</a></li>
+    <li><a href="/git-pages/nw-pattern-of-enterprise/">企業のネットワークアクセスパターン</a></li>
+    <li><a href="/git-pages/how-to-use-smartdevice/">スマートデバイスをどう使う？</a></li>
+    <li><a href="/git-pages/how-dericious-is-gsuite/">G Suiteって美味しいの？</a></li>
+    <li><a href="/git-pages/how-dericious-is-o365/">Office365(とAzure)って美味しいの？</a></li>
+    <li><a href="/git-pages/how-delicious-ad-is/">ADって美味しいの？</a></li>
+    <li><a href="/git-pages/how-dericious-is-ai/">AI・ビックデータ・RPAって美味しいの？</a></li>
+    <li><a href="/git-pages/how-dericious-is-win10/">Windows10(OS)て美味しいの？</a></li>
+    <li><a href="/git-pages/helpful-site/">お世話になったサイトたち</a></li>
+    <li><a href="/git-pages/things-have-to-do-while-trouble/">トラブった時にすべきこと</a></li>
+    <li><a href="/git-pages/funny-coworkers/">プロジェクトの愉快な仲間たち</a></li>
+    <li><a href="/git-pages/good-nw-engineer/">良いネットワークエンジニアとは</a></li>
+    <li><a href="/git-pages/necessity-of-program/">コード(プログラム)書く必要ってあるの？</a></li>
+    <li><a href="/git-pages/footsteps-of-cloud/">クラウド化の足音</a></li>
+    <li><a href="/git-pages/it-infra-select/">ITインフラエンジニアが選択肢を増やすために</a></li>
+    <li><a href="/git-pages/it-infra-engineer-future/">ITインフラエンジニアの今後とか</a></li>
+    <li><a href="/git-pages/exectives-point-of-view-to-itinfra/">経営の人が見たITインフラ</a></li>
+    <li><a href="/git-pages/what-is-itinfraengineer/">ITインフラエンジニアとは？</a></li>
+    <li><a href="/git-pages/article/">記事一覧</a></li>
+    <li><a href="/git-pages/writer/">書いてる人</a></li>
+    <li><a href="/git-pages/about/">このサイトは何？</a></li>
+    <li><a href="/git-pages/inquery/">お問い合わせ</a></li>
+    <li><a href="/git-pages/copyright/">免責事項・著作権について</a></li>
+    <li><a href="/git-pages/policy/">プライバシーポリシー</a></li>
+    <li><a href="/git-pages/contact/">Contact</a></li>
+    <li><a href="/git-pages/search/">Search</a></li>
+    <li><a href="/git-pages/posts/">Posts</a></li>
+    </ul>
+    </nav>
+  </div>
+</div>
+</body>
+</html>
