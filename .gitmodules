@@ -1,3 +1,7 @@
 [submodule "hugo-theme-zen"]
 	path = hugo-theme-zen
 	url = https://github.com/frjo/hugo-theme-zen
+[submodule "doc"]
+	path = doc
+	url = https://github.com/uzimihsr/uzimihsr.github.io.git
+	branch = master
