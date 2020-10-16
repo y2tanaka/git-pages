@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="nojs" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Kubenetes(Minikube) on ローカル環境構築 – My New Hugo Site</title>
+<meta name="description" content="どうしてもGKE上でKusanagi on Docker動かしたい。 けど、KusanagiのGitにはDocker-compose用のyamlしかないので、ローカルでKubenetes動かして、自分でyaml作ってみることにした。 が、ローカル環境構築でとにかく苦戦。 こんな時、Macならトモダチがたくさんいるのにな。 ただ、いちおうダ …">
+<meta name="created" content="2020-09-22T08:53:27+0000">
+<meta name="modified" content="2020-09-22T08:53:27+0000">
+<meta name="author" content="田中(゜p゜)">
+
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:title" content="Kubenetes(Minikube) on ローカル環境構築">
+<meta property="og:url" content="http://example.org/blog/post-1044/">
+<meta property="og:type" content="article">
+
+<meta name="generator" content="Hugo 0.68.3" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<link rel="canonical" href="http://example.org/blog/post-1044/">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/css/styles.07de9722ae74190da91740ecb1e12bbfa31de324e29ab4972bdcc4131519528c.css">
+<link rel="stylesheet" href="/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "headline": "Kubenetes(Minikube) on ローカル環境構築",
+    "datePublished": "2020-09-22T08:53:27Z",
+    "dateModified": "2020-09-22T08:53:27Z",
+    "url" : "http://example.org/blog/post-1044/",
+    "description": "どうしてもGKE上でKusanagi on Docker動かしたい。 けど、KusanagiのGitにはDocker-compose用のyamlしかないので、ローカルでKubenetes動かして、自分でyaml作ってみることにした。 が、ローカル環境構築でとにかく苦戦。 こんな時、Macならトモダチがたくさんいるのにな。 ただ、いちおうダ …",
+    "author": {
+      "@type": "Person",
+      "name": "田中(゜p゜)"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http://example.org/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "url": "http://example.org/"
+    }
+  }
+</script>
+
+<script src="/js/script-early.min.a8d899ac88f2a778985767b86ce681945e3fa2069c3c9efd17e5e5b594d3ba1f.js"></script>
+<script defer src="/js/lib/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
+<script defer src="/js/script.min.f7f56769569fdf7a80d073b6775c6cd9ed8ae528864cd3f2aa1c8c3fe73f87ea.js"></script>
+
+
+</head>
+
+<body class="single-page">
+<div class="page layout__page layout__sidebar-second">
+<header class="header layout__header">
+<a href="/" title="Home" rel="home" class="header__logo"><img src="/images/logo.png" alt="Home" class="header__logo-image"></a>
+<h1 class="header__site-name">
+<a href="/" title="Home" class="header__site-link" rel="home"><span>My New Hugo Site</span></a>
+</h1>
+<div class="region header__region">
+</div>
+</header>
+
+<nav class="main-menu layout__navigation">
+<h2 class="visually-hidden">Main menu</h2>
+<ul class="navbar">
+<li><a href="/">Home</a></li>
+<li><a href="/posts/" class="active" aria-current="page">Posts</a></li>
+</ul>
+</nav>
+
+
+<main class="main layout__main">
+<article class="section-posts single-view">
+<header>
+<h1 class="title ">Kubenetes(Minikube) on ローカル環境構築</h1>
+</header>
+<div class="content">
+<p>どうしてもGKE上で<a href="https://kusanagi.tokyo/cloud/kusanagi-runs-on-docker/">Kusanagi on Docker</a>動かしたい。<br>
+けど、KusanagiのGitにはDocker-compose用のyamlしかないので、ローカルでKubenetes動かして、自分でyaml作ってみることにした。</p>
+<p><strong>が、ローカル環境構築でとにかく苦戦。</strong><br>
+こんな時、Macならトモダチがたくさんいるのにな。</p>
+<p>ただ、いちおうダッシュボードまで上がり、テスト用のデプロイも上手くいったので、環境構築はなんとか完了です。環境構築だけでもうグッタリ。ちなみにUbuntu18.04です。<!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --> <!-- raw HTML omitted --></p>
+<p>GKEクリソツですが、ローカルのダッシュボード環境です。</p>
+<p>構築の「流れ」はブログとか参照で良いが、実際の手順は公式マニュアル見たほうが良いすね。<br>
+1ステップごとに2〜3往復して、結局公式の手順に落ち着くんだから。</p>
+<p>以下、自分用メモです。</p>
+<h2 id="step1-dockerのインストール">STEP1 Dockerのインストール</h2>
+<p>ココ。<br>
+パッケージでインストールしてまうのが一番早い。<br>
+<a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
+<p>他のWebサイトにスクリプト流すパターンあるが、パッケージと整合性取れなくなるのでしぬ。</p>
+<h2 id="step-2-minikubeインストール">STEP 2 Minikubeインストール</h2>
+<p>Minikubeは一番しんだ。インストールまではどこのサイトでも一緒だが、スタート時のオプションが<strong>noneやvitualBoxではダメ。</strong> 田中(゜p゜)の環境もあると思うが致し方なく<strong>docker</strong>を選択。<br>
+<a href="https://kubernetes.io/ja/docs/setup/learning-environment/minikube/">https://kubernetes.io/ja/docs/setup/learning-environment/minikube/</a></p>
+<p>minikubeなのに1.5GBもコンテナで食ってますよ。<br>
+てかそもそもコレ、本当にminikubeなのかしら。Kubenetesなのでは？<br>
+田中(゜p゜)の技術力では真実をトレースする余裕がない。</p>
+<h2 id="step-3optional-dashbordインストール">STEP 3(Optional) Dashbordインストール</h2>
+<p>これは完全に趣味の世界。<br>
+GKEのGUIインターフェイスが便利なので、ほしいと思っただけ。</p>
+<p>認証周りはトークンでしかできないことに注意。<br>
+<a href="https://kubernetes.io/ja/docs/tasks/access-application-cluster/web-ui-dashboard/">https://kubernetes.io/ja/docs/tasks/access-application-cluster/web-ui-dashboard/<br>
+</a><br>
+なんか開発中っぽいよね。Googleの人ならHTML5でサラッと書いてそう。<br>
+PROXY上げとかなきゃいけないのも面倒だし。</p>
+<h2 id="その他">その他</h2>
+<p>その他、久しぶりにVS codeとか引っ張り出してきていじってみました。<br>
+docker-composeとか右クリック一発でやってくれて便利だな。</p>
+<p>Kubenetesのプラグインはまだ動かんです。</p>
+<!-- raw HTML omitted -->
+<p>続きます。</p>
+
+
+</div>
+</article>
+</main>
+
+
+<footer class="footer layout__footer">
+<p><span>© My New Hugo Site</span></p>
+
+
+</footer>
+
+</div>
+</body>
+</html>

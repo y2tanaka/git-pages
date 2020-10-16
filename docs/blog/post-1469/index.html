@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="nojs" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>WordPressのスラッグで大事故 – My New Hugo Site</title>
+<meta name="description" content="たぶんテーマの挙動なんだろうけど、スラッグの構造が変わってしまい、リンク全部貼り直しました。 スラッグとは サイトのURLの特定の文字列を、Wordpressの記事IDに紐付ける仕組みで、例えば スラグ無しオリジナル https://tmp-net.biz/?page_id=189スラッグ有り https://tmp-net.biz/記事 …">
+<meta name="created" content="2020-10-02T18:26:26+0000">
+<meta name="modified" content="2020-10-02T18:26:26+0000">
+<meta name="author" content="田中(゜p゜)">
+
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:title" content="WordPressのスラッグで大事故">
+<meta property="og:url" content="http://example.org/blog/post-1469/">
+<meta property="og:type" content="article">
+
+<meta name="generator" content="Hugo 0.68.3" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<link rel="canonical" href="http://example.org/blog/post-1469/">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/css/styles.07de9722ae74190da91740ecb1e12bbfa31de324e29ab4972bdcc4131519528c.css">
+<link rel="stylesheet" href="/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "headline": "WordPressのスラッグで大事故",
+    "datePublished": "2020-10-02T18:26:26Z",
+    "dateModified": "2020-10-02T18:26:26Z",
+    "url" : "http://example.org/blog/post-1469/",
+    "description": "たぶんテーマの挙動なんだろうけど、スラッグの構造が変わってしまい、リンク全部貼り直しました。 スラッグとは サイトのURLの特定の文字列を、Wordpressの記事IDに紐付ける仕組みで、例えば スラグ無しオリジナル https://tmp-net.biz/?page_id=189スラッグ有り https://tmp-net.biz/記事 …",
+    "author": {
+      "@type": "Person",
+      "name": "田中(゜p゜)"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http://example.org/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "url": "http://example.org/"
+    }
+  }
+</script>
+
+<script src="/js/script-early.min.a8d899ac88f2a778985767b86ce681945e3fa2069c3c9efd17e5e5b594d3ba1f.js"></script>
+<script defer src="/js/lib/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
+<script defer src="/js/script.min.f7f56769569fdf7a80d073b6775c6cd9ed8ae528864cd3f2aa1c8c3fe73f87ea.js"></script>
+
+
+</head>
+
+<body class="single-page">
+<div class="page layout__page layout__sidebar-second">
+<header class="header layout__header">
+<a href="/" title="Home" rel="home" class="header__logo"><img src="/images/logo.png" alt="Home" class="header__logo-image"></a>
+<h1 class="header__site-name">
+<a href="/" title="Home" class="header__site-link" rel="home"><span>My New Hugo Site</span></a>
+</h1>
+<div class="region header__region">
+</div>
+</header>
+
+<nav class="main-menu layout__navigation">
+<h2 class="visually-hidden">Main menu</h2>
+<ul class="navbar">
+<li><a href="/">Home</a></li>
+<li><a href="/posts/" class="active" aria-current="page">Posts</a></li>
+</ul>
+</nav>
+
+
+<main class="main layout__main">
+<article class="section-posts single-view">
+<header>
+<h1 class="title ">WordPressのスラッグで大事故</h1>
+</header>
+<div class="content">
+<!-- raw HTML omitted -->
+<p>たぶん<a href="https://thk.kanzae.net/wp/">テーマ</a>の挙動なんだろうけど、スラッグの構造が変わってしまい、リンク全部貼り直しました。</p>
+<h2 id="スラッグとは">スラッグとは</h2>
+<p>サイトのURLの特定の文字列を、Wordpressの記事IDに紐付ける仕組みで、例えば</p>
+<p><strong>スラグ無しオリジナル</strong><br>
+<a href="https://tmp-net.biz/">https://tmp-net.biz/</a><!-- raw HTML omitted --><!-- raw HTML omitted -->?page_id=189<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><strong>スラッグ有り</strong><br>
+<a href="https://tmp-net.biz/">https://tmp-net.biz/</a><strong><!-- raw HTML omitted -->記事一覧/ITコンサルタントとは？<!-- raw HTML omitted --></strong></p>
+<p>という感じで、サイト構造に合わせてURLをか分かりやすいものにできる便利な機能で、田中(゜p゜)も気に入っていて使っていました。<br>
+SEOサイトで、検索にかかりやすくなるので日本語URLオススメ！みたいな記事もあったしね！</p>
+<h2 id="テーマ適用後に小トラブル">テーマ適用後に小トラブル</h2>
+<p>ただ、先日採用したテーマは、バリデーション(入力値)チェックでスラッグに<!-- raw HTML omitted -->日本語、英大文字が使えない<!-- raw HTML omitted -->ようなのです。<br>
+具体的にいうと上のURLは、</p>
+<p><a href="https://tmp-net.biz">https://tmp-net.biz</a>**/<!-- raw HTML omitted -->page-392/it/<!-- raw HTML omitted -->**</p>
+<p>という感じに強制変換されてしまうのです。<br>
+当初は新規作成した記事だけがそうなっていて、苦々しい気持ちでいっぱいだったんですが、それでも我慢して使ってました。</p>
+<h2 id="そして大事故">そして大事故</h2>
+<p>ある日、サイトのメニュー構成のパートで手が滑ってしまい、階層がずれたメニューを元に戻したところ、結果<!-- raw HTML omitted -->メニュー配下の記事のスラッグが全てバリデーションチェックの対象となってしまう<!-- raw HTML omitted -->大事故<!-- raw HTML omitted --><!-- raw HTML omitted -->に。</p>
+<p>つまり固定で書いてたリンクも全てリンク切れ。<br>
+<strong>リンク修正地獄</strong>のはじまりです。</p>
+<h2 id="修正に当たって">修正に当たって</h2>
+<p>取り急ぎ翻訳ツール使っての英語化や、やっつけでのリンク修正も考えましたが、テーマ変えたり,環境変えたりして事故ったらたまらんので、WodPressのOriginに近いものにしよう、ということで、<!-- raw HTML omitted -->当サイトの内部リンクは全てスラッグを止め、WordPressのページID表記<!-- raw HTML omitted -->となりました。</p>
+<p>リンクチェッカー使ったりして場所は確認したけど、修正はほぼ手動。<br>
+<strong><!-- raw HTML omitted -->しんだ。<!-- raw HTML omitted --></strong></p>
+<h2 id="結果">結果</h2>
+<p>階層構造ではなくなったけど、まあシンプルにはなったので、田中(゜p゜)としては満足。<br>
+あと、階層構造と日本語化を勧めるSEOサイトには憎しみの気持ち(笑)</p>
+<p>ただ、影響は内部だけかと思ったら、<!-- raw HTML omitted -->外部からのリンクや、検索結果のリンクが全てリンク切れ<!-- raw HTML omitted -->に。orz<br>
+いや、当サイトはまだ1ヶ月ちょっとしか経ってないので、影響は最小限と思われますが。</p>
+<h2 id="教訓">教訓</h2>
+<p>テーマも、スラッグ機能も便利で、色々やってくれるスグレモノですが、<!-- raw HTML omitted -->何をやってるのかを理解して使わないと、事故った時にえらいことになるんだなー<!-- raw HTML omitted -->、というのが教訓でした。</p>
+<p>あと、普段はいい加減なのに、こういう構造とかが異常に気になる自分の性格はなんとかしたい。<br>
+怖いし、めんどくさいので触らない、というのも選択肢としてはアリだと思うんですよね。</p>
+
+
+</div>
+</article>
+</main>
+
+
+<footer class="footer layout__footer">
+<p><span>© My New Hugo Site</span></p>
+
+
+</footer>
+
+</div>
+</body>
+</html>

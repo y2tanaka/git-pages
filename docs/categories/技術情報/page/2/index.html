@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="nojs" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>技術情報 – My New Hugo Site</title>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://example.org/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/index.xml">
+<meta name="description" content="">
+<meta name="created" content="2020-10-13T11:41:36+0000">
+<meta name="modified" content="2020-10-13T11:41:36+0000">
+
+
+<meta property="og:site_name" content="My New Hugo Site">
+<meta property="og:title" content="技術情報">
+<meta property="og:url" content="http://example.org/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/">
+<meta property="og:type" content="website">
+
+<meta name="generator" content="Hugo 0.68.3" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<link rel="canonical" href="http://example.org/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/css/styles.07de9722ae74190da91740ecb1e12bbfa31de324e29ab4972bdcc4131519528c.css">
+<link rel="stylesheet" href="/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url" : "http://example.org/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/",
+    "name": "技術情報",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http://example.org/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "My New Hugo Site",
+      "url": "http://example.org/"
+    }
+  }
+</script>
+
+<script src="/js/script-early.min.a8d899ac88f2a778985767b86ce681945e3fa2069c3c9efd17e5e5b594d3ba1f.js"></script>
+<script defer src="/js/lib/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
+<script defer src="/js/script.min.f7f56769569fdf7a80d073b6775c6cd9ed8ae528864cd3f2aa1c8c3fe73f87ea.js"></script>
+
+
+</head>
+
+<body class="list-page">
+<div class="page layout__page layout__sidebar-second">
+<header class="header layout__header">
+<a href="/" title="Home" rel="home" class="header__logo"><img src="/images/logo.png" alt="Home" class="header__logo-image"></a>
+<h1 class="header__site-name">
+<a href="/" title="Home" class="header__site-link" rel="home"><span>My New Hugo Site</span></a>
+</h1>
+<div class="region header__region">
+</div>
+</header>
+
+<nav class="main-menu layout__navigation">
+<h2 class="visually-hidden">Main menu</h2>
+<ul class="navbar">
+<li><a href="/" class="active" aria-current="page">Home</a></li>
+<li><a href="/posts/">Posts</a></li>
+</ul>
+</nav>
+
+
+<main class="main layout__main">
+<h1 class="title">技術情報</h1>
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-1066/">Kubernetesチャレンジ その4</a></h2>
+
+</header>
+<div class="content">
+まだ続いてます(笑)
+相変わらず、何かの問題解決目的に来た方は、ご期待に添えず申し訳ございません。
+Kubenetesチャレンジ その1
+ Kubenetesチャレンジ その2
+ Kubenetesチャレンジ その3
+しかし、その3で突っかかってた「Dockerでデプロイできて、MinikubeではPodのConfig中にコケる」事象は不本意ながら解決しました。↓
+つまり、Minikubeではデプロイできないけど、GKEではデプロイでけた。
+何じゃそりゃ。
+ローカルの権限周りをトレースしてみたいけど、目的はローカルで動かすんじゃなく、GKEで動かすことなんだから、ローカルに固執する理由は何もない。
+ということで、せっかく作った**ローカルのKubernetes(Minikube)環境は全部廃棄。
+** これで2GBくらいディスク空いたった。
+よく考えたら、マシンリソース節約してコスト削減するために、開発環境を必要な時だけ上げとくなんてのは、当たり前のことだね。
+あと、イメージPullするのにWi-Fiのギガ消費するのも抑えられるし。※田中(゜p゜)家はモビリティ重視でWiMAXなのです。
+ということでその3の悩みはスッキリ解決。
+あとはyamlゴリゴリ書くだけだぜー。
+よーしお父さん、次の次あたりにKusanagi on GKEのタイトルで記事化しちゃうぞー！
+続く。
+</div>
+</article>
+
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-1059/">Kubenetesチャレンジ その3</a></h2>
+
+</header>
+<div class="content">
+まあ案の定、詰まっとります。
+今突っかかってるのは概ね2つ。
+問題その1 デプロイ時権限差異？ Dockerでデプロイできたイメージが、Minikubeだとデプロイできない。どうも権限が違うっぽい。
+PoDのログはコレ↓。具体的には、docker-entrypoint.shというスクリプトがファイル書き込みのPermissionでコケてる。スクリプト動いてるのはhttpdというユーザなのに、書き込み先はwwwというユーザに割り当てられてる。
+Kubeさんのポリシーが関係してるのかもしれない。トレースが必要。
+https://unit42.paloaltonetworks.jp/non-root-containers-kubernetes-cve-2019-11245-care/
+うーん。
+DockerFileからいじらせてもらえば権限問題もなんとでもなる気がするんだけどなあ。
+問題その2 ローカル環境の理解不足 どうも田中(゜p゜)の入れたMinicubeってのはDockerコンテナの一つでしかないみたいで、リポジトリを共有してないっぽい。仮想マシンで動かすタイプもあるみたいなので、他のもそうかもしれない。
+切り分けのためにDockerでデプロイしたコンテナをコミットして、ちょっとMinikubeで動かしたいだけなのに、Docker上でレジストリサービス用のコンテナ立てたりしないとならんらしい。
+ローカルでファイル受け渡ししたいだけなのに、面倒なことです。
+あと、Dockerリポジトリの切り替えがシェルの環境変数でしかできないのも面倒
+上手くいってるもの Minikubeでのボリュームマウントと、環境変数の受け渡し(ConfigMap)は思ったよりずっとあっさりでけた。
+要はKusanagiの環境変数ファイルをConfigMapに読み込んで、yamlで呼んでやればよいだけ。
+https://kubernetes.io/ja/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-files
+結局ヤバそうなのは早々に片付き、想定もしてなかったのが課題になっとる感じ。
+続きます。
+</div>
+</article>
+
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-1052/">Kubernetes チャレンジ その2</a></h2>
+
+</header>
+<div class="content">
+どうしてもGKE上でKusanagi on Docker動かしたい。シリーズその2。
+**何かの解決を期待してこのエントリにたどり着いた方、申し訳ございませんがその足でお帰り下さい。**田中(゜p゜)の悩みが深まっただけでございます。
+**前回のエントリ**の通り、ローカルのKubernetes環境の構築には成功。
+しかし本日は一進二退という感じで、むしろ退きました。
+既にKusanagiはローカルのDockerにデプロイはできているんですが、何故かどーしてもコレ。
+まー、ボリュームのマウントがうまくいってないんだろな、というのは分かりましたが、色々切り分けると、何故かKusanagI on Dockerは、Dockerコンテナをダウンさせても、データが残るという事象に到達。
+もはやKubernetes関係ない。
+結論からいうと、裏でKusanagiがVolumeマウントしてやがりました。
+「docker volume ls」すれば一発なんだろうけど、ああ悲しきかな、田中(゜p゜)は初心者。かなりの時間右往左往してしまいました。
+挙句の果に、Docker落とさずにマウントされた実体ファイルを移動してみるという暴挙に居たり、結果がコレ。
+まあ普通に壊れますわな。
+その後、Dockerの再インストールはなんとか食い止めましたが、Kusanagiさんは再インストール。orz。
+で、Kusanagiのボリュームのマッピングはだいたい把握したので、いかにそれをKubernetes用に落とし込むか、というのが課題となりまして。
+Webを漁るとやっぱりディスクのマウントというのは課題になるみたいで、Kubernetesでもゴニョゴニョ開発中のこと。嫌な予感するなあ。
+そもそもKubernetesのPODつうのは揮発性でかつ複数存在するものであって、書き込みが必要なデータをどっかに置いとかなきゃいけない。
+一般的なシステムならDBにおけば解決なんだろうけど、残念ながら田中(゜p゜)が使いたいのはWordpressでおもいきりディスク依存。
+レガシーな田中(゜p゜)の知識でも、複数のノードから一つのディスクにアクセスするっつうのは排他制御などの関係からえらく面倒だという認識はある。
+結局、可用性も物理考慮しないとだし、ディスクの悩み解決してないし、**レガシーなインフラとあまり変わらんやん！
+**
+ということで、もう少し頑張りたいと思います。
+</div>
+</article>
+
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-1044/">Kubenetes(Minikube) on ローカル環境構築</a></h2>
+
+</header>
+<div class="content">
+どうしてもGKE上でKusanagi on Docker動かしたい。
+けど、KusanagiのGitにはDocker-compose用のyamlしかないので、ローカルでKubenetes動かして、自分でyaml作ってみることにした。
+が、ローカル環境構築でとにかく苦戦。
+こんな時、Macならトモダチがたくさんいるのにな。
+ただ、いちおうダッシュボードまで上がり、テスト用のデプロイも上手くいったので、環境構築はなんとか完了です。環境構築だけでもうグッタリ。ちなみにUbuntu18.04です。GKEクリソツですが、ローカルのダッシュボード環境です。
+構築の「流れ」はブログとか参照で良いが、実際の手順は公式マニュアル見たほうが良いすね。
+1ステップごとに2〜3往復して、結局公式の手順に落ち着くんだから。
+以下、自分用メモです。
+STEP1 Dockerのインストール ココ。
+パッケージでインストールしてまうのが一番早い。
+https://docs.docker.com/engine/install/ubuntu/
+他のWebサイトにスクリプト流すパターンあるが、パッケージと整合性取れなくなるのでしぬ。
+STEP 2 Minikubeインストール Minikubeは一番しんだ。インストールまではどこのサイトでも一緒だが、スタート時のオプションがnoneやvitualBoxではダメ。 田中(゜p゜)の環境もあると思うが致し方なくdockerを選択。
+https://kubernetes.io/ja/docs/setup/learning-environment/minikube/
+minikubeなのに1.5GBもコンテナで食ってますよ。
+てかそもそもコレ、本当にminikubeなのかしら。Kubenetesなのでは？
+田中(゜p゜)の技術力では真実をトレースする余裕がない。
+STEP 3(Optional) Dashbordインストール これは完全に趣味の世界。
+GKEのGUIインターフェイスが便利なので、ほしいと思っただけ。
+認証周りはトークンでしかできないことに注意。
+https://kubernetes.io/ja/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+なんか開発中っぽいよね。Googleの人ならHTML5でサラッと書いてそう。
+PROXY上げとかなきゃいけないのも面倒だし。
+その他 その他、久しぶりにVS codeとか引っ張り出してきていじってみました。
+docker-composeとか右クリック一発でやってくれて便利だな。
+Kubenetesのプラグインはまだ動かんです。
+続きます。
+</div>
+</article>
+
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-1040/">Ubuntuで使える Windows風ペイントツール</a></h2>
+
+</header>
+<div class="content">
+Lubuntuを16.04から18.04にあげても見た目変わらなかったが、一つだけ激しく感動したことがある。
+なんとWindowsペイント風のペイントツールがついに！ 実装された！
+なんでも、KolourPaintというらしい。
+田中(゜p゜)は描画に、添付画像のマーキングに、トリミングに、エビデンス偽造にWindowsペイントツールをフル活用する人なので、これを使うためだけにVMPlayerのWindows10を起動することが多かったのだ。
+今まで手軽な描画ツールが無かっただけにこれは嬉しい。
+願わくばPowerPointもクライアントソフト並にWeb版が動作してくれれば、田中(゜p゜)個人のお絵かき環境は完璧なのだが。
+まあ無理かなー。
+</div>
+</article>
+
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-1034/">祝！ ブログ村 IT技術情報ランキング一位！</a></h2>
+
+</header>
+<div class="content">
+せっかくなんで魚拓取っておこう。・・・・・・。
+・・・・・・・・・・・・・。
+うーん。週間INが75ですけど。あと始めて一ヶ月も経ってませんが。
+どんだけディレクトリ掘ってんだ、という話ですか。
+なにか憑いている可能性もあるな…。
+</div>
+</article>
+
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-1030/">WordPress on GKEチャレンジ その3(終)</a></h2>
+
+</header>
+<div class="content">
+WordPress on GKEチャレンジ その1
+WordPress on GKEチャレンジ その2
+結論からいうと、できたはできた。
+が、最終的にできたのは、下記のkusanagiデプロイにGCPのロードバランサかぶせただけ、みたいなつまらない構成。
+https://qiita.com/nagase/items/5525bd80196802b0a07a
+※クッソ早いけど、さっきwp-config.php壊したのでこんなですwww
+ロードバランサー、￥2,500/月でお高いんですよ。
+知恵がないためにお金払わないとなんだなぁ。
+結局のところ、サービスのロードバランサ使えば、GKEに対してのデプロイ自体は楽勝。厄介だったのは証明書の自動管理。正直あきらめた。
+どこもLet’s Encryptなんだけど、クラウドのDNSをAPIで叩かなきゃいけなくて、それがなー。
+あと、Google DomainでAPI叩けず、Cloud DNSに移行したんだけど、派手にドメイン名をtypoしとって、半日このサイト止まっとった。悲しい。
+しんどいポイント  コンテナでの証明書管理にcert-managerてのを使う。ただ、Webに書いてある情報はどれも古くて、今のcert-managerのバージョンに合ってない。
+インストール、yamlの書き方で、最も信頼ができたのは結局公式サイト。
+https://cert-manager.io/docs/installation/kubernetes/
+https://cert-manager.io/docs/configuration/acme/dns01/
+https://cert-manager.io/docs/configuration/acme/dns01/google/ 公式サイトを完璧にトレースしても証明書取得時にエラーが出るので、どうも未知の事象を踏んだっぽい。が、英語のフォーラムに参加する気力はない。 Kubenetesのレポジトリ管理にHelmつうアプリ入れるんだけど、v3とv2でコマンド体系が全く違ってた。基本公式サイトはv3。 Gitのやつがコケたのは、Helmのバージョンとレポジトリが古いから。証明書管理もkube-legoっていう、cert-managerの作者が以前作ってて放置したもののようで、トレースする気が失せた。
+https://github.com/stcox/gke-wordpress ということで証明書運用の自動化は諦め気味…。  今回学んだこと  更新の早いコンポーネントは、ブログを頼りにせず、公式ドキュメントを見る。 Kusanagiクソ早い。別にGKEじゃなくても良いかも。 抽象化されるととても便利だが、行き過ぎるとワケわからなくなる。
+Pod間、もといコンテナ間の通信はyamlベースに図を書いてみないと分からない 切り分けたくてもPodにツールが入ってない。入れるのメンドイ。 こういうのを管理するための構成管理ツール売れそうだなぁ、と思った。 PHPを7.0 → 7.3に上げた時は、ワンライナー、モノの10秒で終わって少し感動。 コンテナ間の通信にオーバーレイ技術使われとってワロタ。 結局のところガチの可用性を考慮したら物理を意識しないとダメっぽい。インフラ観点だと、ポッドの割当論理設定を可視化した上でテスト計画立てないと。項目すげー増えそう。  今後のこのサイトについて  当たり前かもだけど、個人サイトレベルでGKEはいらんと思う。 オートスケーラー実装したかったんだけど、どうせロードバランサー使うならGCEでもいいんじゃ。 というか、とりあえずkusanagi入れとけばn1-small1台で十分そう。  
+</div>
+</article>
+
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-1027/">WordPress on GKEチャレンジ その2</a></h2>
+
+</header>
+<div class="content">
+昨日の続きです。
+</div>
+</article>
+
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-1015/">WordPress on GKEチャレンジ その1</a></h2>
+
+</header>
+<div class="content">
+将来的に間違えてアクセスが増えちゃった場合に備えて、GKEにWordPress載せるぞ！ というチャレンジしてます。
+GKEが何かというのは下記リンク参照。
+要するに、Dockerをステキにコントロールできる、Googleさんのクールなエンジンなのです。
+https://xtech.nikkei.com/atcl/learning/lecture/19/00095/00003/正直WordPressはコンテンツ更新がPersitentDiskとSQLだから、あまり意味ないと思うけど、何事も着手してみないと始まらない。
+3年ほど前、GKEのインフラの抽象化度合いに驚き、ある程度自習やってたので、Dockerくらいは分かるだろーとたかをくくってましたが、全ッ然覚えてなくてワロタ。
+いや、自分で思ったより脳がおっさんでワロエナイ。
+ココで田中(゜p゜)はyaml使えると言ったな。
+あれは嘘だ！
+ということで、自分のpoorな技術力を噛み締めながら、予習を含めて段階的に学習していきます。
+■ローカルにDocker環境構築
+というか、これが一番大変だったんですが。
+なんかJavaとかEclipse入ってて、環境変数腐ってる。あとぺぇそん(Python）が2.7のせいか、ライブラリのエラーでまくる。
+ Ubuntu 16.04だとdocker-compose動作せず。 Ubuntu 16.04 → 18.04 アップグレード。 その他色々ゴニョゴニョしてなんとかローカルでDocker動作させた  ■Docker基本おさらい
+田中(゜p゜)の環境と違うためか、一部手を加えなければならないところあった。
+全然Dockerのコマンド覚えてない自分に幻滅。
+https://qiita.com/hiyuzawa/items/81490020568417d85e86■WordPress on Local Docker
+これはサンプルの通りやればよかったので楽勝。
+基本おさらいのおかげで中身も読めてひと安心。
+http://bashalog.c-brains.jp/19/08/15-120000.php
+■WordPress on GKE予習
+こちらもサンプル通りにやれば良いので楽勝。のはず。
+https://cloud.google.com/kubernetes-engine/docs/tutorials/persistent-disk?hl=jaただ、検証用とはいえ費用が怖いので、ワーカーノード削ったり、preemptableマシンにしたりします。
+https://blog.a-know.me/entry/2018/06/17/220222※2020/09/18 できました。が、90日で無料クレジットがなくなるので消えます。
+http://wp-gke.tmp-net.biz/
+←今ココ！ ■Wordpress on GKE環境構築
+まだ決めてないけど、常時SSL目指して、このあたりのレポジトリ利用を考えてます。
+結局自分で書くんじゃないのかーい、というツッコミはなしでお願いしますよ。しんでしまいます。
+https://github.com/stcox/gke-wordpress■CI/CD環境構築
+できるか分からんけど、CI/CD基盤まで実装してみたい。
+</div>
+</article>
+
+<article class="section-posts list-view">
+<header>
+<h2 class="title "><a href="/blog/post-469/">このサイトのWordPressプラグイン</a></h2>
+
+</header>
+<div class="content">
+誰も興味ない可能性ありますが、WordPressの構成ほぼ確なので備忘録含めて書いておきます。
+セキュリティ的にヤバいのかな？ まあPHPにバグあったらそもそも終わりだし、ハックされたらそれはそれでネタとして使えそうなのであえて気にしない。
+**Akismet Anti-Spam (アンチスパム)
+** もとからインストールされてるアンチスパム用。投稿とかフォーラムが守られていると信じたい
+**bbPress
+** フォーラム機能用。現時点でトピックはないため良いとも悪いとも言えない(笑)
+**Really Simple SSL
+** SSL化によるコンテンツ修正のために入れた。けど、WEBサーバ側は自分で手を加えたし、結構手動での修正が必要で残念な感じ。使いこなしてないだけかな。
+**Asset CleanUp: Page Speed Booster
+** Google先生のサイトチェッカーでモバイル向けにコンテンツ最適化されてないよ、とのことだったので入れた。63/100だったのが、69/100になった。
+いや、95/100になるオプションもあるんだけど、CSSとJavascriptがまともに動かなくなってデザイン壊滅したので妥協。
+My Database Admin
+** なんと最新バージョンのWordPressだとMyPhpAdminが動かんのです。CUIで単純にMySQLにSQL発行して結果を表示するだけという恐ろしく原始的なツールで、はっきり言っていじるの怖い**。スナップショット取ってから使うようにしてる。
+Contact Form 7
+WP Mail SMTP
+** お問い合わせフォーム用。このサイトはGmail使ってるんですけど、メール送るのにGCP経由でAPI叩く必要あり**、ハードル高いと感じた。Gmailはセキュリティ厳しいんだなぁ。
+**All In One SEO Pack
+WebSub/PubSubHubbub
+WordPress Ping Optimizer
+** いわゆるSEO対策用。未だGoogleにsitemap反映されてないし、動いてるんだか動いてないんだか。
+田中(゜p゜)も人の子ですので、サイトの運営費用を捻出すべく、Google AdsenseとAmazon Asociateの利用を考えてます。営利目的ではないのはご理解頂きたい。
+</div>
+</article>
+
+<nav class="pager">
+<a href="/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/" rel="prev" class="pager-item pager-prev">Prev</a>
+<a href="/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/page/3/" rel="next" class="pager-item pager-next">Next</a>
+</nav>
+
+</main>
+
+
+<footer class="footer layout__footer">
+<p><span>© My New Hugo Site</span></p>
+
+
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技術情報 on My New Hugo Site</title>
+    <link>http://example.org/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/</link>
+    <description>Recent content in 技術情報 on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Oct 2020 11:41:36 +0000</lastBuildDate>
+    <atom:link href="http://example.org/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>静的サイト化検討</title>
+      <link>http://example.org/blog/post-1774/</link>
+      <pubDate>Tue, 13 Oct 2020 11:41:36 +0000</pubDate>
+      <guid>http://example.org/blog/post-1774/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;SiteSpeedのスコアがどうしても上がりません。&lt;br&gt;
+プラグインは最小限にしてるし、Luxeritasの機能使っても、これ以上のスピードは望めないようだ。&lt;/p&gt;
+&lt;h2 id=&#34;原因と対策&#34;&gt;原因と対策&lt;/h2&gt;
+&lt;p&gt;スコア分析すると、JavaScriptが遅いのはGoogle AnalysticsとAdsenseがあるのでしょうがないとしても、やっぱりLAMP Stackのレスポンスが悪いみたい。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;よって、JAM Stack化を検討しとるのです。&lt;/p&gt;
+&lt;p&gt;JAM Stackとはなにかっつうのは&lt;!-- raw HTML omitted --&gt;このアタリ&lt;!-- raw HTML omitted --&gt;が詳しいですが、要するにクライアントサイドで処理するということ。&lt;br&gt;
+当然ながら田中のサイトはWordPressなので、&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;MySQLとPHPでゴリゴリにサーバーサイド処理&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;となります。&lt;/p&gt;
+&lt;p&gt;スピードも当然のこと、サーバーサイド(クラウド)のリソースを使うのでお財布にも優しくない。&lt;br&gt;
+今の所GAEの無料枠に収まってるけど、いつバズっちゃうとも限らんし。&lt;/p&gt;
+&lt;h2 id=&#34;jam-stackを軽くテストしてみる&#34;&gt;JAM Stackを軽くテストしてみる&lt;/h2&gt;
+&lt;p&gt;手元にHugo(Go言語で静的サイトをビルドするしくみ)環境を構築して動かしてみました。&lt;br&gt;
+Git対応してるんで、HugoとテーマをCloneしてちょいちょいいじるだけでカンタンにWebサイト上がってきます。&lt;/p&gt;
+&lt;p&gt;が…・&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;・・・&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ちょっとWordPressに比べちゃうとキツイ&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;気がする。&lt;br&gt;
+田中はいちおうエンジニアですけど、メリデメ整理してみます。&lt;/p&gt;
+&lt;p&gt;○Goで書かれてるので、GAEとの相性が大変に良い。&lt;br&gt;
+○動きは軽い。ハンパない。&lt;br&gt;
+○Gitで管理できる。&lt;/p&gt;
+&lt;p&gt;ちょっとしんどい点は&lt;/p&gt;
+&lt;p&gt;×テーマが圧倒的に少ない。&lt;br&gt;
+×日本語に対応したテーマもやはり少ない&lt;br&gt;
+×マークアップ言語で書く&lt;br&gt;
+　→技術者以外に更新は難しいんじゃ・・・。&lt;br&gt;
+×テーマのフォルダ構造が直感的じゃない。慣れかな？&lt;br&gt;
+×デプロイに多少時間がかかる。&lt;br&gt;
+×フォーラムとかコメントとか別で実装する必要がある。&lt;br&gt;
+　→結局DBとかそれに変わるものが必要。&lt;/p&gt;
+&lt;p&gt;本当に大規模なサイトでスケーラビリティ、コスト、セキュリティを追い込んでかないと必要ないんじゃないかなー。&lt;br&gt;
+もう少し詳しい比較はこちらにもあります。(外部サイト)&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://dyno.design/articles/jamstack-cms-pros-cons-comparison/&#34;&gt;https://dyno.design/articles/jamstack-cms-pros-cons-comparison/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h2 id=&#34;結局田中pどうするのか&#34;&gt;結局田中(゜p゜)どうするのか&lt;/h2&gt;
+&lt;p&gt;Gitで管理するところ、スピードにはものすごく興味あるのですが、結局トレードオフにするものが大きすぎる。&lt;br&gt;
+コレやるんだったら自作じゃなくて&lt;!-- raw HTML omitted --&gt;StackBits&lt;!-- raw HTML omitted --&gt;経由で&lt;!-- raw HTML omitted --&gt;Netlify&lt;!-- raw HTML omitted --&gt;とか投稿用インターフェイスついてそうなホスティングサービス使うかなー。&lt;br&gt;
+ただ、コレだとレールが敷かれすぎてて何も勉強にならん気がする。&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;WPの投稿をフックしてNetlifyに出力できるプラグイン&lt;!-- raw HTML omitted --&gt;あるみたいなので、コメント、フォーラム以外はこっちに出力して、静的サイトにホスティングするとか。&lt;/p&gt;
+&lt;p&gt;ますますサイト構成が複雑になりそう。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lubuntu20.04インスコでバタつく</title>
+      <link>http://example.org/blog/post-1676/</link>
+      <pubDate>Sat, 10 Oct 2020 11:49:37 +0000</pubDate>
+      <guid>http://example.org/blog/post-1676/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;こないだ18.04にしたんじゃなかったっけ？&lt;br&gt;
+とか思われそうですが、なんか寝る前にポップアップで&lt;strong&gt;20.04が利用可能&lt;/strong&gt;とか出てて、16.04→18.04のときも無問題だったので、&lt;strong&gt;まあいいかな&lt;/strong&gt;と思いポチー。&lt;/p&gt;
+&lt;p&gt;予想に反してインストール自体は上手くいき、見た目は少しカスタム必要だけど悪くない感じ。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;が、しかし。&lt;/p&gt;
+&lt;h2 id=&#34;vm-playerが動かん&#34;&gt;VM Playerが動かん&lt;/h2&gt;
+&lt;p&gt;このままOS上げてったらいつかはこうなるだろな、と思ってましたが、ついに来ちゃった。&lt;br&gt;
+VM Playerを起動しようとするとコレ。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;要するに、カーネルのHeader参照してて、それがないので怒られてるようだ。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ヤバい。&lt;/strong&gt;&lt;br&gt;
+田中(゜p゜)はVM Player上でWindows10を動かしてOfficeを使ってるので、&lt;!-- raw HTML omitted --&gt;これがないとマトモにお絵描きもできないし、仕事にも差し障る&lt;!-- raw HTML omitted --&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;切り分け&#34;&gt;切り分け&lt;/h2&gt;
+&lt;p&gt;Webを探すといろいろ情報出てきたが、&lt;!-- raw HTML omitted --&gt;要するにシンボリックリンクがはられてない&lt;!-- raw HTML omitted --&gt;んじゃないの？&lt;br&gt;
+とのことだった。&lt;/p&gt;
+&lt;p&gt;が、同じようにシンボリックリンク貼ろうとしても、ディレクトリねえよ、とOSさんに怒られる。&lt;br&gt;
+ディレクトリ先を探すと以下のような感じで、kernelは5.4.0-48ってバージョンかな？&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;で、リンク貼るコマンドで「uname -r」しとるんで、それ見ると。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;んん？&lt;br&gt;
+なんじゃこりゃ。ヘッダーは5.4.0-48なのに、実際使ってるカーネルは4.15.0-118？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;このOS、何かあるな・・・&lt;!-- raw HTML omitted --&gt;。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;取り急ぎ、5.4.0-48のカーネルも入ってないようだったので、aptで入れて再起動してみたら、あっさりVM Player起動。&lt;/p&gt;
+&lt;p&gt;めでたしめでたし。&lt;/p&gt;
+&lt;h2 id=&#34;と思ったら無線lan使えん&#34;&gt;と思ったら無線LAN使えん&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;ヤバいです。&lt;/strong&gt;&lt;br&gt;
+VM Playerが使えないどころじゃなく、PCが使えなくなってまった。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;田中(゜p゜)家はWiMAXなので、無線LAN使えないとインターネット使えんくなってしまうのです。&lt;br&gt;
+泣きながらスマホだったり、カーネルを4.15.0-118に戻したりしてインターネットで原因探索。&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;ココに&lt;!-- raw HTML omitted --&gt;書いてあったのだけど、おそらくbcmwl-kernel-sourceつう、ドライバとカーネルを連携するモジュールが正しく入っていないのが原因とのこと。&lt;/p&gt;
+&lt;p&gt;しかし、ここで困ったことが。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;カーネルを4.15.0-118で起動してもbcmwl-kernel-sourceは最新だよ、とのことで何も起こらない。&lt;/li&gt;
+&lt;li&gt;カーネル5.4.0-48ではそもそもネットワーク繋がらんので依存関係を解決できない。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;詰んだ＼(^o^)／&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ワークアラウンド&#34;&gt;ワークアラウンド&lt;/h2&gt;
+&lt;p&gt;往生際悪い田中(゜p゜)がこんなんで詰むわけねーだろ、ということで、&lt;strong&gt;秘密兵器登場&lt;/strong&gt;です。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;無線がダメなら有線で繋げばいいじゃない。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;左端のはプラネックスコミュニケーションのMZK-300N2つう製品で、無線LANクライアントとして接続して、有線に流してくれるという言わばコンバーターと言われるもの。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;田中(゜p゜)は10年位前に買った気がするけど、まだ現役なんね。田中(゜p゜)の中では今でも秘密兵器です。&lt;br&gt;
+無線LANしか使えないデータセンターで、サーバーをインターネット経由でライセンス認証するのにコッソリ使ったりした(笑)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;はい。でココから先はアッサリ。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;過去の経験から、Linuxは有線LANドライバに対する要求がゆるいので、カーネル5.4.0-18の状態で有線LANはアッサリ繋がり、OSのアップデート要求するポップアップ出てきたので、それに従ってアップデート。&lt;/p&gt;
+&lt;p&gt;なんか「kernel-modules-extra」とかいうのをインストールしたっぽいけどちゃんと見ていない。&lt;br&gt;
+結果、再起動を要求されて、&lt;!-- raw HTML omitted --&gt;無事、無線LAN繋がりましたとさ。&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h2 id=&#34;原因&#34;&gt;原因&lt;/h2&gt;
+&lt;p&gt;実は思い当たることが一つある。&lt;br&gt;
+16.04時代からPC内蔵LANが上手く繋がらなくなって、&lt;!-- raw HTML omitted --&gt;BaffaloのWI-U2-433DMSという無線LANアダプタ&lt;!-- raw HTML omitted --&gt;を入れていたのだ。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;コイツはOS標準のドライバではサポートされておらず、&lt;!-- raw HTML omitted --&gt;ソースダウンロードしてmake install&lt;!-- raw HTML omitted --&gt;した気がする。&lt;/p&gt;
+&lt;p&gt;推測するに、Ubuntuのアップグレードプログラムが、&lt;strong&gt;カーネルを上げようとしたらLANが繋がらなくなってしまったので、カーネルを据え置いた&lt;/strong&gt;、というのが原因じゃなかろうか、という気がする。&lt;br&gt;
+真相は不明。&lt;/p&gt;
+&lt;p&gt;たぶん、Ubuntuのアップグレードは無線でコケる可能性高いんで、有線LANでやるのがいいんじゃないかと思う。&lt;br&gt;
+※公式とかに書いてそうだけど読んでない(笑)&lt;/p&gt;
+&lt;h2 id=&#34;ubuntu-2004ltsの使い勝手&#34;&gt;Ubuntu 20.04LTSの使い勝手&lt;/h2&gt;
+&lt;p&gt;**なんか全体的に動きが早くなった。**インターネットだけじゃなく、デスクトップも。&lt;br&gt;
+田中(゜p゜)はプラシーボ効果に対しては敏感なので、本当に早くなってるっぽい。&lt;/p&gt;
+&lt;p&gt;要因としては&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LXQTが速い&lt;/li&gt;
+&lt;li&gt;カーネルが速い&lt;/li&gt;
+&lt;li&gt;そもそもUSBの無線アダプタより、内蔵無線LANの方が性能良い。&lt;br&gt;
+→ノートPCは、ディスプレイの周りに内蔵無線LAN用のアンテナ張り巡らしてるのです。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;が、考えられますが、&lt;strong&gt;まあメデタシメデタシ&lt;/strong&gt;、ですね。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>VS Code RemoteでWordPressのコード管理</title>
+      <link>http://example.org/blog/post-1670/</link>
+      <pubDate>Fri, 09 Oct 2020 11:22:23 +0000</pubDate>
+      <guid>http://example.org/blog/post-1670/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;VS Codeすげぇなぁ。&lt;br&gt;
+MSの開発ツールなのにUbuntuでもMacでも使えるし。プラグインで大抵の言語のツール入るし。&lt;/p&gt;
+&lt;p&gt;ということで、本日はリモート(SSH)でコード管理できる「&lt;!-- raw HTML omitted --&gt;VS Code Remote&lt;!-- raw HTML omitted --&gt;」導入してみました。&lt;br&gt;
+もー、最初っからこれ入れとけば、Web UIとかviでチマチマ編集することなかったのに。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;ご覧のように、WordPressサーバのCSSファイルに、VS Codeで気軽にアクセスして、補完機能の助け借りてコード編集できちゃいます。&lt;br&gt;
+Web上で表示される色までサンプルが出てます。&lt;/p&gt;
+&lt;p&gt;ま、本番のコードがサクッいじれちゃうのはちょっと怖いけど、検証環境のワークスペース分けといて、デプロイのルール定めとけばいいだけな気がする。&lt;/p&gt;
+&lt;p&gt;よーし、お父さんVS CodeでCOBOLもゴリゴリ書いちゃうぞー！ (棒)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPressテーマ（Luxeritas）カスタマイズ記録</title>
+      <link>http://example.org/blog/post-1637/</link>
+      <pubDate>Tue, 06 Oct 2020 14:03:14 +0000</pubDate>
+      <guid>http://example.org/blog/post-1637/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;もう新しい会社での勤務始まってしまってるというのに、サイトのデザインが気になってしまい、デフォルトのカスタマイズ機能に加え、CSSにも手を加え始めました。なんかもう収集着かない気がするけど。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://thk.kanzae.net/wp/&#34;&gt;Luxeritas&lt;/a&gt;テーマは前に使ってたCatch Boxに比べると遥かに動作が早く、カスタマイズ性に富んでます。&lt;br&gt;
+昔田中(゜p゜)は自分のサイトのHTMLもCSSもJavascriptも手で書いてたので、便利になったものだなぁ、と感動することしきりです。&lt;/p&gt;
+&lt;p&gt;備忘録も兼ねて、変更内容まとめときます。&lt;/p&gt;
+&lt;h2 id=&#34;大まかな変更ポイント&#34;&gt;大まかな変更ポイント&lt;/h2&gt;
+&lt;p&gt;だいたい以下のような感じです。だいぶイメージ変わりました。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;サイト全体のカラーイメージを緑に変更。Androidはブラウザのヘッダーも緑に。&lt;/li&gt;
+&lt;li&gt;フォントを丸っこく変更し、田中(゜p゜)のアレっぽさを向上。&lt;/li&gt;
+&lt;li&gt;見出しのスタイルを変更&lt;/li&gt;
+&lt;li&gt;Nest/Prevウィジェットのスタイル変更&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;luxeritasの外観カスタマイズ&#34;&gt;Luxeritasの外観カスタマイズ&lt;/h2&gt;
+&lt;p&gt;これはWordPress管理機能だけでいけるので、詳しい手順は割愛。&lt;/p&gt;
+&lt;p&gt;・フォント変更&lt;br&gt;
+・背景色変更&lt;/p&gt;
+&lt;h2 id=&#34;luxeritas-childのstylecssに追記&#34;&gt;Luxeritas Childのstyle.cssに追記&lt;/h2&gt;
+&lt;p&gt;WordPressのテーマエディターからCSSを直接編集。対応する内容はコメントに追記。&lt;br&gt;
+比較的ライト。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;luxeritas-childのadd-headersphpに追記&#34;&gt;Luxeritas Childのadd-headers..phpに追記&lt;/h2&gt;
+&lt;p&gt;これも比較的カンタンなやつ。ヘッダのカラーを変更。ただしAndroidのみ。&lt;br&gt;
+PHPなのでコメントは「#」で。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;luxeritasのstylecssカスタマイズ&#34;&gt;Luxeritasのstyle.cssカスタマイズ&lt;/h2&gt;
+&lt;p&gt;これが一番しんどかったやつ。投稿下部のNext/Prevのアイコンサイズが大きくて気になって死にそうだったんだけど、ずっと画像だと勘違いして、テーマのフォルダをあさりまくったりした。&lt;br&gt;
+これってフォントなんすね。こんな感じ。 → &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;コードはこんな感じ。&lt;br&gt;
+&amp;lt;i class=”fas fa-home fa-lg”&amp;gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;いうことで、CSSの該当箇所を発見し、以下のように編集。正直、デフォルトはフォントの位置とか微妙に調整してあって、けっこう苦戦。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;「#」はコメントかと思ってたけど、Luxeritasの場合はOFF/ONできるウィジェットの変数？みたいですね。&lt;/p&gt;
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+&lt;p&gt;テーマへの理解深まりました。なんかCSSとかPHPもだんだん思い出してきた気がする。今だったらやりたいことはほぼ何でもできそう。&lt;br&gt;
+でも、これ以上行くとHTML5とかになって、収集つかなくなるような気も。&lt;/p&gt;
+&lt;p&gt;ま、勉強だからいいか。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Google Search ConsoleでSitemap読み込みに成功！</title>
+      <link>http://example.org/blog/post-1522/</link>
+      <pubDate>Sat, 03 Oct 2020 14:18:22 +0000</pubDate>
+      <guid>http://example.org/blog/post-1522/</guid>
+      <description>&lt;p&gt;何言ってるか分からねーと思いますが、SEO対策を始めた人間にとって、&lt;a href=&#34;https://search.google.com/&#34;&gt;Google Search Console&lt;/a&gt; に対するsitemap.xml読み込みは死活問題なのです。いくら良いコンテンツを作成しても、Google様の検索に引っかからなければ、意味がないのです。&lt;/p&gt;
+&lt;p&gt;すいません。&lt;br&gt;
+田中(゜p゜)もアフェリで一発当ててえとかじゃなくてこのサイト運営に月額1000円ほどかかるので、そのくらいは回収させていただきたく、SEOを実施しております。&lt;/p&gt;
+&lt;h2 id=&#34;事象&#34;&gt;事象&lt;/h2&gt;
+&lt;p&gt;↓コレ。いつ何時、何回やってもsitemap.xmlが読み込まれない。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.google.com/search?q=sitemap+%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BE%E3%82%8C%E3%81%AA%E3%81%84&amp;amp;oq=sitemap++%E8%AA%AD%E3%81%BF%E8%BE%BC%E3%81%BE%E3%82%8C%E3%81%AA%E3%81%84&amp;amp;aqs=chrome..69i57.9366j0j9&amp;amp;sourceid=chrome&amp;amp;ie=UTF-8&#34;&gt;google様で「sitemap ＋ 読み込まれない」で検索&lt;/a&gt;すると、Googleのサポートに山ほどトピックできてて、どれも解決してない根深い問題。中の人も、たぶんバグで読み込まれてるよ、みたいな適当な回答。&lt;/p&gt;
+&lt;h2 id=&#34;ワークアラウンド&#34;&gt;ワークアラウンド&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;WordPressで&lt;strong&gt;Google XML Sitemaps&lt;/strong&gt;プラグインを入れます。&lt;/li&gt;
+&lt;li&gt;プラグインを適当に設定します。&lt;/li&gt;
+&lt;li&gt;search ConsoleのサイトマップのURLに「&lt;strong&gt;/index.php?xml_sitemap=params=&lt;/strong&gt;」と入力します。&lt;/li&gt;
+&lt;li&gt;読み込みが成功します。&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;このURLというのは、パーマリンクの設定が基本(無効)じゃないと出てこない、プラグインが生成しているURLです。&lt;br&gt;
+つまり、&lt;!-- raw HTML omitted --&gt;プラグインがパーマリンクとしてsitemap.xmlを見せとる&lt;!-- raw HTML omitted --&gt;ということです。&lt;/p&gt;
+&lt;p&gt;ですが、&lt;strong&gt;なんでこっちの生のURLの方がsearch console通るのかは全然分かりません&lt;/strong&gt;！&lt;/p&gt;
+&lt;h2 id=&#34;その後&#34;&gt;その後&lt;/h2&gt;
+&lt;p&gt;残念ながら、他のプラグインでも、&lt;!-- raw HTML omitted --&gt;パーマリンクで特定のURLを生成しているものがいくつか発覚&lt;!-- raw HTML omitted --&gt;し、&lt;!-- raw HTML omitted --&gt;パーマリンクを使わないという昨日の方針はもろくも崩れ去りました。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;つまりまたもや&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;リンク修正地獄。&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;br&gt;
+ま、今回は生リンクで貼り直してたんで、修正してなくても問題ないんですけどね。&lt;/p&gt;
+&lt;p&gt;なんか、このあたりまとめて個人用のWordPressの運用ベストプラクティスとしてまとめようかしら。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPressのスラッグで大事故</title>
+      <link>http://example.org/blog/post-1469/</link>
+      <pubDate>Fri, 02 Oct 2020 18:26:26 +0000</pubDate>
+      <guid>http://example.org/blog/post-1469/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;たぶん&lt;a href=&#34;https://thk.kanzae.net/wp/&#34;&gt;テーマ&lt;/a&gt;の挙動なんだろうけど、スラッグの構造が変わってしまい、リンク全部貼り直しました。&lt;/p&gt;
+&lt;h2 id=&#34;スラッグとは&#34;&gt;スラッグとは&lt;/h2&gt;
+&lt;p&gt;サイトのURLの特定の文字列を、Wordpressの記事IDに紐付ける仕組みで、例えば&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;スラグ無しオリジナル&lt;/strong&gt;&lt;br&gt;
+&lt;a href=&#34;https://tmp-net.biz/&#34;&gt;https://tmp-net.biz/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;?page_id=189&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;スラッグ有り&lt;/strong&gt;&lt;br&gt;
+&lt;a href=&#34;https://tmp-net.biz/&#34;&gt;https://tmp-net.biz/&lt;/a&gt;&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;記事一覧/ITコンサルタントとは？&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;という感じで、サイト構造に合わせてURLをか分かりやすいものにできる便利な機能で、田中(゜p゜)も気に入っていて使っていました。&lt;br&gt;
+SEOサイトで、検索にかかりやすくなるので日本語URLオススメ！みたいな記事もあったしね！&lt;/p&gt;
+&lt;h2 id=&#34;テーマ適用後に小トラブル&#34;&gt;テーマ適用後に小トラブル&lt;/h2&gt;
+&lt;p&gt;ただ、先日採用したテーマは、バリデーション(入力値)チェックでスラッグに&lt;!-- raw HTML omitted --&gt;日本語、英大文字が使えない&lt;!-- raw HTML omitted --&gt;ようなのです。&lt;br&gt;
+具体的にいうと上のURLは、&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://tmp-net.biz&#34;&gt;https://tmp-net.biz&lt;/a&gt;**/&lt;!-- raw HTML omitted --&gt;page-392/it/&lt;!-- raw HTML omitted --&gt;**&lt;/p&gt;
+&lt;p&gt;という感じに強制変換されてしまうのです。&lt;br&gt;
+当初は新規作成した記事だけがそうなっていて、苦々しい気持ちでいっぱいだったんですが、それでも我慢して使ってました。&lt;/p&gt;
+&lt;h2 id=&#34;そして大事故&#34;&gt;そして大事故&lt;/h2&gt;
+&lt;p&gt;ある日、サイトのメニュー構成のパートで手が滑ってしまい、階層がずれたメニューを元に戻したところ、結果&lt;!-- raw HTML omitted --&gt;メニュー配下の記事のスラッグが全てバリデーションチェックの対象となってしまう&lt;!-- raw HTML omitted --&gt;大事故&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;に。&lt;/p&gt;
+&lt;p&gt;つまり固定で書いてたリンクも全てリンク切れ。&lt;br&gt;
+&lt;strong&gt;リンク修正地獄&lt;/strong&gt;のはじまりです。&lt;/p&gt;
+&lt;h2 id=&#34;修正に当たって&#34;&gt;修正に当たって&lt;/h2&gt;
+&lt;p&gt;取り急ぎ翻訳ツール使っての英語化や、やっつけでのリンク修正も考えましたが、テーマ変えたり,環境変えたりして事故ったらたまらんので、WodPressのOriginに近いものにしよう、ということで、&lt;!-- raw HTML omitted --&gt;当サイトの内部リンクは全てスラッグを止め、WordPressのページID表記&lt;!-- raw HTML omitted --&gt;となりました。&lt;/p&gt;
+&lt;p&gt;リンクチェッカー使ったりして場所は確認したけど、修正はほぼ手動。&lt;br&gt;
+&lt;strong&gt;&lt;!-- raw HTML omitted --&gt;しんだ。&lt;!-- raw HTML omitted --&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;結果&#34;&gt;結果&lt;/h2&gt;
+&lt;p&gt;階層構造ではなくなったけど、まあシンプルにはなったので、田中(゜p゜)としては満足。&lt;br&gt;
+あと、階層構造と日本語化を勧めるSEOサイトには憎しみの気持ち(笑)&lt;/p&gt;
+&lt;p&gt;ただ、影響は内部だけかと思ったら、&lt;!-- raw HTML omitted --&gt;外部からのリンクや、検索結果のリンクが全てリンク切れ&lt;!-- raw HTML omitted --&gt;に。orz&lt;br&gt;
+いや、当サイトはまだ1ヶ月ちょっとしか経ってないので、影響は最小限と思われますが。&lt;/p&gt;
+&lt;h2 id=&#34;教訓&#34;&gt;教訓&lt;/h2&gt;
+&lt;p&gt;テーマも、スラッグ機能も便利で、色々やってくれるスグレモノですが、&lt;!-- raw HTML omitted --&gt;何をやってるのかを理解して使わないと、事故った時にえらいことになるんだなー&lt;!-- raw HTML omitted --&gt;、というのが教訓でした。&lt;/p&gt;
+&lt;p&gt;あと、普段はいい加減なのに、こういう構造とかが異常に気になる自分の性格はなんとかしたい。&lt;br&gt;
+怖いし、めんどくさいので触らない、というのも選択肢としてはアリだと思うんですよね。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>よやっとサイト移行落ち着いたかな？</title>
+      <link>http://example.org/blog/post-1442/</link>
+      <pubDate>Thu, 01 Oct 2020 16:15:29 +0000</pubDate>
+      <guid>http://example.org/blog/post-1442/</guid>
+      <description>&lt;p&gt;テストサイトがあまりにうまく行ったので、勢いで移行しちゃいましたが、デプロイ時のTypoやテーマの挙動に苦しみました。&lt;br&gt;
+が、ようやっと今日になってそこそこ納得行く結果になったかもしれない。&lt;br&gt;
+これを契機にAdsenseも配置してみましたが、ユーザビリティを損なわずに上手く配置できた。…気がする。&lt;/p&gt;
+&lt;p&gt;添付画像の赤枠が腐ってたキャッシュで、ココにIPが入っちゃってました。そのせいか、サイトのスピードも落ちていたような。&lt;br&gt;
+※たぶんテーマが悪いんじゃなくて、田中(゜p゜)の使い方がトンチキなだけ。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;今回の結果を受けて、&lt;a href=&#34;http://example.org/article/migration-site-to-gae/&#34;&gt;GAE移行のエントリに、運用時の注意点も追記&lt;/a&gt;しました。&lt;br&gt;
+はー。疲れたわぁ。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GAEのエッジキャッシュ・テーマ・Adsenseに苦戦…。</title>
+      <link>http://example.org/blog/post-1373/</link>
+      <pubDate>Wed, 30 Sep 2020 12:02:37 +0000</pubDate>
+      <guid>http://example.org/blog/post-1373/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;転職前のボーナス期間も今日までなので、サイトの仕上げにかかってます。&lt;br&gt;
+やった内容は以下二点。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;軽量化・デザイン向上目指して&lt;!-- raw HTML omitted --&gt;Luxeritas&lt;!-- raw HTML omitted --&gt;テーマの導入&lt;/li&gt;
+&lt;li&gt;AddSenseの導入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;しかし、GAEの仕様、Adsenseの仕様、テーマの仕様に苦戦…。&lt;br&gt;
+別々にやればよかったんだけど、テーマ入れたタイミングでAdsenseのOK出るんだもんなー。もうグダグダです。&lt;/p&gt;
+&lt;h2 id=&#34;苦戦ポイント&#34;&gt;苦戦ポイント&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;そもそもLuxeritasとAddsenseの仕様把握に苦戦&lt;/li&gt;
+&lt;li&gt;LuxeritasのjsコードにローカルIPが埋め込まれており、取り除くのに苦戦&lt;/li&gt;
+&lt;li&gt;直したと思ったら、GAEのエッジキャッシュが効いてすぐには反映されず&lt;/li&gt;
+&lt;li&gt;app.yamlにTypoあり、jsじゃなくて&lt;strong&gt;jsi&lt;/strong&gt;を対象にしてしまってた。バカすぎ。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ChromeのF12で赤字探してエラー潰しまくってるんですが、田中(゜p゜)のPCのブラウザ、シークレットタブ、スマホ、&lt;strong&gt;ぜんぶ見た目が違います&lt;/strong&gt;。&lt;br&gt;
+一体全体ユーザ様からはどう見えてるんだろうか。&lt;/p&gt;
+&lt;p&gt;あと、せっかく&lt;a href=&#34;https://developers.google.com/speed/pagespeed/insights/?hl=JA&#34;&gt;PageSpeed(Googleのサイト構成チェックツール)&lt;/a&gt;で、前のテーマから30ポイント近く向上したのに、Adsenseのせいで元に戻った。orz&lt;br&gt;
+いや、自分の所のツールなんだから、少し甘くしてくれても良さそうなものなのに。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;昔々、Webサイトを手で全部書いてたので、コンポーネント組み合わせるだけだろー、とか思ってたら、ぜんぶ高機能すぎてホントウに大変です。&lt;br&gt;
+イマドキのWebエンジニア様って大変なんだなぁ。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GCEでSSHエラーが出る時の対処法</title>
+      <link>http://example.org/blog/post-1180/</link>
+      <pubDate>Mon, 28 Sep 2020 22:08:24 +0000</pubDate>
+      <guid>http://example.org/blog/post-1180/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;いやー、ハマりました。4時間位無駄にしてしまったかも。&lt;/p&gt;
+&lt;p&gt;ハマったので備忘録ついでにワークアラウンド書いておきます。&lt;br&gt;
+スクリーンショット取っておかなかったのが悔やまれますな。&lt;/p&gt;
+&lt;h2 id=&#34;事象&#34;&gt;事象&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;GCEにSSHアクセス時に、「&lt;strong&gt;Permission denied (publickey,gssapi-keyex,gssapi-with-mic).&lt;/strong&gt;」エラーが出る。&lt;/li&gt;
+&lt;li&gt;ローカルSSHでもクラウドシェルでも事象は同じ&lt;/li&gt;
+&lt;li&gt;鍵を手動作成しても事象は変わらない。&lt;/li&gt;
+&lt;li&gt;特定のプロジェクトだけで事象が発生&lt;/li&gt;
+&lt;li&gt;正常なプロジェクトと比較すると、GCEの「メタデータ」に鍵が作成されている。何度消しても蘇る。正常なプロジェクトは、「認証鍵鍵生成」タブに生成される。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考にしたサイト外部リンク&#34;&gt;参考にしたサイト(外部リンク)&lt;/h2&gt;
+&lt;p&gt;同様の事象で悩んでた方。田中(゜p゜)はこれで解決しなかった。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://qiita.com/keisukeYamagishi/items/baff3383a95bdd829636&#34;&gt;https://qiita.com/keisukeYamagishi/items/baff3383a95bdd829636&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;Google公式SSHトラブルシューティング。相変わらずわかりにくい…。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://cloud.google.com/compute/docs/troubleshooting/troubleshooting-ssh?hl=ja&#34;&gt;https://cloud.google.com/compute/docs/troubleshooting/troubleshooting-ssh?hl=ja&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ワークアラウンド&#34;&gt;ワークアラウンド&lt;/h2&gt;
+&lt;p&gt;ダメだったときには次に行く感じで、上から順に実行してます。これで鍵の再作成が走り、だいたい復旧します。&lt;br&gt;
+任意のユーザ名はローカルのログインユーザに合わせ、任意の鍵名はホントに任意です。どうせ再作成されるので。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;コンソールのGCEのページで出力されるコマンドに、以下の太字部分を追加。&lt;br&gt;
+gcloud compute ssh –zone “&amp;lt;ゾーン名&amp;gt;” “&lt;strong&gt;&amp;lt;任意のユーザ名&amp;gt;&lt;/strong&gt;@&amp;lt;対象のマシン名&amp;gt;” –project “&amp;lt;プロジェクトID&amp;gt;” &lt;strong&gt;–ssh-key-file=~/.ssh/&amp;lt;任意の鍵名&amp;gt; –force-key-file-overwrite&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;「1」に加えて「rm-rf ~/.ssh/google*」実行。&lt;/li&gt;
+&lt;li&gt;「1」「2」に加えて、GCEのメタデータのsshKeys(任意のユーザ名に対応するもの)、認証鍵生成のタグにあるユーザを全て削除。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;ただ、**メタデータの削除については、正直プロジェクト内での設計を確認したほうが良い**です。他に影響出てしまうかも。  
+
+あくまでワークアラウンドなので、根本原因、解決策お持ちの方は教えて下さい…
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;トリガー&#34;&gt;トリガー？&lt;/h2&gt;
+&lt;p&gt;正常なプロジェクトとの違いは以下のような感じです。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GKEでクラスタ作った&lt;/li&gt;
+&lt;li&gt;AppEngine、およびGAEのAPIを有効化した&lt;/li&gt;
+&lt;li&gt;CloudSQL利用のためにサービスアカウントへの権限付与、およびAPIを有効にした。&lt;/li&gt;
+&lt;li&gt;他プロジェクトからイメージ引っ張るためにIAMをゴニョゴニョした&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考サイトにもありますが、正直どうしてこうなるのか全く持って不明です。&lt;br&gt;
+こういう時、AWSなら事例がたくさんあって楽なのにな…。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kusanagi on GKEチャレンジ その5  ギブアップ</title>
+      <link>http://example.org/blog/post-1074/</link>
+      <pubDate>Sat, 26 Sep 2020 04:38:45 +0000</pubDate>
+      <guid>http://example.org/blog/post-1074/</guid>
+      <description>&lt;p&gt;タイトルに書いた通り&lt;strong&gt;今回を持ってギブアップ&lt;/strong&gt;でございます。残念です。&lt;br&gt;
+以下に経緯と理由書きます。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://example.org/blog/post-1044/&#34;&gt;Kubenetesチャレンジ その1&lt;br&gt;
+&lt;/a&gt; &lt;a href=&#34;http://example.org/blog/post-1052/&#34;&gt;Kubenetesチャレンジ その2&lt;br&gt;
+&lt;/a&gt; &lt;a href=&#34;http://example.org/blog/post-1059/&#34;&gt;Kubenetesチャレンジ その3&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://example.org/blog/post-1066/&#34;&gt;Kubenetesチャレンジ その4&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;そもそもの要件は何だったのか&#34;&gt;そもそもの要件は何だったのか&lt;/h2&gt;
+&lt;p&gt;やってるうちに自分でも何がしたかったんだか分からなくなってきたので今一度整理しますが、そもそもの要件は、「&lt;strong&gt;&lt;a href=&#34;https://kusanagi.tokyo/cloud/kusanagi-runs-on-docker/&#34;&gt;Kusanagi on Docker&lt;/a&gt;のイメージそのままに、yamlちょろっと書き換えてGKEに上げたいなー&lt;/strong&gt;」です。&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;こちらもKusanagi on Dockerやってらっしゃいます&lt;!-- raw HTML omitted --&gt;が、イメージは自身で作成されたものをGCRからPullする形になってます。&lt;/p&gt;
+&lt;p&gt;バージョンがコロコロ変わることを考えると、**公式DockerHUBからPullしてGKEにデプロイできないかな、**というのが狙いでした。&lt;/p&gt;
+&lt;h2 id=&#34;敗因&#34;&gt;敗因&lt;/h2&gt;
+&lt;p&gt;えー、簡潔にいうと、Kusanagiプロビジョニング時に利用する&lt;strong&gt;シェルスクリプト&lt;/strong&gt;をGKE用にカスタマイズできない、&lt;strong&gt;もしくはカスタマイズにとてつもなく時間がかかる&lt;/strong&gt;、からです。&lt;/p&gt;
+&lt;p&gt;以下の図を見て下さい。&lt;br&gt;
+青線はボリュームのマウント状態、緑はコマンド実行の流れです。DockerへのKusanagiプロビジョニングは**「kusanagi-docker(.sh)」で実行**されますが、ステップは主に以下の3つです。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;①変数から環境設定ファイル、dockerデプロイ用yamlファイル作成。&lt;/li&gt;
+&lt;li&gt;②docker-compose経由でコンテナをデプロイ&lt;/li&gt;
+&lt;li&gt;③(たぶん)config用コンテナにゴニョゴニョして環境設定。&lt;strong&gt;ローカルで環境設定した&lt;/strong&gt;WordPressをインストール。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;※簡略化するために、色々すっ飛ばしてます。&lt;/p&gt;
+&lt;p&gt;①②は問題ないです。田中(゜p゜)がちょいyaml書き換えて、GKEに問題なくデプロイできてます。&lt;br&gt;
+&lt;strong&gt;問題は③です。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;ちょろっとシェルスクリプト修正すりゃーkubectl化できる話じゃないのです。&lt;br&gt;
+ファイルが十数個にまたがってるのと、docker、docker-compose、wp-cliコマンドフル活用で、流れ追うのもやっと。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;そもそもコレをkubectlに変換すんの？ つうかできんの？&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;立ち止まって考えてみた結果&#34;&gt;立ち止まって考えてみた結果&lt;/h2&gt;
+&lt;p&gt;そもそもの要件は「&lt;strong&gt;ちょろっとyaml書き換えてGKEに上げよう！&lt;/strong&gt;」だったので、&lt;strong&gt;シェルスクリプトを重厚に書き換えるのは脱線しすぎ&lt;/strong&gt;です。&lt;/p&gt;
+&lt;p&gt;よしんばコミュニティへの貢献とかのために、頑張って田中(゜p゜)がシェルスクリプト書いたとしても、ろくでもない品質のために迷惑かけかねませんし、田中(゜p゜)も&lt;strong&gt;シェルスクリプトをマスターしたいわけじゃない&lt;/strong&gt;です。&lt;br&gt;
+※いや、仕事で2ヶ月くれるっつうなら頑張るけど…。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;よって潔くギブアップ！&lt;/strong&gt;&lt;br&gt;
+残念ですけど、GCPにWordPressデプロイするとしたら以下の2パターンにしようと思います。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/tutorials/persistent-disk?hl=ja&#34;&gt;公式よろしく無難なハッピーセットでGKEにデプロイ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://console.cloud.google.com/marketplace/details/kusanagi-for-gcp/kusanagi?project=astute-citadel-289908&#34;&gt;Kusanagi on GCEでデプロイ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;趣味のWordPressなら、後者のほうが圧倒的にコスパ良さそうですけどね。&lt;br&gt;
+仕事用にするんでも、後者はMySQLオミットしてCloudSQLに切り替え、コンテンツ領域をPersistentDiskにすれば、ロードバランサ＋オートスケーラーでブン回せそうですし。おすし。&lt;/p&gt;
+&lt;h2 id=&#34;今後の展開&#34;&gt;今後の展開&lt;/h2&gt;
+&lt;p&gt;なんでこのシェルスクリプトはDockerFileに置き換えないんだろなー、とか考えましたが、そもそもフツーのOSに載せていたスクリプトから派生しているようなのと、Kusanagiのロードマップやビジネスプランなどから、あまりパワーを入れたくない領域なのかもしれません。&lt;/p&gt;
+&lt;p&gt;田中(゜p゜)個人としては、Dev/Opsのインフラ領域について理解を深めたいので、それっぽいテーマ定めてKubernetesトレースしたいと思います。&lt;/p&gt;
+&lt;p&gt;skaffoldあたりやってみたいなー。&lt;br&gt;
+でも田中(゜p゜)プログラミング開発環境あんまりだからなー。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kubernetesチャレンジ その4</title>
+      <link>http://example.org/blog/post-1066/</link>
+      <pubDate>Fri, 25 Sep 2020 12:00:31 +0000</pubDate>
+      <guid>http://example.org/blog/post-1066/</guid>
+      <description>&lt;p&gt;まだ続いてます(笑)&lt;br&gt;
+相変わらず、何かの問題解決目的に来た方は、ご期待に添えず申し訳ございません。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://example.org/blog/post-1044/&#34;&gt;Kubenetesチャレンジ その1&lt;br&gt;
+&lt;/a&gt; &lt;a href=&#34;http://example.org/blog/post-1052/&#34;&gt;Kubenetesチャレンジ その2&lt;br&gt;
+&lt;/a&gt; &lt;a href=&#34;http://example.org/blog/post-1059/&#34;&gt;Kubenetesチャレンジ その3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;しかし、その3で突っかかってた「Dockerでデプロイできて、MinikubeではPodのConfig中にコケる」事象は不本意ながら解決しました。↓&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;つまり、&lt;strong&gt;Minikubeではデプロイできないけど、GKEではデプロイでけた&lt;/strong&gt;。&lt;br&gt;
+&lt;strong&gt;何じゃそりゃ。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;ローカルの権限周りをトレースしてみたいけど、目的はローカルで動かすんじゃなく、GKEで動かすことなんだから、ローカルに固執する理由は何もない。&lt;/p&gt;
+&lt;p&gt;ということで、せっかく作った**ローカルのKubernetes(Minikube)環境は全部廃棄。&lt;br&gt;
+** これで2GBくらいディスク空いたった。&lt;/p&gt;
+&lt;p&gt;よく考えたら、マシンリソース節約してコスト削減するために、開発環境を必要な時だけ上げとくなんてのは、当たり前のことだね。&lt;br&gt;
+あと、イメージPullするのにWi-Fiのギガ消費するのも抑えられるし。※田中(゜p゜)家はモビリティ重視でWiMAXなのです。&lt;/p&gt;
+&lt;p&gt;ということで&lt;a href=&#34;http://example.org/blog/post-1052/&#34;&gt;その3の悩み&lt;/a&gt;はスッキリ解決。&lt;br&gt;
+あとはyamlゴリゴリ書くだけだぜー。&lt;/p&gt;
+&lt;p&gt;よーしお父さん、次の次あたりにKusanagi on GKEのタイトルで記事化しちゃうぞー！&lt;/p&gt;
+&lt;p&gt;続く。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kubenetesチャレンジ その3</title>
+      <link>http://example.org/blog/post-1059/</link>
+      <pubDate>Thu, 24 Sep 2020 14:42:46 +0000</pubDate>
+      <guid>http://example.org/blog/post-1059/</guid>
+      <description>&lt;p&gt;まあ案の定、詰まっとります。&lt;br&gt;
+今突っかかってるのは概ね2つ。&lt;/p&gt;
+&lt;h2 id=&#34;問題その1-デプロイ時権限差異&#34;&gt;問題その1 デプロイ時権限差異？&lt;/h2&gt;
+&lt;p&gt;Dockerでデプロイできたイメージが、Minikubeだとデプロイできない。どうも権限が違うっぽい。&lt;br&gt;
+PoDのログはコレ↓。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;具体的には、docker-entrypoint.shというスクリプトがファイル書き込みのPermissionでコケてる。スクリプト動いてるのはhttpdというユーザなのに、書き込み先はwwwというユーザに割り当てられてる。&lt;/p&gt;
+&lt;p&gt;Kubeさんのポリシーが関係してるのかもしれない。トレースが必要。&lt;br&gt;
+&lt;a href=&#34;https://unit42.paloaltonetworks.jp/non-root-containers-kubernetes-cve-2019-11245-care/&#34;&gt;https://unit42.paloaltonetworks.jp/non-root-containers-kubernetes-cve-2019-11245-care/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;うーん。&lt;br&gt;
+DockerFileからいじらせてもらえば権限問題もなんとでもなる気がするんだけどなあ。&lt;/p&gt;
+&lt;h2 id=&#34;問題その2-ローカル環境の理解不足&#34;&gt;問題その2 ローカル環境の理解不足&lt;/h2&gt;
+&lt;p&gt;どうも田中(゜p゜)の入れたMinicubeってのはDockerコンテナの一つでしかないみたいで、リポジトリを共有してないっぽい。仮想マシンで動かすタイプもあるみたいなので、他のもそうかもしれない。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;切り分けのためにDockerでデプロイしたコンテナをコミットして、ちょっとMinikubeで動かしたいだけなのに、Docker上でレジストリサービス用のコンテナ立てたりしないとならんらしい。&lt;/p&gt;
+&lt;p&gt;ローカルでファイル受け渡ししたいだけなのに、面倒なことです。&lt;br&gt;
+あと、Dockerリポジトリの切り替えがシェルの環境変数でしかできないのも面倒&lt;/p&gt;
+&lt;h2 id=&#34;上手くいってるもの&#34;&gt;上手くいってるもの&lt;/h2&gt;
+&lt;p&gt;Minikubeでのボリュームマウントと、環境変数の受け渡し(ConfigMap)は思ったよりずっとあっさりでけた。&lt;/p&gt;
+&lt;p&gt;要はKusanagiの環境変数ファイルをConfigMapに読み込んで、yamlで呼んでやればよいだけ。&lt;br&gt;
+&lt;a href=&#34;https://kubernetes.io/ja/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-files&#34;&gt;https://kubernetes.io/ja/docs/tasks/configure-pod-container/configure-pod-configmap/#create-configmaps-from-files&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;結局ヤバそうなのは早々に片付き、想定もしてなかったのが課題になっとる感じ。&lt;/p&gt;
+&lt;p&gt;続きます。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes チャレンジ その2</title>
+      <link>http://example.org/blog/post-1052/</link>
+      <pubDate>Wed, 23 Sep 2020 10:52:18 +0000</pubDate>
+      <guid>http://example.org/blog/post-1052/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;どうしてもGKE上で&lt;a href=&#34;https://kusanagi.tokyo/cloud/kusanagi-runs-on-docker/&#34;&gt;Kusanagi on Docker&lt;/a&gt;動かしたい。シリーズその2。&lt;/p&gt;
+&lt;p&gt;**何かの解決を期待してこのエントリにたどり着いた方、申し訳ございませんがその足でお帰り下さい。**田中(゜p゜)の悩みが深まっただけでございます。&lt;/p&gt;
+&lt;p&gt;**&lt;a href=&#34;http://example.org/blog/post-1044/&#34;&gt;前回のエントリ&lt;/a&gt;**の通り、ローカルのKubernetes環境の構築には成功。&lt;br&gt;
+しかし本日は一進二退という感じで、むしろ退きました。&lt;/p&gt;
+&lt;p&gt;既にKusanagiはローカルのDockerにデプロイはできているんですが、何故かどーしてもコレ。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;まー、ボリュームのマウントがうまくいってないんだろな、というのは分かりましたが、色々切り分けると、何故かKusanagI on Dockerは、Dockerコンテナをダウンさせても、データが残るという事象に到達。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;もはやKubernetes関係ない。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;結論からいうと、&lt;strong&gt;裏でKusanagiがVolumeマウントしてやがりました。&lt;/strong&gt;&lt;br&gt;
+「docker volume ls」すれば一発なんだろうけど、ああ悲しきかな、田中(゜p゜)は初心者。かなりの時間右往左往してしまいました。&lt;/p&gt;
+&lt;p&gt;挙句の果に、&lt;strong&gt;Docker落とさずにマウントされた実体ファイルを移動してみる&lt;/strong&gt;という暴挙に居たり、結果がコレ。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;strong&gt;まあ普通に壊れますわな。&lt;/strong&gt;&lt;br&gt;
+その後、Dockerの再インストールはなんとか食い止めましたが、Kusanagiさんは再インストール。orz。&lt;/p&gt;
+&lt;p&gt;で、Kusanagiのボリュームのマッピングはだいたい把握したので、いかにそれをKubernetes用に落とし込むか、というのが課題となりまして。&lt;br&gt;
+Webを漁るとやっぱりディスクのマウントというのは課題になるみたいで、&lt;a href=&#34;https://kubernetes.io/ja/docs/concepts/storage/persistent-volumes/&#34;&gt;Kubernetesでもゴニョゴニョ開発中&lt;/a&gt;のこと。嫌な予感するなあ。&lt;/p&gt;
+&lt;p&gt;そもそもKubernetesのPODつうのは揮発性でかつ複数存在するものであって、書き込みが必要なデータをどっかに置いとかなきゃいけない。&lt;br&gt;
+一般的なシステムならDBにおけば解決なんだろうけど、残念ながら田中(゜p゜)が使いたいのはWordpressで&lt;strong&gt;おもいきりディスク依存&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;レガシーな田中(゜p゜)の知識でも、複数のノードから一つのディスクにアクセスするっつうのは排他制御などの関係からえらく面倒だという認識はある。&lt;/p&gt;
+&lt;p&gt;結局、可用性も物理考慮しないとだし、ディスクの悩み解決してないし、**レガシーなインフラとあまり変わらんやん！&lt;br&gt;
+**&lt;br&gt;
+ということで、もう少し頑張りたいと思います。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kubenetes(Minikube) on ローカル環境構築</title>
+      <link>http://example.org/blog/post-1044/</link>
+      <pubDate>Tue, 22 Sep 2020 08:53:27 +0000</pubDate>
+      <guid>http://example.org/blog/post-1044/</guid>
+      <description>&lt;p&gt;どうしてもGKE上で&lt;a href=&#34;https://kusanagi.tokyo/cloud/kusanagi-runs-on-docker/&#34;&gt;Kusanagi on Docker&lt;/a&gt;動かしたい。&lt;br&gt;
+けど、KusanagiのGitにはDocker-compose用のyamlしかないので、ローカルでKubenetes動かして、自分でyaml作ってみることにした。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;が、ローカル環境構築でとにかく苦戦。&lt;/strong&gt;&lt;br&gt;
+こんな時、Macならトモダチがたくさんいるのにな。&lt;/p&gt;
+&lt;p&gt;ただ、いちおうダッシュボードまで上がり、テスト用のデプロイも上手くいったので、環境構築はなんとか完了です。環境構築だけでもうグッタリ。ちなみにUbuntu18.04です。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;GKEクリソツですが、ローカルのダッシュボード環境です。&lt;/p&gt;
+&lt;p&gt;構築の「流れ」はブログとか参照で良いが、実際の手順は公式マニュアル見たほうが良いすね。&lt;br&gt;
+1ステップごとに2〜3往復して、結局公式の手順に落ち着くんだから。&lt;/p&gt;
+&lt;p&gt;以下、自分用メモです。&lt;/p&gt;
+&lt;h2 id=&#34;step1-dockerのインストール&#34;&gt;STEP1 Dockerのインストール&lt;/h2&gt;
+&lt;p&gt;ココ。&lt;br&gt;
+パッケージでインストールしてまうのが一番早い。&lt;br&gt;
+&lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;https://docs.docker.com/engine/install/ubuntu/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;他のWebサイトにスクリプト流すパターンあるが、パッケージと整合性取れなくなるのでしぬ。&lt;/p&gt;
+&lt;h2 id=&#34;step-2-minikubeインストール&#34;&gt;STEP 2 Minikubeインストール&lt;/h2&gt;
+&lt;p&gt;Minikubeは一番しんだ。インストールまではどこのサイトでも一緒だが、スタート時のオプションが&lt;strong&gt;noneやvitualBoxではダメ。&lt;/strong&gt; 田中(゜p゜)の環境もあると思うが致し方なく&lt;strong&gt;docker&lt;/strong&gt;を選択。&lt;br&gt;
+&lt;a href=&#34;https://kubernetes.io/ja/docs/setup/learning-environment/minikube/&#34;&gt;https://kubernetes.io/ja/docs/setup/learning-environment/minikube/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;minikubeなのに1.5GBもコンテナで食ってますよ。&lt;br&gt;
+てかそもそもコレ、本当にminikubeなのかしら。Kubenetesなのでは？&lt;br&gt;
+田中(゜p゜)の技術力では真実をトレースする余裕がない。&lt;/p&gt;
+&lt;h2 id=&#34;step-3optional-dashbordインストール&#34;&gt;STEP 3(Optional) Dashbordインストール&lt;/h2&gt;
+&lt;p&gt;これは完全に趣味の世界。&lt;br&gt;
+GKEのGUIインターフェイスが便利なので、ほしいと思っただけ。&lt;/p&gt;
+&lt;p&gt;認証周りはトークンでしかできないことに注意。&lt;br&gt;
+&lt;a href=&#34;https://kubernetes.io/ja/docs/tasks/access-application-cluster/web-ui-dashboard/&#34;&gt;https://kubernetes.io/ja/docs/tasks/access-application-cluster/web-ui-dashboard/&lt;br&gt;
+&lt;/a&gt;&lt;br&gt;
+なんか開発中っぽいよね。Googleの人ならHTML5でサラッと書いてそう。&lt;br&gt;
+PROXY上げとかなきゃいけないのも面倒だし。&lt;/p&gt;
+&lt;h2 id=&#34;その他&#34;&gt;その他&lt;/h2&gt;
+&lt;p&gt;その他、久しぶりにVS codeとか引っ張り出してきていじってみました。&lt;br&gt;
+docker-composeとか右クリック一発でやってくれて便利だな。&lt;/p&gt;
+&lt;p&gt;Kubenetesのプラグインはまだ動かんです。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;続きます。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ubuntuで使える Windows風ペイントツール</title>
+      <link>http://example.org/blog/post-1040/</link>
+      <pubDate>Mon, 21 Sep 2020 14:05:17 +0000</pubDate>
+      <guid>http://example.org/blog/post-1040/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Lubuntuを16.04から18.04にあげても見た目変わらなかったが、一つだけ激しく感動したことがある。&lt;/p&gt;
+&lt;p&gt;なんと&lt;strong&gt;Windowsペイント風のペイントツールがついに！ 実装された！&lt;/strong&gt;&lt;br&gt;
+なんでも、KolourPaintというらしい。&lt;/p&gt;
+&lt;p&gt;田中(゜p゜)は描画に、添付画像のマーキングに、トリミングに、&lt;!-- raw HTML omitted --&gt;エビデンス偽造に&lt;!-- raw HTML omitted --&gt;Windowsペイントツールをフル活用する人なので、これを使うためだけにVMPlayerのWindows10を起動することが多かったのだ。&lt;/p&gt;
+&lt;p&gt;今まで手軽な描画ツールが無かっただけにこれは嬉しい。&lt;br&gt;
+願わくばPowerPointもクライアントソフト並にWeb版が動作してくれれば、田中(゜p゜)個人のお絵かき環境は完璧なのだが。&lt;/p&gt;
+&lt;p&gt;まあ無理かなー。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>祝！ ブログ村 IT技術情報ランキング一位！</title>
+      <link>http://example.org/blog/post-1034/</link>
+      <pubDate>Sun, 20 Sep 2020 05:40:55 +0000</pubDate>
+      <guid>http://example.org/blog/post-1034/</guid>
+      <description>&lt;p&gt;せっかくなんで魚拓取っておこう。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;・・・・・・。&lt;br&gt;
+・・・・・・・・・・・・・。&lt;/p&gt;
+&lt;p&gt;うーん。週間INが75ですけど。あと始めて一ヶ月も経ってませんが。&lt;br&gt;
+どんだけディレクトリ掘ってんだ、という話ですか。&lt;/p&gt;
+&lt;p&gt;なにか憑いている可能性もあるな…。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress on GKEチャレンジ その3(終)</title>
+      <link>http://example.org/blog/post-1030/</link>
+      <pubDate>Sun, 20 Sep 2020 05:30:35 +0000</pubDate>
+      <guid>http://example.org/blog/post-1030/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;http://example.org/blog/post-1015/&#34;&gt;WordPress on GKEチャレンジ その1&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://example.org/blog/post-1027/&#34;&gt;WordPress on GKEチャレンジ その2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;結論からいうと、できたはできた。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;が、最終的にできたのは、下記のkusanagiデプロイに&lt;strong&gt;GCPのロードバランサかぶせただけ&lt;/strong&gt;、みたいなつまらない構成。&lt;br&gt;
+&lt;a href=&#34;https://qiita.com/nagase/items/5525bd80196802b0a07a&#34;&gt;https://qiita.com/nagase/items/5525bd80196802b0a07a&lt;/a&gt;&lt;br&gt;
+※クッソ早いけど、&lt;a href=&#34;https://a.tmp-net.biz/&#34;&gt;さっきwp-config.php壊したので&lt;/a&gt;こんなですwww&lt;/p&gt;
+&lt;p&gt;ロードバランサー、￥2,500/月でお高いんですよ。&lt;br&gt;
+知恵がないためにお金払わないとなんだなぁ。&lt;/p&gt;
+&lt;p&gt;結局のところ、サービスのロードバランサ使えば、GKEに対しての&lt;strong&gt;デプロイ自体は楽勝&lt;/strong&gt;。&lt;strong&gt;厄介だったのは証明書の自動管理&lt;/strong&gt;。正直あきらめた。&lt;br&gt;
+どこもLet’s Encryptなんだけど、クラウドのDNSをAPIで叩かなきゃいけなくて、それがなー。&lt;/p&gt;
+&lt;p&gt;あと、Google DomainでAPI叩けず、Cloud DNSに移行したんだけど、派手にドメイン名をtypoしとって、半日このサイト止まっとった。悲しい。&lt;/p&gt;
+&lt;h2 id=&#34;しんどいポイント&#34;&gt;しんどいポイント&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;コンテナでの証明書管理にcert-managerてのを使う。ただ、Webに書いてある情報はどれも古くて、今のcert-managerのバージョンに合ってない。&lt;br&gt;
+インストール、yamlの書き方で、最も信頼ができたのは結局公式サイト。&lt;br&gt;
+&lt;a href=&#34;https://cert-manager.io/docs/installation/kubernetes/&#34;&gt;https://cert-manager.io/docs/installation/kubernetes&lt;/a&gt;/&lt;br&gt;
+&lt;a href=&#34;https://cert-manager.io/docs/configuration/acme/dns01/&#34;&gt;https://cert-manager.io/docs/configuration/acme/dns01/&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://cert-manager.io/docs/configuration/acme/dns01/google/&#34;&gt;https://cert-manager.io/docs/configuration/acme/dns01/google/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;公式サイトを完璧にトレースしても証明書取得時にエラーが出るので、どうも未知の事象を踏んだっぽい。が、英語のフォーラムに参加する気力はない。&lt;/li&gt;
+&lt;li&gt;Kubenetesのレポジトリ管理にHelmつうアプリ入れるんだけど、v3とv2でコマンド体系が全く違ってた。基本公式サイトはv3。&lt;/li&gt;
+&lt;li&gt;Gitのやつがコケたのは、Helmのバージョンとレポジトリが古いから。証明書管理もkube-legoっていう、cert-managerの作者が以前作ってて放置したもののようで、トレースする気が失せた。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://github.com/stcox/gke-wordpress&#34;&gt;https://github.com/stcox/gke-wordpress&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ということで証明書運用の自動化は諦め気味…。&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;今回学んだこと&#34;&gt;今回学んだこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;更新の早いコンポーネントは、ブログを頼りにせず、公式ドキュメントを見る。&lt;/li&gt;
+&lt;li&gt;Kusanagiクソ早い。別にGKEじゃなくても良いかも。&lt;/li&gt;
+&lt;li&gt;抽象化されるととても便利だが、行き過ぎるとワケわからなくなる。&lt;br&gt;
+Pod間、もといコンテナ間の通信はyamlベースに図を書いてみないと分からない&lt;/li&gt;
+&lt;li&gt;切り分けたくてもPodにツールが入ってない。入れるのメンドイ。&lt;/li&gt;
+&lt;li&gt;こういうのを管理するための構成管理ツール売れそうだなぁ、と思った。&lt;/li&gt;
+&lt;li&gt;PHPを7.0 → 7.3に上げた時は、ワンライナー、モノの10秒で終わって少し感動。&lt;/li&gt;
+&lt;li&gt;コンテナ間の通信にオーバーレイ技術使われとってワロタ。&lt;/li&gt;
+&lt;li&gt;結局のところガチの可用性を考慮したら物理を意識しないとダメっぽい。インフラ観点だと、ポッドの割当論理設定を可視化した上でテスト計画立てないと。項目すげー増えそう。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;今後のこのサイトについて&#34;&gt;今後のこのサイトについて&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;当たり前かもだけど、個人サイトレベルでGKEはいらんと思う。&lt;/li&gt;
+&lt;li&gt;オートスケーラー実装したかったんだけど、どうせロードバランサー使うならGCEでもいいんじゃ。&lt;/li&gt;
+&lt;li&gt;というか、とりあえずkusanagi入れとけばn1-small1台で十分そう。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress on GKEチャレンジ その2</title>
+      <link>http://example.org/blog/post-1027/</link>
+      <pubDate>Sat, 19 Sep 2020 11:13:23 +0000</pubDate>
+      <guid>http://example.org/blog/post-1027/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;http://example.org/blog/post-1015/&#34;&gt;昨日の続き&lt;/a&gt;です。&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress on GKEチャレンジ その1</title>
+      <link>http://example.org/blog/post-1015/</link>
+      <pubDate>Fri, 18 Sep 2020 08:53:22 +0000</pubDate>
+      <guid>http://example.org/blog/post-1015/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;将来的に間違えてアクセスが増えちゃった場合に備えて、&lt;strong&gt;GKEにWordPress載せるぞ！&lt;/strong&gt; というチャレンジしてます。&lt;/p&gt;
+&lt;p&gt;GKEが何かというのは下記リンク参照。&lt;br&gt;
+要するに、Dockerをステキにコントロールできる、Googleさんのクールなエンジンなのです。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://xtech.nikkei.com/atcl/learning/lecture/19/00095/00003/&#34;&gt;https://xtech.nikkei.com/atcl/learning/lecture/19/00095/00003/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;正直WordPressはコンテンツ更新がPersitentDiskとSQLだから、あまり意味ないと思うけど、何事も着手してみないと始まらない。&lt;/p&gt;
+&lt;p&gt;3年ほど前、GKEのインフラの抽象化度合いに驚き、ある程度自習やってたので、Dockerくらいは分かるだろーとたかをくくってましたが、全ッ然覚えてなくてワロタ。&lt;br&gt;
+いや、自分で思ったより脳がおっさんでワロエナイ。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://example.org/article/necessity-of-program/&#34;&gt;ココで田中(゜p゜)はyaml使える&lt;/a&gt;と言ったな。&lt;br&gt;
+あれは嘘だ！&lt;/p&gt;
+&lt;p&gt;ということで、自分のpoorな技術力を噛み締めながら、予習を含めて段階的に学習していきます。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;■ローカルにDocker環境構築&lt;/strong&gt;&lt;br&gt;
+というか、これが一番大変だったんですが。&lt;br&gt;
+なんかJavaとかEclipse入ってて、環境変数腐ってる。あとぺぇそん(Python）が2.7のせいか、ライブラリのエラーでまくる。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ubuntu 16.04だとdocker-compose動作せず。&lt;/li&gt;
+&lt;li&gt;Ubuntu 16.04 → 18.04 アップグレード。&lt;/li&gt;
+&lt;li&gt;その他色々ゴニョゴニョしてなんとかローカルでDocker動作させた&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;■Docker基本おさらい&lt;/strong&gt;&lt;br&gt;
+田中(゜p゜)の環境と違うためか、一部手を加えなければならないところあった。&lt;br&gt;
+全然Dockerのコマンド覚えてない自分に幻滅。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://qiita.com/hiyuzawa/items/81490020568417d85e86&#34;&gt;https://qiita.com/hiyuzawa/items/81490020568417d85e86&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;■WordPress on Local Docker&lt;/strong&gt;&lt;br&gt;
+これはサンプルの通りやればよかったので楽勝。&lt;br&gt;
+基本おさらいのおかげで中身も読めてひと安心。&lt;br&gt;
+&lt;a href=&#34;http://bashalog.c-brains.jp/19/08/15-120000.php&#34;&gt;http://bashalog.c-brains.jp/19/08/15-120000.php&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;■WordPress on GKE予習&lt;/strong&gt;&lt;br&gt;
+こちらもサンプル通りにやれば良いので楽勝。のはず。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://cloud.google.com/kubernetes-engine/docs/tutorials/persistent-disk?hl=ja&#34;&gt;https://cloud.google.com/kubernetes-engine/docs/tutorials/persistent-disk?hl=ja&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;ただ、検証用とはいえ費用が怖いので、ワーカーノード削ったり、preemptableマシンにしたりします。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://blog.a-know.me/entry/2018/06/17/220222&#34;&gt;https://blog.a-know.me/entry/2018/06/17/220222&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;※2020/09/18 できました。が、90日で無料クレジットがなくなるので消えます。&lt;br&gt;
+&lt;a href=&#34;http://wp-gke.tmp-net.biz/&#34;&gt;http://wp-gke.tmp-net.biz/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;span-stylecolorff0000-classhas-inline-color今ココspan&#34;&gt;&lt;!-- raw HTML omitted --&gt;←今ココ！&lt;!-- raw HTML omitted --&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;■Wordpress on GKE環境構築&lt;/strong&gt;&lt;br&gt;
+まだ決めてないけど、常時SSL目指して、このあたりのレポジトリ利用を考えてます。&lt;br&gt;
+結局自分で書くんじゃないのかーい、というツッコミはなしでお願いしますよ。しんでしまいます。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://github.com/stcox/gke-wordpress&#34;&gt;https://github.com/stcox/gke-wordpress&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;■CI/CD環境構築&lt;/strong&gt;&lt;br&gt;
+できるか分からんけど、CI/CD基盤まで実装してみたい。&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://www.slideshare.net/yuamano/word-pressgke-79115181&#34;&gt;https://www.slideshare.net/yuamano/word-pressgke-79115181&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>このサイトのWordPressプラグイン</title>
+      <link>http://example.org/blog/post-469/</link>
+      <pubDate>Thu, 10 Sep 2020 23:24:39 +0000</pubDate>
+      <guid>http://example.org/blog/post-469/</guid>
+      <description>&lt;p&gt;誰も興味ない可能性ありますが、WordPressの構成ほぼ確なので備忘録含めて書いておきます。&lt;br&gt;
+セキュリティ的にヤバいのかな？ まあPHPにバグあったらそもそも終わりだし、ハックされたらそれはそれでネタとして使えそうなのであえて気にしない。&lt;/p&gt;
+&lt;p&gt;**Akismet Anti-Spam (アンチスパム)&lt;br&gt;
+** もとからインストールされてるアンチスパム用。投稿とかフォーラムが守られていると信じたい&lt;/p&gt;
+&lt;p&gt;**bbPress&lt;br&gt;
+** フォーラム機能用。現時点でトピックはないため良いとも悪いとも言えない(笑)&lt;/p&gt;
+&lt;p&gt;**Really Simple SSL&lt;br&gt;
+** SSL化によるコンテンツ修正のために入れた。けど、WEBサーバ側は自分で手を加えたし、結構手動での修正が必要で残念な感じ。使いこなしてないだけかな。&lt;/p&gt;
+&lt;p&gt;**Asset CleanUp: Page Speed Booster&lt;br&gt;
+** Google先生のサイトチェッカーでモバイル向けにコンテンツ最適化されてないよ、とのことだったので入れた。63/100だったのが、69/100になった。&lt;br&gt;
+いや、95/100になるオプションもあるんだけど、CSSとJavascriptがまともに動かなくなってデザイン壊滅したので妥協。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;My Database Admin&lt;br&gt;
+** なんと最新バージョンのWordPressだとMyPhpAdminが動かんのです。CUIで単純にMySQLにSQL発行して結果を表示するだけという恐ろしく原始的なツールで、はっきり言って&lt;/strong&gt;いじるの怖い**。スナップショット取ってから使うようにしてる。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Contact Form 7&lt;br&gt;
+WP Mail SMTP&lt;br&gt;
+** お問い合わせフォーム用。このサイトはGmail使ってるんですけど、メール送るのに&lt;/strong&gt;GCP経由でAPI叩く必要あり**、ハードル高いと感じた。Gmailはセキュリティ厳しいんだなぁ。&lt;/p&gt;
+&lt;p&gt;**All In One SEO Pack&lt;br&gt;
+WebSub/PubSubHubbub&lt;br&gt;
+WordPress Ping Optimizer&lt;br&gt;
+** いわゆるSEO対策用。未だGoogleにsitemap反映されてないし、動いてるんだか動いてないんだか。&lt;/p&gt;
+&lt;p&gt;田中(゜p゜)も人の子ですので、サイトの運営費用を捻出すべく、Google AdsenseとAmazon Asociateの利用を考えてます。営利目的ではないのはご理解頂きたい。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WordPress構築</title>
+      <link>http://example.org/blog/post-324/</link>
+      <pubDate>Wed, 09 Sep 2020 07:04:06 +0000</pubDate>
+      <guid>http://example.org/blog/post-324/</guid>
+      <description>&lt;p&gt;腐ってもエンジニア魂は忘れないッ！&lt;br&gt;
+ということで、このサイトは可能な限りDIYで安く作ってます。&lt;br&gt;
+年間維持費はドメインの1400円くらい？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;Google Domain&lt;!-- raw HTML omitted --&gt;でドメイン取得。&lt;/li&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;GCP(Google)のGCE無料枠&lt;!-- raw HTML omitted --&gt;活用。バックアップ、監視等完備。&lt;/li&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;CentOS最新版＋Wordpress最新版&lt;!-- raw HTML omitted --&gt; ※2020/09/01時点&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/takutakutaku/items/c8873c7085e450b602bc&#34;&gt;Let`s Encrypt証明書によるSSL化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.rem-system.com/httpd-http2/&#34;&gt;HTTP2対応&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;WordPressは2年位前に箱だけやったことがあったんだけど、コンテンツを詰め込むことはなかったです。よって、一番苦戦しているのはWordPressのオペレーション(笑)&lt;/p&gt;
+&lt;p&gt;WordPressの作りは大きく変わらんですね。MySQLのバージョン上がり過ぎてて、アカウント登録に苦戦したくらいかな。&lt;/p&gt;
+&lt;p&gt;あと、世間的に常時SSLの流れになっとるのと、HTTPが2.0になってて、SSLにすると効率が良いらしいので、慌ててLet`s Encryptで証明書実装しました。&lt;/p&gt;
+&lt;p&gt;自分がやりたいと思うことはたいてい誰かが先にやってるので、ググればいいだけの、良い世の中になりましたねー。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
