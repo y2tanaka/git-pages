@@ -3,6 +3,7 @@ title: "ITインフラエンジニアのなんとか"
 baseURL: "https://y2tanaka.github.io/git-pages/"
 theme: "hugo-theme-zen"
 languageCode: "en-GB"
+publishDir: docs
 defaultContentLanguage: "en"
 pluralizelisttitles: false
 removePathAccents: true

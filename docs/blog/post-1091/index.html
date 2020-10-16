@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html class="nojs" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>WordPress on GAE Standard  構築(済) – ITインフラエンジニアのなんとか</title>
+<meta name="description" content="前回のKusanagi on GKEギブアップからまだ懲りてません(笑) 今度はGoogle App Engine(GAE)を使ってWordPressを構築します。 ちなみにStandardの方で構築するので、CloudSQL以外は、使った分だけお金を支払えばよいというスグレモノ。しかもスケーリングも証明書も、何もかもやってくれるオマケ付 …">
+<meta name="created" content="2020-09-27T08:26:19+0000">
+<meta name="modified" content="2020-09-27T08:26:19+0000">
+<meta name="author" content="田中(゜p゜)">
+<meta name="contact" content="info@example.org">
+<meta property="og:site_name" content="ITインフラエンジニアのなんとか">
+<meta property="og:title" content="WordPress on GAE Standard  構築(済)">
+<meta property="og:url" content="https://y2tanaka.github.io/git-pages/blog/post-1091/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://y2tanaka.github.io/git-pages/apple-touch-icon.png">
+<meta name="generator" content="Hugo 0.68.3" />
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="theme-color" content="#ffffff">
+
+
+<link rel="canonical" href="https://y2tanaka.github.io/git-pages/blog/post-1091/">
+<link rel="apple-touch-icon" href="/git-pages/apple-touch-icon.png">
+
+<link rel="stylesheet" href="/git-pages/css/mobile.2ab74aa64785dcab8114959e76ca140cf76207cd85989bc6d4fc3b12f734a09e.css" media="screen">
+<link rel="stylesheet" href="/git-pages/css/styles.07de9722ae74190da91740ecb1e12bbfa31de324e29ab4972bdcc4131519528c.css">
+<link rel="stylesheet" href="/git-pages/css/print.27fc184f8670f41a2690985390779e7b20335a8fadff8fa015cf9417ffe50c36.css" media="print">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "headline": "WordPress on GAE Standard  構築(済)",
+    "datePublished": "2020-09-27T08:26:19Z",
+    "dateModified": "2020-09-27T08:26:19Z",
+    "url" : "https://y2tanaka.github.io/git-pages/blog/post-1091/",
+    "description": "前回のKusanagi on GKEギブアップからまだ懲りてません(笑) 今度はGoogle App Engine(GAE)を使ってWordPressを構築します。 ちなみにStandardの方で構築するので、CloudSQL以外は、使った分だけお金を支払えばよいというスグレモノ。しかもスケーリングも証明書も、何もかもやってくれるオマケ付 …",
+    "image" : "https://y2tanaka.github.io/git-pages/apple-touch-icon.png",
+    "author": {
+      "@type": "Person",
+      "name": "田中(゜p゜)"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://y2tanaka.github.io/git-pages/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ITインフラエンジニアのなんとか",
+      "logo" : {
+        "@type": "ImageObject",
+        "url": "https://y2tanaka.github.io/git-pages/apple-touch-icon.png"
+      },
+      "url": "https://y2tanaka.github.io/git-pages/"
+    }
+  }
+</script>
+
+<script src="/git-pages/js/script-early.min.a8d899ac88f2a778985767b86ce681945e3fa2069c3c9efd17e5e5b594d3ba1f.js"></script>
+<script defer src="/git-pages/js/lib/umbrella.min.b426107371d121c9a56a27aac9e9058ff592a021e2f4c3c94827fe70920d3cbb.js"></script>
+<script defer src="/git-pages/js/mobile.min.3a3510028bab9810834389725137cfa50f5d3231799ef9ac70769331fa59859a.js"></script>
+<script defer src="/git-pages/js/script.min.f7f56769569fdf7a80d073b6775c6cd9ed8ae528864cd3f2aa1c8c3fe73f87ea.js"></script>
+
+
+</head>
+
+<body class="single-page">
+<div class="page layout__page layout__sidebar-second">
+<header class="header layout__header">
+<a href="/git-pages/" title="Home" rel="home" class="header__logo"><img src="/git-pages/images/logo.png" alt="Home" class="header__logo-image"></a>
+<h1 class="header__site-name">
+<a href="/git-pages/" title="Home" class="header__site-link" rel="home"><span>ITインフラエンジニアのなんとか</span></a>
+</h1>
+<div class="region header__region">
+</div>
+</header>
+
+<nav class="main-menu layout__navigation">
+<h2 class="visually-hidden">Main menu</h2>
+<ul class="navbar">
+<li><a href="/git-pages/">Home</a></li>
+<li><a href="/git-pages/about/">About</a></li>
+<li><a href="/git-pages/contact/">Contact</a></li>
+<li><a href="/git-pages/search/">Search</a></li>
+<li><a href="/git-pages/posts/" class="active" aria-current="page">Posts</a></li>
+</ul>
+</nav>
+
+
+<main class="main layout__main">
+<article class="section-posts single-view">
+<header>
+<h1 class="title title-submitted">WordPress on GAE Standard  構築(済)</h1>
+<div class="submitted">
+<span class="author" itemprop="author">田中(゜p゜)</span> – <time class="created-date" datetime="2020-09-27T08:26:19Z">27 September, 2020</time>
+</div>
+</header>
+<div class="content">
+<!-- raw HTML omitted -->
+<p><a href="/blog/post-1074/">前回のKusanagi on GKEギブアップ</a>からまだ懲りてません(笑)<br>
+今度は<!-- raw HTML omitted -->Google App Engine(GAE)<!-- raw HTML omitted -->を使ってWordPressを構築します。</p>
+<p>ちなみにStandardの方で構築するので、CloudSQL以外は、<strong>使った分だけお金を支払えばよいというスグレモノ</strong>。しかもスケーリングも証明書も、何もかもやってくれるオマケ付き。</p>
+<p>間違えてフレキシブルで構築すると、自由度が高い代わりにGCEインスタンス代がコンスタントにかかってしまうので注意です。比較表はこちら(外部サイト) <!-- raw HTML omitted --><a href="https://www.serversus.work/topics/5jbu7y90jk81kcdqfzf0/">https://www.serversus.work/topics/5jbu7y90jk81kcdqfzf0/</a><!-- raw HTML omitted --></p>
+<h2 id="進捗状況">進捗状況</h2>
+<p>今回のは<strong>実はもうサイトできてます</strong>。既存のサイトからの移行方法も検証済。<br>
+<a href="http://www.tmp-net.biz/">サイトはこちら。</a> ※2020/09/29追記 移行しちゃったのでもうありません。</p>
+<p><strong>ハハッ。</strong><br>
+田中(゜p゜)の技術者としての能力も捨てたもんじゃないね！</p>
+<p>というか、田中(゜p゜)は昔この構成でWordPressやったことあるんですけどね！<br>
+最近チュートリアルがアップデートされて、画像ファイルとかの扱いがさらに容易くなりました。</p>
+<p>GKEであれだけ苦戦してたのがウソのよう。<br>
+<strong>GAEサイコー!</strong></p>
+<h2 id="運用上の注意点">運用上の注意点</h2>
+<p>ただし、そんなに上手い話は世にはなかなかないのです。<br>
+カンタンにできるから真似してみよう！ と思われる方のために注意点。</p>
+<p>この構成の一番の問題は、GAEに上げちゃったが最後、<strong>WPのGUIから更新できないものが発生する</strong>ことです。</p>
+<p>更新できないものを以下に並べます。</p>
+<ul>
+<li><strong>プラグイン(設定は除く)</strong></li>
+<li><strong>テーマ(設定は除く)</strong></li>
+<li><strong>投稿・固定ページへの直接画像貼り付け(メディアライブラリからはOK)</strong></li>
+</ul>
+<p>3つともかなり致命的だと思います。<br>
+これに関連してWP側でエラーが出ることがありますが、そもそもGAEはディスクに書き込めないものだというのを知っておかないと混乱します。</p>
+<h2 id="回避方法">回避方法</h2>
+<p>カンタンにいうと、<strong>ローカルにサーバを立てて、そこで管理</strong>します。<br>
+<strong>GAEはCloudSQL Proxyってのを使わないとCloudSQLには接続できない</strong>ので、ローカルにも同じプロキシを入れてDBにアクセスできるようにします。<br>
+<strong>図中の①です。</strong></p>
+<p>また、ローカルのWordPressは、環境構築した後、yaml書いてGAEにデプロイします。<br>
+<strong>図中②の部分</strong>です。</p>
+<!-- raw HTML omitted -->
+<p><strong>じゃあ更新はどうするのか</strong>というと、ローカルにPHPサーバ構築して、WordPressのGUIを動かして更新します。</p>
+<p>記事はDBに書かれるので特にアクションは必要ないですが、<strong>画像、テーマ、プラグインを更新した場合は②のデプロイが必要になります。</strong></p>
+<p>デプロイはワンライナーですけど<strong>めんどくせえ・・・。</strong><br>
+けど、WordPressをクラスタ化したら、どのみち更新用の端末とか必要になってきそうだしなー。</p>
+<h2 id="構築方法">構築方法</h2>
+<p>それでもやりたい方のために、構築を方法を書きます。</p>
+<p><strong>つ Googleのチュートリアル。</strong><br>
+<a href="https://cloud.google.com/community/tutorials/run-wordpress-on-appengine-standard?hl=ja">https://cloud.google.com/community/tutorials/run-wordpress-on-appengine-standard?hl=ja</a></p>
+<p>…というだけでは投稿の意味がないので、注意点を少し。</p>
+<ul>
+<li>チュートリアルにミス。<br>
+×php vendor/bin/wp-gae<br>
+○php vendor/bin/wp-gae create</li>
+<li>WP CLIのインストールは、チュートリアルじゃなくて公式のほうが良い。<br>
+<!-- raw HTML omitted --><a href="https://wp-cli.org/ja/">https://wp-cli.org/ja/</a><!-- raw HTML omitted --></li>
+<li>サーバの作り方が書いてないが、php、php-mysqlインストールして、以下で行ける。<br>
+cd &lt;WordPressのフォルダ&gt;<br>
+php -S 127.0.0.1:9000<br>
+ブラウザでhttp://127.0.0.1:9000/にアクセス。</li>
+<li>ただし遅いので、レスポンス気になるならきちんとサーバ立てたほうが良い。</li>
+</ul>
+<p>更新の早い世の中ですから、公式と最新版のギャップは大きくなっていくものと思われます。もちろんこのブログもです。</p>
+<p>以下、既存のWordPressサイトからの移行方法ですので、新規の方は見なくて良いと思います。</p>
+<h2 id="移行方法1-移行用プラグイン利用">移行方法1： 移行用プラグイン利用</h2>
+<p>要は<strong>移行用プラグインを</strong>移行元と移行先に入れて、エクスポート→インポートするだけのはずですが、ローカルのホスト名が127.0.0.1なので、サイト内でのURL整合性が取れなくなります。</p>
+<p><strong>賢い移行ツールは、インポート先のホスト名を見て、DBなり設定ファイルなりを書き換えてしまう</strong>のです。そのおかげで、見た目キレイに移行できるんですけどね…。</p>
+<p>田中(゜p゜)がこれを解決するためにやったのは、以下のような感じです。</p>
+<ul>
+<li>念の為、移行元サイトの絶対パスを相対パスに書き換えておく。<!-- raw HTML omitted -->このあたり参照<!-- raw HTML omitted -->(外部サイト)<br>
+スタティックに書いてるやつは修正が必要かもしれない。</li>
+<li>ツールで移行元からおもむろにエクスポート</li>
+<li>host等で移行先サイトのFQDNを、127.0.0.1で解決できるようにしておく。</li>
+<li>php -S &lt;移行先のFQDN&gt;:80<br>
+コマンドでサーバを起動し、ブラウザでhttp://&lt;移行先のFQDN&gt;/にアクセス。<br>
+※移行先と混乱しないよう、PING等で事前に宛先確認。あとCloudSQL Proxyの起動を忘れないこと。</li>
+<li>ツールでおもむろにローカルにインポート</li>
+<li>GAEにデプロイ</li>
+<li>外部確認の際は、hostsは元に戻す</li>
+</ul>
+<p>こうすると賢いツールさんも、自分が移行先にいるのだと勘違いして、正しくない設定を入れてくれます。※デプロイ先では正しい。</p>
+<p><strong>それでもテーマ設定等、一部の設定は反映されない</strong>ので、サイト全体に渡って確認必要です。それと、一部のプラグインは入れ直しが必要かもしれません。</p>
+<p>デプロイした後にファイルを勝手に書くような、お行儀の悪いプラグインは削除ですね。</p>
+<h2 id="移行方法2-力こそパワー">移行方法2： 力こそパワー</h2>
+<p>すみません。<br>
+要するに、多くのサイトがやっているWordPressの標準機能を使うやり方です。田中(゜p゜)も念の為やってみました。</p>
+<ul>
+<li>移行元WPの管理画面のツール→エクスポートでDBをエクスポート</li>
+<li>移行元のwp-contentフォルダをダンロードし、ローカルのwp-contentにコピー</li>
+<li>移行元のエクスポートファイルを移行先にインポート</li>
+</ul>
+<p>で、キレイに行くはずなんですが、全然見た目が反映されません。おそらく以下はDBのどこかに保存されていて、エクスポートでは出ないものと思われます。</p>
+<ul>
+<li>プラグインの設定</li>
+<li>テーマ設定</li>
+</ul>
+<p>プラグインの設定はともかく、テーマ設定は非常にしんどいです。</p>
+<p>この方法はDBや設定ファイルに余計なことしないので、わかりやすくはありますが、<strong>移行後の作業量がエグい</strong>です。</p>
+<h2 id="田中pの既存サイトはどうするのか">田中(゜p゜)の既存サイトはどうするのか</h2>
+<p>結局、ローカルにコンテンツ置いとかなきゃいけないのがリスキーな気がしていましたが、コンテンツはクラウドにあってなくなるわけじゃないですし、この後Gitなどでの運用の学習も考えると、**デプロイ前提でどこかに置いておく、**というのは悪くない気がしてきました。</p>
+<p>大規模な運用を鑑みると、結局更新用端末と、閲覧用のサーバー分けなきゃいけないような気がしますしね。</p>
+<p>何より、GAEのコスパと性能がダントツだし、面倒だったHTTPS化と証明書のインポートをごくサラッとやってくれたので、<strong>ちょっと移行しちゃおうかなー</strong>、なんて考えています。</p>
+<!-- raw HTML omitted -->
+
+
+</div>
+</article>
+</main>
+
+
+<aside class="sidebar layout__second-sidebar">
+<section>
+<h4 class="menu"><a href="/git-pages/posts/" class="active" aria-current="page">Posts</a></h4>
+<ul class="menu">
+<li><a href="/git-pages/blog/post-1774/">静的サイト化検討</a></li>
+<li><a href="/git-pages/blog/post-1779/">読了： 補給戦</a></li>
+<li><a href="/git-pages/blog/post-1737/">記事更新： 泥舟からの決死の脱出</a></li>
+<li><a href="/git-pages/blog/post-1676/">Lubuntu20.04インスコでバタつく</a></li>
+<li><a href="/git-pages/blog/post-1670/">VS Code RemoteでWordPressのコード管理</a></li>
+<li><a href="/git-pages/blog/post-1663/">読了：プロジェクト失敗は誰のせい？</a></li>
+<li><a href="/git-pages/blog/post-1658/">来ちゃった… ///  (Adsense警告が)</a></li>
+<li><a href="/git-pages/blog/post-1637/">WordPressテーマ（Luxeritas）カスタマイズ記録</a></li>
+<li><a href="/git-pages/blog/post-1602/">Sitemapがイカれた</a></li>
+<li><a href="/git-pages/blog/post-1529/">読了：ティール組織</a></li>
+<li><a href="/git-pages/blog/post-1522/">Google Search ConsoleでSitemap読み込みに成功！</a></li>
+<li><a href="/git-pages/blog/post-1469/">WordPressのスラッグで大事故</a></li>
+<li><a href="/git-pages/blog/post-1442/">よやっとサイト移行落ち着いたかな？</a></li>
+<li><a href="/git-pages/blog/post-1401/">よやっとサイト移行落ち着いたかな？</a></li>
+<li><a href="/git-pages/blog/post-1373/">GAEのエッジキャッシュ・テーマ・Adsenseに苦戦…。</a></li>
+<li><a href="/git-pages/blog/post-1243/">記事更新</a></li>
+<li><a href="/git-pages/blog/post-1180/">GCEでSSHエラーが出る時の対処法</a></li>
+<li><a href="/git-pages/blog/post-1091/" class="active" aria-current="page">WordPress on GAE Standard  構築(済)</a></li>
+<li><a href="/git-pages/blog/post-1074/">Kusanagi on GKEチャレンジ その5  ギブアップ</a></li>
+<li><a href="/git-pages/blog/post-1066/">Kubernetesチャレンジ その4</a></li>
+<li><a href="/git-pages/blog/post-1059/">Kubenetesチャレンジ その3</a></li>
+<li><a href="/git-pages/blog/post-1052/">Kubernetes チャレンジ その2</a></li>
+<li><a href="/git-pages/blog/post-1044/">Kubenetes(Minikube) on ローカル環境構築</a></li>
+<li><a href="/git-pages/blog/post-1040/">Ubuntuで使える Windows風ペイントツール</a></li>
+<li><a href="/git-pages/blog/post-1034/">祝！ ブログ村 IT技術情報ランキング一位！</a></li>
+<li><a href="/git-pages/blog/post-1030/">WordPress on GKEチャレンジ その3(終)</a></li>
+<li><a href="/git-pages/blog/post-1027/">WordPress on GKEチャレンジ その2</a></li>
+<li><a href="/git-pages/blog/post-1015/">WordPress on GKEチャレンジ その1</a></li>
+<li><a href="/git-pages/blog/post-1005/">テンションを先に上げた奴は死あるのみ</a></li>
+<li><a href="/git-pages/blog/post-922/">「やべぇ」の正しい表記について</a></li>
+<li><a href="/git-pages/blog/post-852/">再読：嫌われる勇気</a></li>
+<li><a href="/git-pages/blog/post-570/">読了：たった１０日でネイティブに近づく英語発音講座 (鈴木 裕子著)</a></li>
+<li><a href="/git-pages/blog/post-469/">このサイトのWordPressプラグイン</a></li>
+<li><a href="/git-pages/blog/post-378/">英語学習してます</a></li>
+<li><a href="/git-pages/blog/post-345/">読了： 貧乏はお金持ち(著者 橘 玲)</a></li>
+<li><a href="/git-pages/blog/post-324/">WordPress構築</a></li>
+<li><a href="/git-pages/blog/post-322/">読了： Who Moved My Cheese？　英語版</a></li>
+<li><a href="/git-pages/blog/post-319/">読了： THE SHIFT 英語版</a></li>
+</ul>
+</section>
+</aside>
+<footer class="footer layout__footer">
+<p><!-- raw HTML omitted --></p>
+<p>Powered by <a href="https://gohugo.io/">Hugo</a> and the <a href="https://github.com/frjo/hugo-theme-zen">Zen theme</a>.</p>
+
+</footer>
+
+</div>
+<div class="mobile-nav" dir="ltr">
+  <div class="mobile-nav__cover"></div>
+  <a href="#navigation" class="mobile-nav__toggle" aria-haspopup="true" role="button">Menu</a>
+  <div class="mobile-nav__sheet">
+    <div class="mobile-nav__region">
+    
+    </div>
+    <nav class="mobile-nav__main-menu">
+    <h2 class="visually-hidden">Main menu</h2>
+    <ul class="mobile-nav__navbar">
+    <li><a href="/git-pages/">Home</a></li>
+    <li><a href="/git-pages/about/">About</a></li>
+    <li><a href="/git-pages/contact/">Contact</a></li>
+    <li><a href="/git-pages/search/">Search</a></li>
+    <li><a href="/git-pages/posts/" class="active" aria-current="page">Posts</a></li>
+    </ul>
+    </nav>
+  </div>
+</div>
+</body>
+</html>
