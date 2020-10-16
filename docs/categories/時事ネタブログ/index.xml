@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>時事ネタ(ブログ) on My New Hugo Site</title>
+    <title>時事ネタ(ブログ) on ITインフラエンジニアのなんとか</title>
     <link>https://y2tanaka.github.io/git-pages/categories/%E6%99%82%E4%BA%8B%E3%83%8D%E3%82%BF%E3%83%96%E3%83%AD%E3%82%B0/</link>
-    <description>Recent content in 時事ネタ(ブログ) on My New Hugo Site</description>
+    <description>Recent content in 時事ネタ(ブログ) on ITインフラエンジニアのなんとか</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Oct 2020 11:41:36 +0000</lastBuildDate>

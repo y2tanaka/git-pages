@@ -1,5 +1,5 @@
 baseURL = "https://y2tanaka.github.io/git-pages/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "ITインフラエンジニアのなんとか"
 theme = "hugo-theme-zen"
 publishDir = "docs"
