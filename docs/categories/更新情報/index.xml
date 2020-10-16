@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>更新情報 on My New Hugo Site</title>
-    <link>http://example.org/categories/%E6%9B%B4%E6%96%B0%E6%83%85%E5%A0%B1/</link>
+    <link>https://y2tanaka.github.io/git-pages/categories/%E6%9B%B4%E6%96%B0%E6%83%85%E5%A0%B1/</link>
     <description>Recent content in 更新情報 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 11 Oct 2020 08:32:07 +0000</lastBuildDate>
-    <atom:link href="http://example.org/categories/%E6%9B%B4%E6%96%B0%E6%83%85%E5%A0%B1/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://y2tanaka.github.io/git-pages/categories/%E6%9B%B4%E6%96%B0%E6%83%85%E5%A0%B1/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>記事更新： 泥舟からの決死の脱出</title>
-      <link>http://example.org/blog/post-1737/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1737/</link>
       <pubDate>Sun, 11 Oct 2020 08:32:07 +0000</pubDate>
-      <guid>http://example.org/blog/post-1737/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1737/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;昔々、スクエニのロマンシング・サガってRPGゲームがあって、田中(゜p゜)はSFC版でリアルタイムにやっとったんですが、サルーインという&lt;strong&gt;邪神&lt;/strong&gt;がラスボスなのです。&lt;/p&gt;
 &lt;p&gt;このサルーインという邪神は、1000年ほど前、ディスティニーストーンという必殺兵器を身に着けた人間に敗れ、封印されてしまった存在。&lt;/p&gt;
@@ -27,17 +27,17 @@
 &lt;p&gt;神はあらかじめ存在を定義されたものであって、決して過ちを認められないからこそ神なのです。&lt;br&gt;
 そして逆に人間は過ちを認め、変われるからこそ人間なのだと思います。&lt;/p&gt;
 &lt;p&gt;前ふり長くなりましたけど、&lt;strong&gt;田中(゜p゜)の ただいちどの ……はいぼく！&lt;/strong&gt;&lt;br&gt;
-&lt;a href=&#34;http://example.org/article/escape-from-burning-pj/&#34;&gt;泥船から決死の脱出&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;https://y2tanaka.github.io/git-pages/article/escape-from-burning-pj/&#34;&gt;泥船から決死の脱出&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>WordPress on GAE Standard  構築(済)</title>
-      <link>http://example.org/blog/post-1091/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1091/</link>
       <pubDate>Sun, 27 Sep 2020 08:26:19 +0000</pubDate>
-      <guid>http://example.org/blog/post-1091/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1091/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;a href=&#34;http://example.org/blog/post-1074/&#34;&gt;前回のKusanagi on GKEギブアップ&lt;/a&gt;からまだ懲りてません(笑)&lt;br&gt;
+&lt;p&gt;&lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1074/&#34;&gt;前回のKusanagi on GKEギブアップ&lt;/a&gt;からまだ懲りてません(笑)&lt;br&gt;
 今度は&lt;!-- raw HTML omitted --&gt;Google App Engine(GAE)&lt;!-- raw HTML omitted --&gt;を使ってWordPressを構築します。&lt;/p&gt;
 &lt;p&gt;ちなみにStandardの方で構築するので、CloudSQL以外は、&lt;strong&gt;使った分だけお金を支払えばよいというスグレモノ&lt;/strong&gt;。しかもスケーリングも証明書も、何もかもやってくれるオマケ付き。&lt;/p&gt;
 &lt;p&gt;間違えてフレキシブルで構築すると、自由度が高い代わりにGCEインスタンス代がコンスタントにかかってしまうので注意です。比較表はこちら(外部サイト) &lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;https://www.serversus.work/topics/5jbu7y90jk81kcdqfzf0/&#34;&gt;https://www.serversus.work/topics/5jbu7y90jk81kcdqfzf0/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;

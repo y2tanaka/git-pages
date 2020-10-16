@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>読んだ本 on My New Hugo Site</title>
-    <link>http://example.org/categories/%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</link>
+    <link>https://y2tanaka.github.io/git-pages/categories/%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/</link>
     <description>Recent content in 読んだ本 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 12 Oct 2020 11:16:00 +0000</lastBuildDate>
-    <atom:link href="http://example.org/categories/%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://y2tanaka.github.io/git-pages/categories/%E8%AA%AD%E3%82%93%E3%81%A0%E6%9C%AC/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>読了： 補給戦</title>
-      <link>http://example.org/blog/post-1779/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1779/</link>
       <pubDate>Mon, 12 Oct 2020 11:16:00 +0000</pubDate>
-      <guid>http://example.org/blog/post-1779/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1779/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;昔々、一部上場企業の情シスやってた頃、バックヤードの重要性を訴えるために読んだ本。&lt;br&gt;
 リアル本しかないのがキツイけど。&lt;/p&gt;
@@ -37,9 +37,9 @@ WW2で日本軍が惨敗した例でも分かる通り、兵站を考えない�
     
     <item>
       <title>読了：プロジェクト失敗は誰のせい？</title>
-      <link>http://example.org/blog/post-1663/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1663/</link>
       <pubDate>Thu, 08 Oct 2020 13:54:18 +0000</pubDate>
-      <guid>http://example.org/blog/post-1663/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1663/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;毎日更新するつもりだったのに、仕事復帰しちゃってもうネタがねーんですよ。&lt;br&gt;
 でも読んだ本のストックは山ほどあるんで、小出しにリリースしていきます。&lt;/p&gt;
@@ -65,9 +65,9 @@ WW2で日本軍が惨敗した例でも分かる通り、兵站を考えない�
     
     <item>
       <title>読了：ティール組織</title>
-      <link>http://example.org/blog/post-1529/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1529/</link>
       <pubDate>Sun, 04 Oct 2020 03:25:34 +0000</pubDate>
-      <guid>http://example.org/blog/post-1529/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1529/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;この本は…、&lt;strong&gt;ヤバいですね。&lt;/strong&gt;&lt;br&gt;
 常々田中(゜p゜)は&lt;!-- raw HTML omitted --&gt;会社とは利益よりもその社会貢献を優先すべきではないか&lt;!-- raw HTML omitted --&gt;、との考えを持ってましたが、実践してる企業がいて、かつその具体的なプロセス、移行方法、失敗談なども具体的に書かれてます。&lt;/p&gt;
@@ -106,9 +106,9 @@ WW2で日本軍が惨敗した例でも分かる通り、兵站を考えない�
     
     <item>
       <title>再読：嫌われる勇気</title>
-      <link>http://example.org/blog/post-852/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-852/</link>
       <pubDate>Tue, 15 Sep 2020 03:50:51 +0000</pubDate>
-      <guid>http://example.org/blog/post-852/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-852/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;リアル本で読んだ気がしていて、Kilndleでも読みたいな、なんて探して購入しようとしたら、ライブラリにあってビックリした本。&lt;/p&gt;
 &lt;p&gt;たぶん田中(゜p゜)の中では良い本に入ると思う。&lt;br&gt;
@@ -130,9 +130,9 @@ WW2で日本軍が惨敗した例でも分かる通り、兵站を考えない�
     
     <item>
       <title>読了：たった１０日でネイティブに近づく英語発音講座 (鈴木 裕子著)</title>
-      <link>http://example.org/blog/post-570/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-570/</link>
       <pubDate>Sat, 12 Sep 2020 00:21:21 +0000</pubDate>
-      <guid>http://example.org/blog/post-570/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-570/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Kindle Unlimitedでいちばん「うわぁ！」となった本。&lt;/strong&gt;&lt;br&gt;
 英語の勉強しとるのですが、なんで日本人がネイティブのように発音できないか、初めて理解できた本。&lt;/p&gt;
 &lt;p&gt;**どーして学校でこういうこと教えないの！！&lt;br&gt;
@@ -154,9 +154,9 @@ WW2で日本軍が惨敗した例でも分かる通り、兵站を考えない�
     
     <item>
       <title>読了： 貧乏はお金持ち(著者 橘 玲)</title>
-      <link>http://example.org/blog/post-345/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-345/</link>
       <pubDate>Wed, 09 Sep 2020 09:49:00 +0000</pubDate>
-      <guid>http://example.org/blog/post-345/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-345/</guid>
       <description>&lt;p&gt;マイクロ法人に興味があったので、読んでみた本。&lt;br&gt;
 田中(゜p゜)はサラリーマンで、そこそこ稼いでいるので税金が高く、節税したいのですよ…。&lt;/p&gt;
 &lt;p&gt;この本は、なぜサラリーマンの税金が高いのか。既に破綻してる社会保険制度について、背景から官僚のモチベーションまでを含めて、詳しく解説されてます。Amazon評価によれば小難しいとのことですが、ちょろっと企業の会計の仕組みに興味があれば、そんなに難しくないように田中(゜p゜)は思いました。&lt;/p&gt;
@@ -171,9 +171,9 @@ WW2で日本軍が惨敗した例でも分かる通り、兵站を考えない�
     
     <item>
       <title>読了： Who Moved My Cheese？　英語版</title>
-      <link>http://example.org/blog/post-322/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-322/</link>
       <pubDate>Wed, 09 Sep 2020 06:47:36 +0000</pubDate>
-      <guid>http://example.org/blog/post-322/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-322/</guid>
       <description>&lt;p&gt;既に日本語版の「チーズはどこに消えた？」を読んだことあるけど、英語学習のために、原書読んでみた。要するに、&lt;strong&gt;既得権益にこだわってあれこれ心配する前に、色々動いてみようよ&lt;/strong&gt;、というお話。&lt;/p&gt;
 &lt;p&gt;正直、田中(゜P゜)は変化に対して何の抵抗もない人なので、刺さるものはなかったのですが、人生守りに入って悶々としてる人にはオススメです。ササッと読める短さだし。&lt;/p&gt;
 &lt;p&gt;ここのところ読んでる本が英語で、啓蒙系なので、意識高いみたいで嫌だなぁ。&lt;/p&gt;
@@ -182,9 +182,9 @@ WW2で日本軍が惨敗した例でも分かる通り、兵站を考えない�
     
     <item>
       <title>読了： THE SHIFT 英語版</title>
-      <link>http://example.org/blog/post-319/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-319/</link>
       <pubDate>Wed, 09 Sep 2020 06:33:55 +0000</pubDate>
-      <guid>http://example.org/blog/post-319/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-319/</guid>
       <description>&lt;p&gt;本読みました。&lt;br&gt;
 日本語版もあったけど、あえて頑張って英語の原書で。&lt;/p&gt;
 &lt;p&gt;2010年位の本ですが、「人口の年齢構成」「発展途上国の台頭」「技術革新」「エネルギー枯渇」「家族構成の変化」の5つ？(あやふや)の変化を元に、2025年のヤバい未来と、明るい未来を予測し、仕事と人生をどう考えるか、という本です。&lt;/p&gt;

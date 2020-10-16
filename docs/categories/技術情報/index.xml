@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>技術情報 on My New Hugo Site</title>
-    <link>http://example.org/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/</link>
+    <link>https://y2tanaka.github.io/git-pages/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/</link>
     <description>Recent content in 技術情報 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Oct 2020 11:41:36 +0000</lastBuildDate>
-    <atom:link href="http://example.org/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://y2tanaka.github.io/git-pages/categories/%E6%8A%80%E8%A1%93%E6%83%85%E5%A0%B1/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>静的サイト化検討</title>
-      <link>http://example.org/blog/post-1774/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1774/</link>
       <pubDate>Tue, 13 Oct 2020 11:41:36 +0000</pubDate>
-      <guid>http://example.org/blog/post-1774/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1774/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;SiteSpeedのスコアがどうしても上がりません。&lt;br&gt;
 プラグインは最小限にしてるし、Luxeritasの機能使っても、これ以上のスピードは望めないようだ。&lt;/p&gt;
@@ -58,9 +58,9 @@ Git対応してるんで、HugoとテーマをCloneしてちょいちょいい�
     
     <item>
       <title>Lubuntu20.04インスコでバタつく</title>
-      <link>http://example.org/blog/post-1676/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1676/</link>
       <pubDate>Sat, 10 Oct 2020 11:49:37 +0000</pubDate>
-      <guid>http://example.org/blog/post-1676/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1676/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;こないだ18.04にしたんじゃなかったっけ？&lt;br&gt;
 とか思われそうですが、なんか寝る前にポップアップで&lt;strong&gt;20.04が利用可能&lt;/strong&gt;とか出てて、16.04→18.04のときも無問題だったので、&lt;strong&gt;まあいいかな&lt;/strong&gt;と思いポチー。&lt;/p&gt;
@@ -138,9 +138,9 @@ VM Playerが使えないどころじゃなく、PCが使えなくなってまっ
     
     <item>
       <title>VS Code RemoteでWordPressのコード管理</title>
-      <link>http://example.org/blog/post-1670/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1670/</link>
       <pubDate>Fri, 09 Oct 2020 11:22:23 +0000</pubDate>
-      <guid>http://example.org/blog/post-1670/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1670/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;VS Codeすげぇなぁ。&lt;br&gt;
 MSの開発ツールなのにUbuntuでもMacでも使えるし。プラグインで大抵の言語のツール入るし。&lt;/p&gt;
@@ -156,9 +156,9 @@ Web上で表示される色までサンプルが出てます。&lt;/p&gt;
     
     <item>
       <title>WordPressテーマ（Luxeritas）カスタマイズ記録</title>
-      <link>http://example.org/blog/post-1637/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1637/</link>
       <pubDate>Tue, 06 Oct 2020 14:03:14 +0000</pubDate>
-      <guid>http://example.org/blog/post-1637/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1637/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;もう新しい会社での勤務始まってしまってるというのに、サイトのデザインが気になってしまい、デフォルトのカスタマイズ機能に加え、CSSにも手を加え始めました。なんかもう収集着かない気がするけど。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://thk.kanzae.net/wp/&#34;&gt;Luxeritas&lt;/a&gt;テーマは前に使ってたCatch Boxに比べると遥かに動作が早く、カスタマイズ性に富んでます。&lt;br&gt;
@@ -204,9 +204,9 @@ PHPなのでコメントは「#」で。&lt;/p&gt;
     
     <item>
       <title>Google Search ConsoleでSitemap読み込みに成功！</title>
-      <link>http://example.org/blog/post-1522/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1522/</link>
       <pubDate>Sat, 03 Oct 2020 14:18:22 +0000</pubDate>
-      <guid>http://example.org/blog/post-1522/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1522/</guid>
       <description>&lt;p&gt;何言ってるか分からねーと思いますが、SEO対策を始めた人間にとって、&lt;a href=&#34;https://search.google.com/&#34;&gt;Google Search Console&lt;/a&gt; に対するsitemap.xml読み込みは死活問題なのです。いくら良いコンテンツを作成しても、Google様の検索に引っかからなければ、意味がないのです。&lt;/p&gt;
 &lt;p&gt;すいません。&lt;br&gt;
 田中(゜p゜)もアフェリで一発当ててえとかじゃなくてこのサイト運営に月額1000円ほどかかるので、そのくらいは回収させていただきたく、SEOを実施しております。&lt;/p&gt;
@@ -235,9 +235,9 @@ PHPなのでコメントは「#」で。&lt;/p&gt;
     
     <item>
       <title>WordPressのスラッグで大事故</title>
-      <link>http://example.org/blog/post-1469/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1469/</link>
       <pubDate>Fri, 02 Oct 2020 18:26:26 +0000</pubDate>
-      <guid>http://example.org/blog/post-1469/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1469/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;たぶん&lt;a href=&#34;https://thk.kanzae.net/wp/&#34;&gt;テーマ&lt;/a&gt;の挙動なんだろうけど、スラッグの構造が変わってしまい、リンク全部貼り直しました。&lt;/p&gt;
 &lt;h2 id=&#34;スラッグとは&#34;&gt;スラッグとは&lt;/h2&gt;
@@ -276,9 +276,9 @@ SEOサイトで、検索にかかりやすくなるので日本語URLオスス�
     
     <item>
       <title>よやっとサイト移行落ち着いたかな？</title>
-      <link>http://example.org/blog/post-1442/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1442/</link>
       <pubDate>Thu, 01 Oct 2020 16:15:29 +0000</pubDate>
-      <guid>http://example.org/blog/post-1442/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1442/</guid>
       <description>&lt;p&gt;テストサイトがあまりにうまく行ったので、勢いで移行しちゃいましたが、デプロイ時のTypoやテーマの挙動に苦しみました。&lt;br&gt;
 が、ようやっと今日になってそこそこ納得行く結果になったかもしれない。&lt;br&gt;
 これを契機にAdsenseも配置してみましたが、ユーザビリティを損なわずに上手く配置できた。…気がする。&lt;/p&gt;
@@ -286,16 +286,16 @@ SEOサイトで、検索にかかりやすくなるので日本語URLオスス�
 ※たぶんテーマが悪いんじゃなくて、田中(゜p゜)の使い方がトンチキなだけ。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;p&gt;今回の結果を受けて、&lt;a href=&#34;http://example.org/article/migration-site-to-gae/&#34;&gt;GAE移行のエントリに、運用時の注意点も追記&lt;/a&gt;しました。&lt;br&gt;
+&lt;p&gt;今回の結果を受けて、&lt;a href=&#34;https://y2tanaka.github.io/git-pages/article/migration-site-to-gae/&#34;&gt;GAE移行のエントリに、運用時の注意点も追記&lt;/a&gt;しました。&lt;br&gt;
 はー。疲れたわぁ。&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>GAEのエッジキャッシュ・テーマ・Adsenseに苦戦…。</title>
-      <link>http://example.org/blog/post-1373/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1373/</link>
       <pubDate>Wed, 30 Sep 2020 12:02:37 +0000</pubDate>
-      <guid>http://example.org/blog/post-1373/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1373/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;転職前のボーナス期間も今日までなので、サイトの仕上げにかかってます。&lt;br&gt;
 やった内容は以下二点。&lt;/p&gt;
@@ -325,9 +325,9 @@ SEOサイトで、検索にかかりやすくなるので日本語URLオスス�
     
     <item>
       <title>GCEでSSHエラーが出る時の対処法</title>
-      <link>http://example.org/blog/post-1180/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1180/</link>
       <pubDate>Mon, 28 Sep 2020 22:08:24 +0000</pubDate>
-      <guid>http://example.org/blog/post-1180/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1180/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;いやー、ハマりました。4時間位無駄にしてしまったかも。&lt;/p&gt;
 &lt;p&gt;ハマったので備忘録ついでにワークアラウンド書いておきます。&lt;br&gt;
@@ -373,15 +373,15 @@ gcloud compute ssh –zone “&amp;lt;ゾーン名&amp;gt;” “&lt;strong&gt;&
     
     <item>
       <title>Kusanagi on GKEチャレンジ その5  ギブアップ</title>
-      <link>http://example.org/blog/post-1074/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1074/</link>
       <pubDate>Sat, 26 Sep 2020 04:38:45 +0000</pubDate>
-      <guid>http://example.org/blog/post-1074/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1074/</guid>
       <description>&lt;p&gt;タイトルに書いた通り&lt;strong&gt;今回を持ってギブアップ&lt;/strong&gt;でございます。残念です。&lt;br&gt;
 以下に経緯と理由書きます。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://example.org/blog/post-1044/&#34;&gt;Kubenetesチャレンジ その1&lt;br&gt;
-&lt;/a&gt; &lt;a href=&#34;http://example.org/blog/post-1052/&#34;&gt;Kubenetesチャレンジ その2&lt;br&gt;
-&lt;/a&gt; &lt;a href=&#34;http://example.org/blog/post-1059/&#34;&gt;Kubenetesチャレンジ その3&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;http://example.org/blog/post-1066/&#34;&gt;Kubenetesチャレンジ その4&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1044/&#34;&gt;Kubenetesチャレンジ その1&lt;br&gt;
+&lt;/a&gt; &lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1052/&#34;&gt;Kubenetesチャレンジ その2&lt;br&gt;
+&lt;/a&gt; &lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1059/&#34;&gt;Kubenetesチャレンジ その3&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1066/&#34;&gt;Kubenetesチャレンジ その4&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;そもそもの要件は何だったのか&#34;&gt;そもそもの要件は何だったのか&lt;/h2&gt;
 &lt;p&gt;やってるうちに自分でも何がしたかったんだか分からなくなってきたので今一度整理しますが、そもそもの要件は、「&lt;strong&gt;&lt;a href=&#34;https://kusanagi.tokyo/cloud/kusanagi-runs-on-docker/&#34;&gt;Kusanagi on Docker&lt;/a&gt;のイメージそのままに、yamlちょろっと書き換えてGKEに上げたいなー&lt;/strong&gt;」です。&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt;こちらもKusanagi on Dockerやってらっしゃいます&lt;!-- raw HTML omitted --&gt;が、イメージは自身で作成されたものをGCRからPullする形になってます。&lt;/p&gt;
@@ -426,14 +426,14 @@ gcloud compute ssh –zone “&amp;lt;ゾーン名&amp;gt;” “&lt;strong&gt;&
     
     <item>
       <title>Kubernetesチャレンジ その4</title>
-      <link>http://example.org/blog/post-1066/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1066/</link>
       <pubDate>Fri, 25 Sep 2020 12:00:31 +0000</pubDate>
-      <guid>http://example.org/blog/post-1066/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1066/</guid>
       <description>&lt;p&gt;まだ続いてます(笑)&lt;br&gt;
 相変わらず、何かの問題解決目的に来た方は、ご期待に添えず申し訳ございません。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://example.org/blog/post-1044/&#34;&gt;Kubenetesチャレンジ その1&lt;br&gt;
-&lt;/a&gt; &lt;a href=&#34;http://example.org/blog/post-1052/&#34;&gt;Kubenetesチャレンジ その2&lt;br&gt;
-&lt;/a&gt; &lt;a href=&#34;http://example.org/blog/post-1059/&#34;&gt;Kubenetesチャレンジ その3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1044/&#34;&gt;Kubenetesチャレンジ その1&lt;br&gt;
+&lt;/a&gt; &lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1052/&#34;&gt;Kubenetesチャレンジ その2&lt;br&gt;
+&lt;/a&gt; &lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1059/&#34;&gt;Kubenetesチャレンジ その3&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;しかし、その3で突っかかってた「Dockerでデプロイできて、MinikubeではPodのConfig中にコケる」事象は不本意ながら解決しました。↓&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;つまり、&lt;strong&gt;Minikubeではデプロイできないけど、GKEではデプロイでけた&lt;/strong&gt;。&lt;br&gt;
@@ -443,7 +443,7 @@ gcloud compute ssh –zone “&amp;lt;ゾーン名&amp;gt;” “&lt;strong&gt;&
 ** これで2GBくらいディスク空いたった。&lt;/p&gt;
 &lt;p&gt;よく考えたら、マシンリソース節約してコスト削減するために、開発環境を必要な時だけ上げとくなんてのは、当たり前のことだね。&lt;br&gt;
 あと、イメージPullするのにWi-Fiのギガ消費するのも抑えられるし。※田中(゜p゜)家はモビリティ重視でWiMAXなのです。&lt;/p&gt;
-&lt;p&gt;ということで&lt;a href=&#34;http://example.org/blog/post-1052/&#34;&gt;その3の悩み&lt;/a&gt;はスッキリ解決。&lt;br&gt;
+&lt;p&gt;ということで&lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1052/&#34;&gt;その3の悩み&lt;/a&gt;はスッキリ解決。&lt;br&gt;
 あとはyamlゴリゴリ書くだけだぜー。&lt;/p&gt;
 &lt;p&gt;よーしお父さん、次の次あたりにKusanagi on GKEのタイトルで記事化しちゃうぞー！&lt;/p&gt;
 &lt;p&gt;続く。&lt;/p&gt;
@@ -452,9 +452,9 @@ gcloud compute ssh –zone “&amp;lt;ゾーン名&amp;gt;” “&lt;strong&gt;&
     
     <item>
       <title>Kubenetesチャレンジ その3</title>
-      <link>http://example.org/blog/post-1059/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1059/</link>
       <pubDate>Thu, 24 Sep 2020 14:42:46 +0000</pubDate>
-      <guid>http://example.org/blog/post-1059/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1059/</guid>
       <description>&lt;p&gt;まあ案の定、詰まっとります。&lt;br&gt;
 今突っかかってるのは概ね2つ。&lt;/p&gt;
 &lt;h2 id=&#34;問題その1-デプロイ時権限差異&#34;&gt;問題その1 デプロイ時権限差異？&lt;/h2&gt;
@@ -483,13 +483,13 @@ DockerFileからいじらせてもらえば権限問題もなんとでもなる�
     
     <item>
       <title>Kubernetes チャレンジ その2</title>
-      <link>http://example.org/blog/post-1052/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1052/</link>
       <pubDate>Wed, 23 Sep 2020 10:52:18 +0000</pubDate>
-      <guid>http://example.org/blog/post-1052/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1052/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;どうしてもGKE上で&lt;a href=&#34;https://kusanagi.tokyo/cloud/kusanagi-runs-on-docker/&#34;&gt;Kusanagi on Docker&lt;/a&gt;動かしたい。シリーズその2。&lt;/p&gt;
 &lt;p&gt;**何かの解決を期待してこのエントリにたどり着いた方、申し訳ございませんがその足でお帰り下さい。**田中(゜p゜)の悩みが深まっただけでございます。&lt;/p&gt;
-&lt;p&gt;**&lt;a href=&#34;http://example.org/blog/post-1044/&#34;&gt;前回のエントリ&lt;/a&gt;**の通り、ローカルのKubernetes環境の構築には成功。&lt;br&gt;
+&lt;p&gt;**&lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1044/&#34;&gt;前回のエントリ&lt;/a&gt;**の通り、ローカルのKubernetes環境の構築には成功。&lt;br&gt;
 しかし本日は一進二退という感じで、むしろ退きました。&lt;/p&gt;
 &lt;p&gt;既にKusanagiはローカルのDockerにデプロイはできているんですが、何故かどーしてもコレ。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
@@ -514,9 +514,9 @@ Webを漁るとやっぱりディスクのマウントというのは課題に�
     
     <item>
       <title>Kubenetes(Minikube) on ローカル環境構築</title>
-      <link>http://example.org/blog/post-1044/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1044/</link>
       <pubDate>Tue, 22 Sep 2020 08:53:27 +0000</pubDate>
-      <guid>http://example.org/blog/post-1044/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1044/</guid>
       <description>&lt;p&gt;どうしてもGKE上で&lt;a href=&#34;https://kusanagi.tokyo/cloud/kusanagi-runs-on-docker/&#34;&gt;Kusanagi on Docker&lt;/a&gt;動かしたい。&lt;br&gt;
 けど、KusanagiのGitにはDocker-compose用のyamlしかないので、ローカルでKubenetes動かして、自分でyaml作ってみることにした。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;が、ローカル環境構築でとにかく苦戦。&lt;/strong&gt;&lt;br&gt;
@@ -557,9 +557,9 @@ docker-composeとか右クリック一発でやってくれて便利だな。&lt
     
     <item>
       <title>Ubuntuで使える Windows風ペイントツール</title>
-      <link>http://example.org/blog/post-1040/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1040/</link>
       <pubDate>Mon, 21 Sep 2020 14:05:17 +0000</pubDate>
-      <guid>http://example.org/blog/post-1040/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1040/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;Lubuntuを16.04から18.04にあげても見た目変わらなかったが、一つだけ激しく感動したことがある。&lt;/p&gt;
 &lt;p&gt;なんと&lt;strong&gt;Windowsペイント風のペイントツールがついに！ 実装された！&lt;/strong&gt;&lt;br&gt;
@@ -573,9 +573,9 @@ docker-composeとか右クリック一発でやってくれて便利だな。&lt
     
     <item>
       <title>祝！ ブログ村 IT技術情報ランキング一位！</title>
-      <link>http://example.org/blog/post-1034/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1034/</link>
       <pubDate>Sun, 20 Sep 2020 05:40:55 +0000</pubDate>
-      <guid>http://example.org/blog/post-1034/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1034/</guid>
       <description>&lt;p&gt;せっかくなんで魚拓取っておこう。&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;p&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
 &lt;p&gt;・・・・・・。&lt;br&gt;
@@ -588,12 +588,12 @@ docker-composeとか右クリック一発でやってくれて便利だな。&lt
     
     <item>
       <title>WordPress on GKEチャレンジ その3(終)</title>
-      <link>http://example.org/blog/post-1030/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1030/</link>
       <pubDate>Sun, 20 Sep 2020 05:30:35 +0000</pubDate>
-      <guid>http://example.org/blog/post-1030/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1030/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;a href=&#34;http://example.org/blog/post-1015/&#34;&gt;WordPress on GKEチャレンジ その1&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;http://example.org/blog/post-1027/&#34;&gt;WordPress on GKEチャレンジ その2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1015/&#34;&gt;WordPress on GKEチャレンジ その1&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1027/&#34;&gt;WordPress on GKEチャレンジ その2&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;結論からいうと、できたはできた。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;が、最終的にできたのは、下記のkusanagiデプロイに&lt;strong&gt;GCPのロードバランサかぶせただけ&lt;/strong&gt;、みたいなつまらない構成。&lt;br&gt;
 &lt;a href=&#34;https://qiita.com/nagase/items/5525bd80196802b0a07a&#34;&gt;https://qiita.com/nagase/items/5525bd80196802b0a07a&lt;/a&gt;&lt;br&gt;
@@ -640,11 +640,11 @@ Pod間、もといコンテナ間の通信はyamlベースに図を書いてみ�
     
     <item>
       <title>WordPress on GKEチャレンジ その2</title>
-      <link>http://example.org/blog/post-1027/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1027/</link>
       <pubDate>Sat, 19 Sep 2020 11:13:23 +0000</pubDate>
-      <guid>http://example.org/blog/post-1027/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1027/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;a href=&#34;http://example.org/blog/post-1015/&#34;&gt;昨日の続き&lt;/a&gt;です。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://y2tanaka.github.io/git-pages/blog/post-1015/&#34;&gt;昨日の続き&lt;/a&gt;です。&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
 </description>
@@ -652,9 +652,9 @@ Pod間、もといコンテナ間の通信はyamlベースに図を書いてみ�
     
     <item>
       <title>WordPress on GKEチャレンジ その1</title>
-      <link>http://example.org/blog/post-1015/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-1015/</link>
       <pubDate>Fri, 18 Sep 2020 08:53:22 +0000</pubDate>
-      <guid>http://example.org/blog/post-1015/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-1015/</guid>
       <description>&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;将来的に間違えてアクセスが増えちゃった場合に備えて、&lt;strong&gt;GKEにWordPress載せるぞ！&lt;/strong&gt; というチャレンジしてます。&lt;/p&gt;
 &lt;p&gt;GKEが何かというのは下記リンク参照。&lt;br&gt;
@@ -663,7 +663,7 @@ Pod間、もといコンテナ間の通信はyamlベースに図を書いてみ�
 &lt;p&gt;正直WordPressはコンテンツ更新がPersitentDiskとSQLだから、あまり意味ないと思うけど、何事も着手してみないと始まらない。&lt;/p&gt;
 &lt;p&gt;3年ほど前、GKEのインフラの抽象化度合いに驚き、ある程度自習やってたので、Dockerくらいは分かるだろーとたかをくくってましたが、全ッ然覚えてなくてワロタ。&lt;br&gt;
 いや、自分で思ったより脳がおっさんでワロエナイ。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://example.org/article/necessity-of-program/&#34;&gt;ココで田中(゜p゜)はyaml使える&lt;/a&gt;と言ったな。&lt;br&gt;
+&lt;p&gt;&lt;a href=&#34;https://y2tanaka.github.io/git-pages/article/necessity-of-program/&#34;&gt;ココで田中(゜p゜)はyaml使える&lt;/a&gt;と言ったな。&lt;br&gt;
 あれは嘘だ！&lt;/p&gt;
 &lt;p&gt;ということで、自分のpoorな技術力を噛み締めながら、予習を含めて段階的に学習していきます。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;■ローカルにDocker環境構築&lt;/strong&gt;&lt;br&gt;
@@ -702,9 +702,9 @@ Pod間、もといコンテナ間の通信はyamlベースに図を書いてみ�
     
     <item>
       <title>このサイトのWordPressプラグイン</title>
-      <link>http://example.org/blog/post-469/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-469/</link>
       <pubDate>Thu, 10 Sep 2020 23:24:39 +0000</pubDate>
-      <guid>http://example.org/blog/post-469/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-469/</guid>
       <description>&lt;p&gt;誰も興味ない可能性ありますが、WordPressの構成ほぼ確なので備忘録含めて書いておきます。&lt;br&gt;
 セキュリティ的にヤバいのかな？ まあPHPにバグあったらそもそも終わりだし、ハックされたらそれはそれでネタとして使えそうなのであえて気にしない。&lt;/p&gt;
 &lt;p&gt;**Akismet Anti-Spam (アンチスパム)&lt;br&gt;
@@ -731,9 +731,9 @@ WordPress Ping Optimizer&lt;br&gt;
     
     <item>
       <title>WordPress構築</title>
-      <link>http://example.org/blog/post-324/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-324/</link>
       <pubDate>Wed, 09 Sep 2020 07:04:06 +0000</pubDate>
-      <guid>http://example.org/blog/post-324/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-324/</guid>
       <description>&lt;p&gt;腐ってもエンジニア魂は忘れないッ！&lt;br&gt;
 ということで、このサイトは可能な限りDIYで安く作ってます。&lt;br&gt;
 年間維持費はドメインの1400円くらい？&lt;/p&gt;

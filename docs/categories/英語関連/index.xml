@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>英語関連 on My New Hugo Site</title>
-    <link>http://example.org/categories/%E8%8B%B1%E8%AA%9E%E9%96%A2%E9%80%A3/</link>
+    <link>https://y2tanaka.github.io/git-pages/categories/%E8%8B%B1%E8%AA%9E%E9%96%A2%E9%80%A3/</link>
     <description>Recent content in 英語関連 on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Sep 2020 23:32:42 +0000</lastBuildDate>
-    <atom:link href="http://example.org/categories/%E8%8B%B1%E8%AA%9E%E9%96%A2%E9%80%A3/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://y2tanaka.github.io/git-pages/categories/%E8%8B%B1%E8%AA%9E%E9%96%A2%E9%80%A3/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>英語学習してます</title>
-      <link>http://example.org/blog/post-378/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-378/</link>
       <pubDate>Wed, 09 Sep 2020 23:32:42 +0000</pubDate>
-      <guid>http://example.org/blog/post-378/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-378/</guid>
       <description>&lt;p&gt;今の職場では、PMスキル、ラインマネジメントスキル、ITインフラスキル共に&lt;strong&gt;頭打ち&lt;/strong&gt;となっているような気がしていて、新たな領域として英語にチャレンジしてます。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://example.org/about/writer/&#34;&gt;自己紹介&lt;/a&gt;に書いたように、田中(゜p゜)は海外のデータセンター構築のために1ヶ月×2回ほど行ったことありますが、&lt;strong&gt;データセンターにカンヅメ&lt;/strong&gt;だったので、英語学習なんてできませんでしたし、当然お話するのも困難です。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://y2tanaka.github.io/git-pages/about/writer/&#34;&gt;自己紹介&lt;/a&gt;に書いたように、田中(゜p゜)は海外のデータセンター構築のために1ヶ月×2回ほど行ったことありますが、&lt;strong&gt;データセンターにカンヅメ&lt;/strong&gt;だったので、英語学習なんてできませんでしたし、当然お話するのも困難です。&lt;/p&gt;
 &lt;p&gt;なんかね、コンピュータ用語使って言いたいことは伝えられるんだけど、何言われてるのかよう分からんし、日常会話でコミュニケーション取るのができなかったのが悲しくて。&lt;/p&gt;
 &lt;p&gt;スコットランドに出かけようとした時に、&lt;strong&gt;駅の窓口のおじいさんになんか怒鳴られた&lt;/strong&gt;のがトラウマです。ネット購入したのに上手く切符もらえず、結局列車の中でもう一回切符買った。&lt;/p&gt;
 &lt;p&gt;たしかTOEICの最後の記録は600点くらいだったと思いますが、今は500点以下になってると思いますので、これを&lt;strong&gt;今年中に800点にする&lt;/strong&gt;、というのを目標にしてます。&lt;/p&gt;
@@ -47,9 +47,9 @@
     
     <item>
       <title>読了： Who Moved My Cheese？　英語版</title>
-      <link>http://example.org/blog/post-322/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-322/</link>
       <pubDate>Wed, 09 Sep 2020 06:47:36 +0000</pubDate>
-      <guid>http://example.org/blog/post-322/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-322/</guid>
       <description>&lt;p&gt;既に日本語版の「チーズはどこに消えた？」を読んだことあるけど、英語学習のために、原書読んでみた。要するに、&lt;strong&gt;既得権益にこだわってあれこれ心配する前に、色々動いてみようよ&lt;/strong&gt;、というお話。&lt;/p&gt;
 &lt;p&gt;正直、田中(゜P゜)は変化に対して何の抵抗もない人なので、刺さるものはなかったのですが、人生守りに入って悶々としてる人にはオススメです。ササッと読める短さだし。&lt;/p&gt;
 &lt;p&gt;ここのところ読んでる本が英語で、啓蒙系なので、意識高いみたいで嫌だなぁ。&lt;/p&gt;
@@ -58,9 +58,9 @@
     
     <item>
       <title>読了： THE SHIFT 英語版</title>
-      <link>http://example.org/blog/post-319/</link>
+      <link>https://y2tanaka.github.io/git-pages/blog/post-319/</link>
       <pubDate>Wed, 09 Sep 2020 06:33:55 +0000</pubDate>
-      <guid>http://example.org/blog/post-319/</guid>
+      <guid>https://y2tanaka.github.io/git-pages/blog/post-319/</guid>
       <description>&lt;p&gt;本読みました。&lt;br&gt;
 日本語版もあったけど、あえて頑張って英語の原書で。&lt;/p&gt;
 &lt;p&gt;2010年位の本ですが、「人口の年齢構成」「発展途上国の台頭」「技術革新」「エネルギー枯渇」「家族構成の変化」の5つ？(あやふや)の変化を元に、2025年のヤバい未来と、明るい未来を予測し、仕事と人生をどう考えるか、という本です。&lt;/p&gt;
